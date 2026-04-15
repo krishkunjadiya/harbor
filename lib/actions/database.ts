@@ -201,60 +201,62 @@ export async function getRecruiterDashboard(userId: string): Promise<RecruiterDa
   // Use the job UUID (id column) to match job_applications.job_id
   const jobIds = jobs?.map(j => j.id) || []
   let recent_applications: any[] = []
-
-  if (jobIds.length > 0) {
-    const { data: apps, error: appError } = await supabase
-      .from('job_applications')
-      .select(`*`)
-      .in('job_id', jobIds)
-      .order('applied_at', { ascending: false })
-      .limit(10)
-
-    if (appError) {
-      console.error("Error fetching recent applications:", appError);
-    } else if (apps) {
-      const studentProfileIds = [...new Set(apps.map(app => app.student_id).filter(Boolean))];
-      let studentsMap = new Map();
-
-      if (studentProfileIds.length > 0) {
-        const { data: students, error: studentError } = await supabase
-          .from('students')
-          .select(`profile_id, major, program, profiles(full_name, email)`)
-          .in('profile_id', studentProfileIds);
-
-        if (students) {
-          for (const student of students) {
-            studentsMap.set(student.profile_id, student);
-          }
-        }
-      }
-
-      // Manually join and flatten data for the frontend
-      recent_applications = apps.map(app => {
-        const studentData = studentsMap.get(app.student_id);
-        return {
-          ...app,
-          student: {
-            ...studentData,
-            ...studentData?.profiles // Flatten profiles data
-          },
-          job: jobs?.find(j => j.id === app.job_id) || {}
-        }
-      });
-    }
-  }
-
-  // Batch 3: Count queries in parallel instead of sequentially
   let totalApplications = 0
   let shortlistedCount = 0
   let acceptedCount = 0
 
   if (jobIds.length > 0) {
-    const [totalRes, shortlistedRes, acceptedRes] = await Promise.all([
+    const fetchRecentApplications = async () => {
+      const { data: apps, error: appError } = await supabase
+        .from('job_applications')
+        .select('*')
+        .in('job_id', jobIds)
+        .order('applied_at', { ascending: false })
+        .limit(10)
+
+      if (appError) {
+        console.error("Error fetching recent applications:", appError)
+        return []
+      }
+      if (!apps || apps.length === 0) return []
+
+      const studentProfileIds = [...new Set(apps.map(app => app.student_id).filter(Boolean))]
+      let studentsMap = new Map()
+
+      if (studentProfileIds.length > 0) {
+        const { data: students } = await supabase
+          .from('students')
+          .select('profile_id, major, program, profiles(full_name, email)')
+          .in('profile_id', studentProfileIds)
+
+        if (students) {
+          for (const student of students) {
+            studentsMap.set(student.profile_id, student)
+          }
+        }
+      }
+
+      return apps.map(app => {
+        const studentData = studentsMap.get(app.student_id)
+        return {
+          ...app,
+          student: {
+            ...studentData,
+            ...studentData?.profiles
+          },
+          job: jobs?.find(j => j.id === app.job_id) || {}
+        }
+      })
+    }
+
+    const [recentAppsRaw, totalRes, shortlistedRes, acceptedRes] = await Promise.all([
+      fetchRecentApplications(),
       supabase.from('job_applications').select('*', { count: 'exact', head: true }).in('job_id', jobIds),
       supabase.from('job_applications').select('*', { count: 'exact', head: true }).in('job_id', jobIds).eq('status', 'shortlisted'),
       supabase.from('job_applications').select('*', { count: 'exact', head: true }).in('job_id', jobIds).eq('status', 'accepted'),
     ])
+
+    recent_applications = recentAppsRaw
     totalApplications = totalRes.count || 0
     shortlistedCount = shortlistedRes.count || 0
     acceptedCount = acceptedRes.count || 0
@@ -384,42 +386,89 @@ export async function getAllApplicationsForRecruiter(
   const page = Math.max(1, queryOptions.page || 1)
   const pageSize = Math.min(100, Math.max(1, queryOptions.pageSize || 20))
 
-  // Resolve recruiter context with flexible lookup (`profile_id` is canonical,
-  // `id` fallback supports legacy records).
-  const { data: recruiter } = await supabase
+  // Resolve recruiter context deterministically: canonical `profile_id` first,
+  // then legacy `id` fallback to avoid ambiguous OR matching.
+  let recruiter: any = null
+  const canonicalRecruiterRes = await supabase
     .from('recruiters')
     .select('id, profile_id, company_name, company')
-    .or(`profile_id.eq.${recruiterId},id.eq.${recruiterId}`)
+    .eq('profile_id', recruiterId)
     .maybeSingle()
+
+  if (canonicalRecruiterRes.error) {
+    console.error('Error resolving canonical recruiter context:', canonicalRecruiterRes.error)
+  } else {
+    recruiter = canonicalRecruiterRes.data || null
+  }
+
+  if (!recruiter) {
+    const legacyRecruiterRes = await supabase
+      .from('recruiters')
+      .select('id, profile_id, company_name, company')
+      .eq('id', recruiterId)
+      .maybeSingle()
+
+    if (legacyRecruiterRes.error) {
+      console.error('Error resolving legacy recruiter context:', legacyRecruiterRes.error)
+    } else {
+      recruiter = legacyRecruiterRes.data || null
+    }
+  }
 
   const recruiterProfileId = recruiter?.profile_id || recruiterId
   const companyName = recruiter?.company_name || recruiter?.company || null
 
-  const jobsQuery = companyName
-    ? supabase
+  let jobList: any[] = []
+  if (companyName) {
+    const [companyJobsRes, recruiterJobsRes] = await Promise.all([
+      supabase
         .from('jobs')
         .select('id, title, company, location, recruiter_id')
-        .or(`recruiter_id.eq.${recruiterProfileId},company.eq.${companyName}`)
-    : supabase
+        .eq('company', companyName),
+      supabase
         .from('jobs')
         .select('id, title, company, location, recruiter_id')
-        .eq('recruiter_id', recruiterProfileId)
+        .eq('recruiter_id', recruiterProfileId),
+    ])
 
-  const { data: jobs, error: jobsError } = await jobsQuery
-
-  if (jobsError) {
-    console.error('Error fetching recruiter jobs:', jobsError)
-    return {
-      applications: [],
-      totalCount: 0,
-      page,
-      pageSize,
-      totalPages: 1,
-      jobs: [],
+    if (companyJobsRes.error || recruiterJobsRes.error) {
+      console.error('Error fetching recruiter jobs:', companyJobsRes.error || recruiterJobsRes.error)
+      return {
+        applications: [],
+        totalCount: 0,
+        page,
+        pageSize,
+        totalPages: 1,
+        jobs: [],
+      }
     }
-  }
 
-  const jobList = jobs || []
+    const mergedJobs = [...(companyJobsRes.data || []), ...(recruiterJobsRes.data || [])]
+    const dedupedJobs = new Map<string, any>()
+    for (const job of mergedJobs) {
+      dedupedJobs.set(job.id, job)
+    }
+    jobList = Array.from(dedupedJobs.values())
+  } else {
+    const { data: recruiterJobs, error: recruiterJobsError } = await supabase
+      .from('jobs')
+      .select('id, title, company, location, recruiter_id')
+      .eq('recruiter_id', recruiterProfileId)
+
+    if (recruiterJobsError) {
+      console.error('Error fetching recruiter jobs:', recruiterJobsError)
+      return {
+        applications: [],
+        totalCount: 0,
+        page,
+        pageSize,
+        totalPages: 1,
+        jobs: [],
+      }
+    }
+
+    jobList = recruiterJobs || []
+  }
   const jobIds = jobList.map((job: any) => job.id)
   if (jobIds.length === 0) {
     return {
@@ -1537,16 +1586,20 @@ export async function getRecruiterTeamRecentActivity(userId: string, limit = 10)
 
   const { data: currentRecruiter } = await supabase
     .from('recruiters')
-    .select('company_name')
+    .select('company_name, company')
     .eq('profile_id', userId)
     .single()
 
-  if (!currentRecruiter?.company_name) return []
+  const companyName = currentRecruiter?.company_name?.trim() || currentRecruiter?.company?.trim() || null
+  if (!companyName) return []
 
-  const { data: companyRecruiters } = await supabase
+  const recruiterQuery = supabase
     .from('recruiters')
     .select('profile_id, profile:profiles!inner(full_name)')
-    .eq('company_name', currentRecruiter.company_name)
+
+  const { data: companyRecruiters } = currentRecruiter?.company_name?.trim()
+    ? await recruiterQuery.eq('company_name', companyName)
+    : await recruiterQuery.eq('company', companyName)
 
   const recruiterProfileIds = (companyRecruiters || [])
     .map((r: any) => r.profile_id)
@@ -1580,16 +1633,20 @@ export async function getTeamMembers(userId: string) {
 
   const { data: currentRecruiter } = await supabase
     .from('recruiters')
-    .select('company_name')
+    .select('company_name, company')
     .eq('profile_id', userId)
     .single()
 
-  if (!currentRecruiter?.company_name) return []
+  const companyName = currentRecruiter?.company_name?.trim() || currentRecruiter?.company?.trim() || null
+  if (!companyName) return []
 
-  const { data: companyRecruiters } = await supabase
+  const recruiterQuery = supabase
     .from('recruiters')
     .select('profile_id, job_title, company, profile:profiles!inner(full_name, avatar_url)')
-    .eq('company_name', currentRecruiter.company_name)
+
+  const { data: companyRecruiters } = currentRecruiter?.company_name?.trim()
+    ? await recruiterQuery.eq('company_name', companyName)
+    : await recruiterQuery.eq('company', companyName)
 
   return (companyRecruiters || []).map((member: any) => {
     const profile = Array.isArray(member.profile) ? member.profile[0] : member.profile
@@ -1619,17 +1676,9 @@ export async function getTeamMembers(userId: string) {
 export async function getSavedCandidates(recruiterId: string) {
   noStore()
   const supabase = await createClient()
-  const { data, error } = await supabase
+  const { data: savedRows, error } = await supabase
     .from('saved_candidates')
-    .select(`
-      *,
-      student:profiles!saved_candidates_student_id_fkey(
-        *,
-        students(*),
-        credentials(*),
-        student_projects(*)
-      )
-    `)
+    .select('*')
     .eq('recruiter_id', recruiterId)
     .order('created_at', { ascending: false })
 
@@ -1638,10 +1687,36 @@ export async function getSavedCandidates(recruiterId: string) {
     return []
   }
 
-  // Transform to match expected structure if needed, or return raw with join
-  // We need student details from 'students' table too? 
-  // Let's stick to profile for now, or do a deeper fetch if needed.
-  return data || []
+  const rows = savedRows || []
+  const studentIds = rows
+    .map((row: any) => row.student_id)
+    .filter((id: unknown): id is string => typeof id === 'string' && id.length > 0)
+
+  if (studentIds.length === 0) {
+    return rows
+  }
+
+  const { data: profiles, error: profilesError } = await supabase
+    .from('profiles')
+    .select(`
+      *,
+      students(*),
+      credentials(*),
+      student_projects(*)
+    `)
+    .in('id', studentIds)
+
+  if (profilesError) {
+    console.error('Error fetching saved candidate profiles:', profilesError)
+    return rows
+  }
+
+  const profileById = new Map((profiles || []).map((profile: any) => [profile.id, profile]))
+
+  return rows.map((row: any) => ({
+    ...row,
+    student: profileById.get(row.student_id) || null,
+  }))
 }
 
 export async function getSavedCandidateStudentIds(recruiterId: string, studentIds?: string[]) {
@@ -1680,6 +1755,35 @@ function revalidateRecruiterCandidatePaths(org?: string, studentId?: string) {
   }
 }
 
+async function resolveRecruiterOrgSlug(supabase: any, recruiterId: string, org?: string) {
+  if (org && org.trim()) {
+    return org.trim()
+  }
+
+  const canonicalRecruiterRes = await supabase
+    .from('recruiters')
+    .select('company_name, company')
+    .eq('profile_id', recruiterId)
+    .maybeSingle()
+
+  let recruiter = canonicalRecruiterRes.data || null
+
+  if (!recruiter) {
+    const legacyRecruiterRes = await supabase
+      .from('recruiters')
+      .select('company_name, company')
+      .eq('id', recruiterId)
+      .maybeSingle()
+    recruiter = legacyRecruiterRes.data || null
+  }
+
+  const rawOrg = recruiter?.company_name || recruiter?.company || ''
+  return String(rawOrg)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '')
+    .trim()
+}
+
 export async function saveCandidateForRecruiter(studentId: string, org?: string) {
   const profile = await getCurrentProfile()
   if (!profile || profile.user_type !== 'recruiter') {
@@ -1691,6 +1795,7 @@ export async function saveCandidateForRecruiter(studentId: string, org?: string)
   }
 
   const supabase = await createClient()
+  const resolvedOrg = await resolveRecruiterOrgSlug(supabase, profile.id, org)
 
   const { data: existing, error: existingError } = await supabase
     .from('saved_candidates')
@@ -1705,7 +1810,7 @@ export async function saveCandidateForRecruiter(studentId: string, org?: string)
   }
 
   if (existing) {
-    revalidateRecruiterCandidatePaths(org, studentId)
+    revalidateRecruiterCandidatePaths(resolvedOrg, studentId)
     return { success: true, message: 'Candidate already saved' }
   }
 
@@ -1718,14 +1823,14 @@ export async function saveCandidateForRecruiter(studentId: string, org?: string)
 
   if (error) {
     if (error.code === '23505') {
-      revalidateRecruiterCandidatePaths(org, studentId)
+      revalidateRecruiterCandidatePaths(resolvedOrg, studentId)
       return { success: true, message: 'Candidate already saved' }
     }
     console.error('Error saving candidate:', error)
     return { success: false, message: 'Failed to save candidate' }
   }
 
-  revalidateRecruiterCandidatePaths(org, studentId)
+  revalidateRecruiterCandidatePaths(resolvedOrg, studentId)
 
   return { success: true, message: 'Candidate saved successfully' }
 }
@@ -1741,6 +1846,7 @@ export async function unsaveCandidateForRecruiter(studentId: string, org?: strin
   }
 
   const supabase = await createClient()
+  const resolvedOrg = await resolveRecruiterOrgSlug(supabase, profile.id, org)
   const { error } = await supabase
     .from('saved_candidates')
     .delete()
@@ -1752,7 +1858,7 @@ export async function unsaveCandidateForRecruiter(studentId: string, org?: strin
     return { success: false, message: 'Failed to remove saved candidate' }
   }
 
-  revalidateRecruiterCandidatePaths(org, studentId)
+  revalidateRecruiterCandidatePaths(resolvedOrg, studentId)
 
   return { success: true, message: 'Candidate removed from saved list' }
 }
@@ -2015,15 +2121,42 @@ export async function getAnalyticsData(recruiterId: string) {
 
     const companyName = recruiter?.company_name || recruiter?.company
 
-    const jobsQuery = companyName
-      ? supabase.from('jobs').select('id, title, views_count, status').or(`recruiter_id.eq.${recruiterId},company.eq.${companyName}`)
-      : supabase.from('jobs').select('id, title, views_count, status').eq('recruiter_id', recruiterId)
+    let jobs: any[] = []
+    if (companyName) {
+      const [companyJobsRes, recruiterJobsRes] = await Promise.all([
+        supabase
+          .from('jobs')
+          .select('id, title, views_count, status')
+          .eq('company', companyName),
+        supabase
+          .from('jobs')
+          .select('id, title, views_count, status')
+          .eq('recruiter_id', recruiterId),
+      ])
 
-    const { data: jobs, error: jobsError } = await jobsQuery
+      if (companyJobsRes.error || recruiterJobsRes.error) {
+        console.error('Error fetching jobs for analytics:', companyJobsRes.error || recruiterJobsRes.error)
+        return null
+      }
 
-    if (jobsError) {
-      console.error('Error fetching jobs for analytics:', jobsError)
-      return null
+      const mergedJobs = [...(companyJobsRes.data || []), ...(recruiterJobsRes.data || [])]
+      const dedupedJobs = new Map<string, any>()
+      for (const job of mergedJobs) {
+        dedupedJobs.set(job.id, job)
+      }
+      jobs = Array.from(dedupedJobs.values())
+    } else {
+      const { data: recruiterJobs, error: recruiterJobsError } = await supabase
+        .from('jobs')
+        .select('id, title, views_count, status')
+        .eq('recruiter_id', recruiterId)
+
+      if (recruiterJobsError) {
+        console.error('Error fetching jobs for analytics:', recruiterJobsError)
+        return null
+      }
+
+      jobs = recruiterJobs || []
     }
 
     const jobIds = jobs?.map(j => j.id) || []

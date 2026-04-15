@@ -11,7 +11,12 @@ export function createClient() {
     )
   }
 
-  console.log('[Supabase] Initializing client with URL:', supabaseUrl)
+  const shouldDebug =
+    process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_SUPABASE_DEBUG === 'true'
+
+  if (shouldDebug) {
+    console.log('[Supabase] Initializing client with URL:', supabaseUrl)
+  }
 
   return createBrowserClient(supabaseUrl, supabaseAnonKey, {
     auth: {
@@ -26,17 +31,21 @@ export function createClient() {
       },
       // Add timeout to prevent hanging requests (30s for paused instances to wake)
       fetch: (url, options = {}) => {
-        console.log('[Supabase] Fetching:', url)
+        if (shouldDebug) {
+          console.log('[Supabase] Fetching:', url)
+        }
         return fetch(url, {
           ...options,
           signal: AbortSignal.timeout(30000), // 30 second timeout for paused instances
         }).catch((error) => {
-          console.error('[Supabase] Fetch failed:', {
-            url,
-            error: error.message,
-            name: error.name,
-            cause: error.cause
-          })
+          if (shouldDebug) {
+            console.error('[Supabase] Fetch failed:', {
+              url,
+              error: error.message,
+              name: error.name,
+              cause: error.cause,
+            })
+          }
           
           if (error.name === 'TimeoutError' || error.name === 'AbortError') {
             throw new Error('Connection timeout')

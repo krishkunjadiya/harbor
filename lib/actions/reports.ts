@@ -76,17 +76,33 @@ async function getRecruiterScopedJobIds(recruiterId: string) {
   noStore()
   const supabase = await createClient()
 
-  const recruiterLookup = await supabase
+  let recruiterRecord: any = null
+
+  const canonicalRecruiterRes = await supabase
     .from('recruiters')
     .select('id, profile_id, company, company_name')
-    .or(`profile_id.eq.${recruiterId},id.eq.${recruiterId}`)
+    .eq('profile_id', recruiterId)
     .maybeSingle()
 
-  if (recruiterLookup.error) {
-    console.error('Error resolving recruiter scope for reports:', recruiterLookup.error)
+  if (canonicalRecruiterRes.error) {
+    console.error('Error resolving canonical recruiter scope for reports:', canonicalRecruiterRes.error)
+  } else {
+    recruiterRecord = canonicalRecruiterRes.data || null
   }
 
-  const recruiterRecord = recruiterLookup.data || null
+  if (!recruiterRecord) {
+    const legacyRecruiterRes = await supabase
+      .from('recruiters')
+      .select('id, profile_id, company, company_name')
+      .eq('id', recruiterId)
+      .maybeSingle()
+
+    if (legacyRecruiterRes.error) {
+      console.error('Error resolving legacy recruiter scope for reports:', legacyRecruiterRes.error)
+    } else {
+      recruiterRecord = legacyRecruiterRes.data || null
+    }
+  }
   const recruiterIds = Array.from(
     new Set([
       recruiterId,

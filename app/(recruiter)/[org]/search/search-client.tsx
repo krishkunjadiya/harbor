@@ -110,7 +110,11 @@ export default function SearchClient({ initialStudents, org, initialSearchTerm }
           <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
             {filteredStudents.map((student: any) => {
               const profile = student.profiles || {}
-              const candidateId = student.profile_id || student.id
+              const candidateId = student.profile_id || profile.id
+
+              if (!candidateId) {
+                return null
+              }
               
               return (
                 <Link key={candidateId} href={`/${org}/candidates/${candidateId}`}>

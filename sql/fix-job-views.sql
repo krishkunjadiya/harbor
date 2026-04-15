@@ -12,7 +12,7 @@ AS $$
 BEGIN
   UPDATE public.jobs
   SET views_count = COALESCE(views_count, 0) + 1
-  WHERE id = job_id;
+  WHERE id = increment_job_views.job_id;
 END;
 $$;
 

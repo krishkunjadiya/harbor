@@ -18,14 +18,18 @@ export default async function RecruiterApplicationsPage({
   searchParams,
 }: {
   params: Promise<{ org: string }>
-  searchParams: Promise<{ filter?: string }>
+  searchParams: Promise<{ filter?: string; jobId?: string; fromDate?: string; toDate?: string }>
 }) {
   const profile = await requireRouteUserType(['recruiter'])
 
   const { org } = await params
-  const { filter } = await searchParams
+  const { filter, jobId, fromDate, toDate } = await searchParams
   const initialFilter = normalizeFilter(filter)
   const applicationsData = await getAllApplicationsForRecruiter(profile.id, {
+    status: initialFilter === 'all' ? undefined : initialFilter,
+    jobId: jobId?.trim() || undefined,
+    fromDate: fromDate?.trim() || undefined,
+    toDate: toDate?.trim() || undefined,
     page: 1,
     pageSize: 100,
   })

@@ -183,11 +183,8 @@ export function LoginForm() {
                 )}
               </Button>
             </form>
-            <div className="mt-4 text-center text-sm">
-              Don't have an account?{" "}
-              <Link href="/register?type=student" className="text-primary hover:underline font-medium">
-                Sign up as a student
-              </Link>
+            <div className="mt-4 text-center text-sm text-muted-foreground">
+              Need a student account? Please contact your university administrator.
             </div>
           </CardContent>
         </Card>

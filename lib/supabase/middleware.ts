@@ -98,31 +98,37 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  // PERFORMANCE: Use getSession() which reads from the JWT cookie locally
-  // instead of getUser() which makes a network request to Supabase servers.
-  // The JWT is cryptographically signed so it can't be tampered with.
-  // This eliminates ~100-500ms of latency on every protected-route navigation.
-  //
-  // Server-verified auth (getUser) is still enforced in server actions and
-  // data-fetching functions via lib/auth/cached.ts for actual data access.
-
-  let user = null
+  // Middleware uses local session presence for low-latency route gating.
+  // We avoid session.user directly to prevent unverified-user warnings.
+  let isAuthenticated = false
+  let userMetadata: Record<string, any> | null = null
   try {
     const { data: { session } } = await supabase.auth.getSession()
-    user = session?.user ?? null
+    isAuthenticated = Boolean(session)
+
+    // Only verify user details when we need role-based auth-page redirects.
+    if (isAuthenticated && authPages.includes(pathname)) {
+      const { data: { user } } = await supabase.auth.getUser()
+      userMetadata = (user?.user_metadata as Record<string, any> | undefined) ?? null
+    }
   } catch (error) {
     console.error('[Middleware] Failed to get session:', error instanceof Error ? error.message : 'Unknown error')
-    // Continue without user on failure
+    // Continue unauthenticated on failure.
   }
 
   // Handle protected routes
-  const protectedRouteResponse = handleProtectedRoutes(request, user)
+  const protectedRouteResponse = handleProtectedRoutes(request, isAuthenticated)
   if (protectedRouteResponse) {
     return protectedRouteResponse
   }
 
   // Handle authentication page redirects
-  const authPageRedirectResponse = handleAuthPageRedirects(request, user, supabaseResponse)
+  const authPageRedirectResponse = handleAuthPageRedirects(
+    request,
+    isAuthenticated,
+    userMetadata,
+    supabaseResponse
+  )
   if (authPageRedirectResponse) {
     return authPageRedirectResponse
   }
@@ -130,13 +136,13 @@ export async function updateSession(request: NextRequest) {
   return supabaseResponse
 }
 
-function handleProtectedRoutes(request: NextRequest, user: any) {
+function handleProtectedRoutes(request: NextRequest, isAuthenticated: boolean) {
   const pathname = request.nextUrl.pathname
 
   const isProtectedRoute = protectedRoutes.some((route) => pathname.startsWith(route))
   const isProtectedDynamicOrgRoute = isDynamicOrgRoute(pathname)
 
-  if ((isProtectedRoute || isProtectedDynamicOrgRoute) && !user) {
+  if ((isProtectedRoute || isProtectedDynamicOrgRoute) && !isAuthenticated) {
     // Redirect to login if trying to access protected route without auth
     const url = request.nextUrl.clone()
     url.pathname = '/login'
@@ -146,13 +152,18 @@ function handleProtectedRoutes(request: NextRequest, user: any) {
   return null
 }
 
-function handleAuthPageRedirects(request: NextRequest, user: any, supabaseResponse: NextResponse) {
+function handleAuthPageRedirects(
+  request: NextRequest,
+  isAuthenticated: boolean,
+  userMetadata: Record<string, any> | null,
+  supabaseResponse: NextResponse
+) {
   const pathname = request.nextUrl.pathname
 
-  if (authPages.includes(pathname) && user) {
+  if (authPages.includes(pathname) && isAuthenticated) {
     const url = request.nextUrl.clone()
 
-    const userType = user.user_metadata?.user_type
+    const userType = typeof userMetadata?.user_type === 'string' ? userMetadata.user_type : undefined
 
     if (!userType) {
       console.warn('User logged in but no user_type in metadata, allowing access to auth page')
@@ -160,13 +171,13 @@ function handleAuthPageRedirects(request: NextRequest, user: any, supabaseRespon
     }
 
     if (userType === 'university') {
-      const universitySlug = user.user_metadata?.university_name
+      const universitySlug = String(userMetadata?.university_name ?? '')
         ?.toLowerCase()
         .replace(/\s+/g, '-')
         .replace(/[^a-z0-9-]/g, '') || 'university'
       url.pathname = `/${universitySlug}/admin/dashboard`
     } else if (userType === 'recruiter') {
-      const companySlug = user.user_metadata?.company
+      const companySlug = String(userMetadata?.company ?? '')
         ?.toLowerCase()
         .replace(/\s+/g, '-')
         .replace(/[^a-z0-9-]/g, '') || 'company'

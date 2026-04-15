@@ -96,13 +96,16 @@ export async function GET(request: NextRequest) {
     } = await supabase.auth.getSession()
 
     logLaunch('session_checked', {
-      hasSession: Boolean(session?.user),
+      hasSession: Boolean(session),
       hasAuthError: Boolean(authError),
     })
 
-    const user = session?.user ?? null
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser()
 
-    if (authError || !user) {
+    if (authError || userError || !user) {
       logLaunch('redirect_login')
 
       await writeAuditEvent({

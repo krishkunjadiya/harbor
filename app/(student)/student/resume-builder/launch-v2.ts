@@ -8,9 +8,9 @@ export async function GET(request: Request) {
   // Deterministic, one-time launch assertion for Resume Builder v2
   const supabase = await createClient()
   const { data: { session }, error: authError } = await supabase.auth.getSession()
-  const user = session?.user ?? null
+  const { data: { user }, error: userError } = await supabase.auth.getUser()
 
-  if (authError || !user) {
+  if (authError || !session || userError || !user) {
     return NextResponse.redirect('/login')
   }
 

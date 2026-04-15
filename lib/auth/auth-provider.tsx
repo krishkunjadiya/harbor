@@ -38,6 +38,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return
     }
 
+    const syncVerifiedUser = async () => {
+      const { data: { user }, error } = await supabase.auth.getUser()
+      if (error) {
+        setUser(null)
+        return
+      }
+      setUser(user ?? null)
+    }
+
     // Get initial session with error handling
     const getInitialSession = async () => {
       try {
@@ -46,7 +55,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           console.error('Failed to get session:', error.message)
         }
         setSession(session)
-        setUser(session?.user ?? null)
+        await syncVerifiedUser()
       } catch (error) {
         console.error('Network error getting session:', error instanceof Error ? error.message : 'Unknown error')
       } finally {
@@ -59,9 +68,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session)
-      setUser(session?.user ?? null)
+      await syncVerifiedUser()
     })
 
     return () => subscription.unsubscribe()
@@ -70,6 +79,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signUp = async (email: string, password: string, metadata?: any) => {
     if (!supabase) {
       return { error: { message: 'Authentication not configured. Please set up Supabase credentials.' } as AuthError }
+    }
+
+    if (metadata?.user_type === 'student') {
+      return {
+        error: {
+          message: 'Student self-registration is disabled. Student accounts must be created by a university administrator.',
+          name: 'Forbidden',
+          status: 403,
+        } as AuthError,
+      }
     }
     
     try {

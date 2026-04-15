@@ -149,7 +149,7 @@ const getRecruiterNav = (org: string) => [
   { name: "Job Postings", href: `/${org}/jobs`, icon: Briefcase },
   { name: "Search Candidates", href: `/${org}/search`, icon: MagnifyingGlass },
   { name: "Candidate Pipeline", href: `/${org}/applications`, icon: ClipboardText },
-  { name: "Shortlisted", href: `/${org}/applications?filter=shortlisted`, icon: BookmarkSimple },
+  { name: "Shortlisted", href: `/${org}/saved-candidates`, icon: BookmarkSimple },
   { name: "Interviews", href: `/${org}/interviews`, icon: Calendar },
   { name: "Analytics", href: `/${org}/analytics`, icon: ChartBar },
   { name: "Team", href: `/${org}/team`, icon: ChatCircle },
@@ -198,13 +198,18 @@ function SidebarNavItemList({ items }: { items: NavItem[] }) {
   const pathname = usePathname()
   const currentPath = pathname ?? ""
 
+  const isActiveNavItem = (href: string) => {
+    const hrefPath = href.split("?")[0]
+    return currentPath === hrefPath || currentPath.startsWith(hrefPath + "/")
+  }
+
   return (
     <SidebarMenu>
       {items.map((item) => (
         <SidebarMenuItem key={item.href}>
           <SidebarMenuButton
             asChild
-            isActive={currentPath === item.href}
+            isActive={isActiveNavItem(item.href)}
             tooltip={item.name}
           >
             <Link

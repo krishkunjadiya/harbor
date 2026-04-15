@@ -355,6 +355,10 @@ BEGIN
   
   -- Insert into specific table based on user type
   IF NEW.raw_user_meta_data->>'user_type' = 'student' THEN
+    IF COALESCE((NEW.raw_user_meta_data->>'created_by_university')::boolean, false) IS NOT TRUE THEN
+      RAISE EXCEPTION 'Student self-registration is disabled. Student accounts must be created by a university administrator.';
+    END IF;
+
     INSERT INTO public.students (id, university, major, graduation_year)
     VALUES (
       NEW.id,

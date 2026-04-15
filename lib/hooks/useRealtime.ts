@@ -5,6 +5,34 @@ import { useEffect, useState } from 'react'
 import { useMemo } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 
+async function resolveRecruiterContext(supabase: any, recruiterId: string) {
+  const canonicalRes = await supabase
+    .from('recruiters')
+    .select('company_name, company')
+    .eq('profile_id', recruiterId)
+    .maybeSingle()
+
+  if (canonicalRes.error) {
+    console.error('Failed to resolve canonical recruiter context:', canonicalRes.error.message)
+  }
+
+  if (canonicalRes.data) {
+    return canonicalRes.data
+  }
+
+  const legacyRes = await supabase
+    .from('recruiters')
+    .select('company_name, company')
+    .eq('id', recruiterId)
+    .maybeSingle()
+
+  if (legacyRes.error) {
+    console.error('Failed to resolve legacy recruiter context:', legacyRes.error.message)
+  }
+
+  return legacyRes.data || null
+}
+
 /**
  * Hook to subscribe to real-time table changes
  */
@@ -179,19 +207,32 @@ export function useRealtimeJobApplications(recruiterId: string | undefined, init
       const supabase = createClient()
 
       // Resolve recruiter/company scope to include all company postings.
-      const { data: recruiterData } = await supabase
-        .from('recruiters')
-        .select('company_name, company')
-        .or(`profile_id.eq.${recruiterId},id.eq.${recruiterId}`)
-        .maybeSingle()
+      const recruiterData = await resolveRecruiterContext(supabase, recruiterId)
 
       const companyName = recruiterData?.company_name?.trim() || recruiterData?.company?.trim()
+      let jobs: Array<{ id: string }> = []
+      let jobsError: Error | null = null
 
-      const jobsQuery = companyName
-        ? supabase.from('jobs').select('id').or(`recruiter_id.eq.${recruiterId},company.eq.${companyName}`)
-        : supabase.from('jobs').select('id').eq('recruiter_id', recruiterId)
+      if (companyName) {
+        const [byRecruiterRes, byCompanyRes] = await Promise.all([
+          supabase.from('jobs').select('id').eq('recruiter_id', recruiterId),
+          supabase.from('jobs').select('id').eq('company', companyName),
+        ])
 
-      const { data: jobs, error: jobsError } = await jobsQuery
+        jobsError = (byRecruiterRes.error || byCompanyRes.error) as Error | null
+
+        const merged = [...(byRecruiterRes.data || []), ...(byCompanyRes.data || [])]
+        const seen = new Set<string>()
+        jobs = merged.filter((job: any) => {
+          if (!job?.id || seen.has(job.id)) return false
+          seen.add(job.id)
+          return true
+        })
+      } else {
+        const byRecruiterRes = await supabase.from('jobs').select('id').eq('recruiter_id', recruiterId)
+        jobsError = byRecruiterRes.error as Error | null
+        jobs = byRecruiterRes.data || []
+      }
 
       if (jobsError || !jobs || jobs.length === 0) {
         if (jobsError) {
@@ -371,23 +412,39 @@ export function useRealtimeAnalytics(recruiterId: string, initialData: any) {
 
     const buildAnalytics = async () => {
       // Resolve recruiter company to include both company and direct recruiter jobs.
-      const { data: recruiterData, error: recruiterError } = await supabase
-        .from('recruiters')
-        .select('company_name, company')
-        .or(`profile_id.eq.${recruiterId},id.eq.${recruiterId}`)
-        .maybeSingle()
-
-      if (recruiterError) {
-        throw recruiterError
-      }
+      const recruiterData = await resolveRecruiterContext(supabase, recruiterId)
 
       const companyName = recruiterData?.company_name?.trim() || recruiterData?.company?.trim()
       relevantCompanyName = companyName || ''
-      const jobsQuery = companyName
-        ? supabase.from('jobs').select('id, title, views_count, status').or(`recruiter_id.eq.${recruiterId},company.eq.${companyName}`)
-        : supabase.from('jobs').select('id, title, views_count, status').eq('recruiter_id', recruiterId)
+      let jobs: Array<{ id: string; title: string; views_count: number | null; status: string | null }> = []
+      let jobsError: Error | null = null
 
-      const { data: jobs, error: jobsError } = await jobsQuery
+      if (companyName) {
+        const [byRecruiterRes, byCompanyRes] = await Promise.all([
+          supabase.from('jobs').select('id, title, views_count, status').eq('recruiter_id', recruiterId),
+          supabase.from('jobs').select('id, title, views_count, status').eq('company', companyName),
+        ])
+
+        jobsError = (byRecruiterRes.error || byCompanyRes.error) as Error | null
+
+        const merged = [...(byRecruiterRes.data || []), ...(byCompanyRes.data || [])]
+        const byId = new Map<string, any>()
+        for (const job of merged) {
+          if (job?.id) {
+            byId.set(job.id, job)
+          }
+        }
+        jobs = Array.from(byId.values())
+      } else {
+        const byRecruiterRes = await supabase
+          .from('jobs')
+          .select('id, title, views_count, status')
+          .eq('recruiter_id', recruiterId)
+
+        jobsError = byRecruiterRes.error as Error | null
+        jobs = byRecruiterRes.data || []
+      }
+
       if (jobsError) {
         throw jobsError
       }
@@ -534,8 +591,10 @@ export function useRealtimeAnalytics(recruiterId: string, initialData: any) {
       }
     }
 
-    // Prime data on first mount.
-    refreshData()
+    // We ALREADY HAVE initialData from the server, so DO NOT fetch on mount.
+    // It doubles the workload and causes the 5-8 second freeze.
+    // Instead, rely on the server data until a websocket event actually fires.
+    setIsLoading(false);
 
     // Subscribe to applications, jobs, and interviews changes
     const channel = supabase.channel(`analytics-changes-${recruiterId}`)

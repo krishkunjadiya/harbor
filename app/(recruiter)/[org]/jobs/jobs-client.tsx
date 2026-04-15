@@ -17,13 +17,23 @@ import {
   Eye } from "@phosphor-icons/react/dist/ssr"
 import Link from "next/link"
 import { formatDateUTC } from '@/lib/utils/date-format'
+import { getRecruiterJobs } from '@/lib/actions/database'
+import { useQuery } from '@tanstack/react-query'
 
 interface JobsPageClientProps {
-  jobs: any[]
+  initialData: any[]
   orgId: string
+  recruiterId: string
 }
 
-export default function JobsPageClient({ jobs, orgId }: JobsPageClientProps) {
+export default function JobsPageClient({ initialData, orgId, recruiterId }: JobsPageClientProps) {
+  const { data: jobs = [] } = useQuery({
+    queryKey: ['recruiter', 'jobs', recruiterId],
+    queryFn: () => getRecruiterJobs(recruiterId),
+    initialData,
+    staleTime: 60 * 1000,
+  })
+
   const activeJobs = jobs.filter(j => j.status === 'active')
   const draftJobs = jobs.filter(j => j.status === 'draft')
   const closedJobs = jobs.filter(j => j.status === 'closed')

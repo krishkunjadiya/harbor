@@ -89,11 +89,22 @@ export async function updateJob(
     return { success: false, error: 'Job title and description are required.' }
   }
 
+  const { data: recruiterContext, error: recruiterContextError } = await supabase
+    .from('recruiters')
+    .select('company_name, company')
+    .or(`profile_id.eq.${recruiterId},id.eq.${recruiterId}`)
+    .maybeSingle()
+
+  if (recruiterContextError) {
+    return { success: false, error: recruiterContextError.message }
+  }
+
+  const recruiterCompany = recruiterContext?.company_name?.trim() || recruiterContext?.company?.trim() || null
+
   const { data: existingJob, error: existingJobError } = await supabase
     .from('jobs')
-    .select('id')
+    .select('id, recruiter_id, company')
     .eq('id', jobId)
-    .eq('recruiter_id', recruiterId)
     .maybeSingle()
 
   if (existingJobError) {
@@ -101,7 +112,18 @@ export async function updateJob(
   }
 
   if (!existingJob) {
-    return { success: false, error: 'Job not found for this recruiter.' }
+    return { success: false, error: 'Job not found.' }
+  }
+
+  const isOwnedJob = existingJob.recruiter_id === recruiterId
+  const isSameCompany = Boolean(
+    recruiterCompany &&
+    existingJob.company &&
+    String(existingJob.company).trim() === recruiterCompany
+  )
+
+  if (!isOwnedJob && !isSameCompany) {
+    return { success: false, error: 'Job not found for this recruiter scope.' }
   }
 
   const { data, error } = await supabase
@@ -111,7 +133,6 @@ export async function updateJob(
       description,
     })
     .eq('id', jobId)
-    .eq('recruiter_id', recruiterId)
     .select()
     .single()
 
@@ -129,6 +150,48 @@ export async function updateJobStatus(
   const supabase = await createClient()
 
   try {
+    const currentProfile = await getCurrentProfile()
+    if (!currentProfile || currentProfile.user_type !== 'recruiter') {
+      return { success: false, error: 'Unauthorized recruiter context.' }
+    }
+
+    const { data: recruiterContext, error: recruiterContextError } = await supabase
+      .from('recruiters')
+      .select('company_name, company')
+      .or(`profile_id.eq.${currentProfile.id},id.eq.${currentProfile.id}`)
+      .maybeSingle()
+
+    if (recruiterContextError) {
+      return { success: false, error: recruiterContextError.message }
+    }
+
+    const recruiterCompany = recruiterContext?.company_name?.trim() || recruiterContext?.company?.trim() || null
+
+    const { data: existingJob, error: existingJobError } = await supabase
+      .from('jobs')
+      .select('id, recruiter_id, company')
+      .eq('id', jobId)
+      .maybeSingle()
+
+    if (existingJobError) {
+      return { success: false, error: existingJobError.message }
+    }
+
+    if (!existingJob) {
+      return { success: false, error: 'Job not found.' }
+    }
+
+    const isOwnedJob = existingJob.recruiter_id === currentProfile.id
+    const isSameCompany = Boolean(
+      recruiterCompany &&
+      existingJob.company &&
+      String(existingJob.company).trim() === recruiterCompany
+    )
+
+    if (!isOwnedJob && !isSameCompany) {
+      return { success: false, error: 'Job not found for this recruiter scope.' }
+    }
+
     const { error } = await supabase
       .from('jobs')
       .update({ status })
@@ -148,6 +211,7 @@ export async function incrementJobViews(
   jobId: string
 ): Promise<{ success: boolean; error?: string }> {
   const supabase = await createClient()
+  const shouldLogRpcFailure = process.env.NODE_ENV === 'development'
 
   try {
     const { error } = await supabase.rpc('increment_job_views', {
@@ -157,7 +221,9 @@ export async function incrementJobViews(
     if (error) {
       // If the RPC fails (e.g. not created yet), fallback to the direct update
       // though this will likely fail due to RLS, it provides a graceful path
-      console.warn('RPC increment_job_views failed, falling back to direct update:', error.message)
+      if (shouldLogRpcFailure) {
+        console.warn('RPC increment_job_views failed, falling back to direct update:', error.message)
+      }
 
       const { data: job } = await supabase
         .from('jobs')
@@ -234,11 +300,23 @@ export async function applyToJob(
       .single()
 
     if (job) {
+      const { data: recruiterOrgData } = await supabase
+        .from('recruiters')
+        .select('company_name, company')
+        .or(`profile_id.eq.${job.recruiter_id},id.eq.${job.recruiter_id}`)
+        .maybeSingle()
+
+      const rawOrg = recruiterOrgData?.company_name || recruiterOrgData?.company || 'recruiter'
+      const recruiterOrg = String(rawOrg)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '')
+        .trim() || 'recruiter'
+
       await createNotification(
         job.recruiter_id,
         'application',
         `New application received for ${job.title}`,
-        `/recruiter/applications`
+        `/${recruiterOrg}/applications`
       )
     }
 
@@ -255,11 +333,48 @@ export async function updateApplicationStatus(
   const supabase = await createClient()
 
   try {
+    const currentProfile = await getCurrentProfile()
+    if (!currentProfile || currentProfile.user_type !== 'recruiter') {
+      return { success: false, error: 'Unauthorized recruiter context.' }
+    }
+
+    const { data: recruiterContext, error: recruiterContextError } = await supabase
+      .from('recruiters')
+      .select('company_name, company')
+      .or(`profile_id.eq.${currentProfile.id},id.eq.${currentProfile.id}`)
+      .maybeSingle()
+
+    if (recruiterContextError) {
+      return { success: false, error: recruiterContextError.message }
+    }
+
+    const recruiterCompany = recruiterContext?.company_name?.trim() || recruiterContext?.company?.trim() || null
+
     const { data: application, error: fetchError } = await supabase
       .from('job_applications')
-      .select('student_id, job:jobs(title)')
+      .select('student_id, job_id, job:jobs(title, recruiter_id, company)')
       .eq('id', applicationId)
-      .single()
+      .maybeSingle()
+
+    if (fetchError) {
+      return { success: false, error: fetchError.message }
+    }
+
+    if (!application) {
+      return { success: false, error: 'Application not found.' }
+    }
+
+    const job = application.job as any
+    const isOwnedJob = job?.recruiter_id === currentProfile.id
+    const isSameCompany = Boolean(
+      recruiterCompany &&
+      job?.company &&
+      String(job.company).trim() === recruiterCompany
+    )
+
+    if (!isOwnedJob && !isSameCompany) {
+      return { success: false, error: 'Application is not in this recruiter scope.' }
+    }
 
     const { error } = await supabase
       .from('job_applications')
@@ -652,11 +767,22 @@ export async function createInterview(interviewData: {
     return { success: false, error: 'A valid candidate and job must be selected.' }
   }
 
+  const { data: recruiterContext, error: recruiterContextError } = await supabase
+    .from('recruiters')
+    .select('company_name, company')
+    .or(`profile_id.eq.${interviewData.recruiter_id},id.eq.${interviewData.recruiter_id}`)
+    .maybeSingle()
+
+  if (recruiterContextError) {
+    return { success: false, error: recruiterContextError.message }
+  }
+
+  const recruiterCompany = recruiterContext?.company_name?.trim() || recruiterContext?.company?.trim() || null
+
   const { data: job, error: jobError } = await supabase
     .from('jobs')
-    .select('id')
+    .select('id, recruiter_id, company')
     .eq('id', interviewData.job_id)
-    .eq('recruiter_id', interviewData.recruiter_id)
     .maybeSingle()
 
   if (jobError) {
@@ -664,7 +790,18 @@ export async function createInterview(interviewData: {
   }
 
   if (!job) {
-    return { success: false, error: 'Selected job is not owned by this recruiter.' }
+    return { success: false, error: 'Selected job was not found.' }
+  }
+
+  const isOwnedJob = job.recruiter_id === interviewData.recruiter_id
+  const isSameCompany = Boolean(
+    recruiterCompany &&
+    job.company &&
+    String(job.company).trim() === recruiterCompany
+  )
+
+  if (!isOwnedJob && !isSameCompany) {
+    return { success: false, error: 'Selected job is not in this recruiter scope.' }
   }
 
   const { data: application, error: applicationError } = await supabase
@@ -693,6 +830,8 @@ export async function createInterview(interviewData: {
       student_id: interviewData.student_id,
       job_id: interviewData.job_id,
       scheduled_at: interviewData.scheduled_at,
+      duration_min: interviewData.duration_min,
+      type: interviewData.type,
       status: 'scheduled',
       meeting_link: interviewData.location,
       notes: interviewData.notes

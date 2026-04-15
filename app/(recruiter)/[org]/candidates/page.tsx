@@ -36,9 +36,10 @@ export default async function CandidatesPage({
   }
   query.delete("status")
 
-  const target = query.toString()
-    ? `/${org}/applications?${query.toString()}`
-    : `/${org}/applications`
+  const hasPipelineQuery = query.has("filter") || query.has("jobId") || query.has("fromDate") || query.has("toDate")
+  const target = hasPipelineQuery
+    ? (query.toString() ? `/${org}/applications?${query.toString()}` : `/${org}/applications`)
+    : (query.toString() ? `/${org}/search?${query.toString()}` : `/${org}/search`)
 
   redirect(target)
 }
