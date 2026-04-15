@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation'
 const AUTH_SYNC_KEY = 'harbor:auth:event'
 const AUTH_LOGOUT_MARKER_KEY = 'harbor:auth:logout-marker'
 const LOGOUT_REDIRECT_PATH = '/login?loggedOut=1'
+const LOCAL_SIGNOUT_TIMEOUT_MS = 800
+const SERVER_SIGNOUT_TIMEOUT_MS = 1200
 
 type AuthApiError = {
   success: false
@@ -322,7 +324,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // 3. Try best-effort local SDK signout to drop in-memory auth state.
     if (supabase) {
       try {
-        await supabase.auth.signOut({ scope: 'local' })
+        const localSignOutTimeout = new Promise<never>((_, reject) => {
+          window.setTimeout(() => reject(new Error('Local sign out timed out')), LOCAL_SIGNOUT_TIMEOUT_MS)
+        })
+
+        await Promise.race([
+          supabase.auth.signOut({ scope: 'local' }),
+          localSignOutTimeout,
+        ])
       } catch {
         // We still continue with server signout and redirect.
       }
@@ -331,7 +340,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // 4. Attempt server cookie/session revocation before redirecting to login.
     try {
       const abortController = new AbortController()
-      const timeoutId = window.setTimeout(() => abortController.abort(), 1200)
+      const timeoutId = window.setTimeout(() => abortController.abort(), SERVER_SIGNOUT_TIMEOUT_MS)
 
       try {
         await fetch('/api/auth/signout', {

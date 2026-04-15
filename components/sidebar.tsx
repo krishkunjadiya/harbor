@@ -363,7 +363,11 @@ export function HarborSidebar() {
     } catch (error) {
       console.error('[AUTH] Sidebar sign out failed:', error)
       toast.error('Unable to sign out right now. Please try again.')
-      setIsSigningOut(false)
+    } finally {
+      // If navigation fails for any reason, allow retry from the same page.
+      window.setTimeout(() => {
+        setIsSigningOut(false)
+      }, 2500)
     }
   }
 
