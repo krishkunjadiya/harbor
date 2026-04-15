@@ -48,6 +48,3 @@ updates:
     commit-message:
       prefix: "ci:"
 
-versioning-strategy: "increase-if-necessary"
-pull-request-branch-name:
-  separator: "/"

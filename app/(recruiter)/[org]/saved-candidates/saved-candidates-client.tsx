@@ -66,6 +66,7 @@ export function SavedCandidatesClient({ candidates: initialCandidates, recruiter
       portfolio: academic.portfolio || academic.portfolio_url || '',
       resumeUrl: academic.resume_url || '',
       skills: academic.skills || [],
+      certifications: Array.isArray(academic.certifications) ? academic.certifications : [],
       projects: projectRows.map((project: any) => ({
         id: project.id,
         title: project.title || 'Untitled Project',

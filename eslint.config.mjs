@@ -11,7 +11,7 @@ const compat = new FlatCompat({
 
 const config = [
   {
-    ignores: ['.next/**', 'node_modules/**', 'python_worker/.venv/**'],
+    ignores: ['.next/**', 'node_modules/**', 'python_worker/.venv/**', 'reactive_resume/src/routeTree.gen.ts'],
   },
   ...compat.extends('next'),
   {

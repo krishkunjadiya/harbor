@@ -1575,6 +1575,43 @@ export async function getRecruiterTeamRecentActivity(userId: string, limit = 10)
   }))
 }
 
+export async function getTeamMembers(userId: string) {
+  const supabase = await createClient()
+
+  const { data: currentRecruiter } = await supabase
+    .from('recruiters')
+    .select('company_name')
+    .eq('profile_id', userId)
+    .single()
+
+  if (!currentRecruiter?.company_name) return []
+
+  const { data: companyRecruiters } = await supabase
+    .from('recruiters')
+    .select('profile_id, job_title, company, profile:profiles!inner(full_name, avatar_url)')
+    .eq('company_name', currentRecruiter.company_name)
+
+  return (companyRecruiters || []).map((member: any) => {
+    const profile = Array.isArray(member.profile) ? member.profile[0] : member.profile
+    const initials = (profile?.full_name || 'TM')
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((part: string) => part[0])
+      .join('')
+      .slice(0, 2)
+      .toUpperCase()
+
+    return {
+      id: member.profile_id,
+      name: profile?.full_name || 'Team member',
+      role: member.job_title || member.company || 'Recruiter',
+      avatar: initials || 'TM',
+      status: member.profile_id === userId ? 'online' : 'offline',
+      avatarUrl: profile?.avatar_url || null,
+    }
+  })
+}
+
 // =============================================
 // SAVED CANDIDATES
 // =============================================
