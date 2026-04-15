@@ -1,0 +1,46 @@
+{
+  "createdAt": "2026-04-10T07:24:37.786Z",
+  "outputRoot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-125430",
+  "targets": [
+    {
+      "target": "harbor",
+      "baseUrl": "http://localhost:3000",
+      "appDir": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\app",
+      "skipped": false,
+      "routeCount": 3,
+      "successCount": 0,
+      "failureCount": 3,
+      "routes": [
+        "/",
+        "/activity-feed",
+        "/admin-dashboard"
+      ],
+      "screenshots": [
+        {
+          "route": "/",
+          "url": "http://localhost:3000/",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-125430\\harbor\\0001-home.png",
+          "ok": false,
+          "status": null,
+          "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        },
+        {
+          "route": "/activity-feed",
+          "url": "http://localhost:3000/activity-feed",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-125430\\harbor\\0002-activity-feed.png",
+          "ok": false,
+          "status": null,
+          "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/activity-feed\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/activity-feed\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        },
+        {
+          "route": "/admin-dashboard",
+          "url": "http://localhost:3000/admin-dashboard",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-125430\\harbor\\0003-admin-dashboard.png",
+          "ok": false,
+          "status": null,
+          "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/admin-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/admin-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        }
+      ]
+    }
+  ]
+}

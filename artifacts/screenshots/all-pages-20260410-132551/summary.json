@@ -1,0 +1,137 @@
+{
+  "createdAt": "2026-04-10T08:13:22.703Z",
+  "outputRoot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551",
+  "targets": [
+    {
+      "target": "harbor",
+      "baseUrl": "http://localhost:3000",
+      "appDir": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\app",
+      "skipped": false,
+      "authSummary": {
+        "public": {
+          "authenticated": true,
+          "reason": null
+        },
+        "student": {
+          "authenticated": true,
+          "reason": null
+        },
+        "recruiter": {
+          "authenticated": false,
+          "reason": "missing-credentials"
+        },
+        "university": {
+          "authenticated": false,
+          "reason": "missing-credentials"
+        }
+      },
+      "routeCount": 10,
+      "successCount": 8,
+      "failureCount": 2,
+      "routes": [
+        "/",
+        "/activity-feed",
+        "/admin-dashboard",
+        "/dashboard",
+        "/features",
+        "/help",
+        "/landing",
+        "/login",
+        "/notifications",
+        "/ppsu/activity-feed"
+      ],
+      "screenshots": [
+        {
+          "route": "/",
+          "url": "http://localhost:3000/",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0001-home.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "public",
+          "error": null
+        },
+        {
+          "route": "/activity-feed",
+          "url": "http://localhost:3000/activity-feed",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0002-activity-feed.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "student",
+          "error": null
+        },
+        {
+          "route": "/admin-dashboard",
+          "url": "http://localhost:3000/admin-dashboard",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0003-admin-dashboard.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "public",
+          "error": null
+        },
+        {
+          "route": "/dashboard",
+          "url": "http://localhost:3000/dashboard",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0004-dashboard.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "student",
+          "error": null
+        },
+        {
+          "route": "/features",
+          "url": "http://localhost:3000/features",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0005-features.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "public",
+          "error": null
+        },
+        {
+          "route": "/help",
+          "url": "http://localhost:3000/help",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0006-help.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "public",
+          "error": null
+        },
+        {
+          "route": "/landing",
+          "url": "http://localhost:3000/landing",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0007-landing.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "public",
+          "error": null
+        },
+        {
+          "route": "/login",
+          "url": "http://localhost:3000/login",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0008-login.png",
+          "ok": true,
+          "status": 200,
+          "authContext": "public",
+          "error": null
+        },
+        {
+          "route": "/notifications",
+          "url": "http://localhost:3000/notifications",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0009-notifications.png",
+          "ok": false,
+          "status": null,
+          "authContext": "student",
+          "error": "page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/notifications\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        },
+        {
+          "route": "/ppsu/activity-feed",
+          "url": "http://localhost:3000/ppsu/activity-feed",
+          "screenshot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-132551\\harbor\\0010-ppsu__activity-feed.png",
+          "ok": false,
+          "status": null,
+          "authContext": "recruiter-fallback-missing-credentials",
+          "error": "page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/ppsu/activity-feed\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        }
+      ]
+    }
+  ]
+}

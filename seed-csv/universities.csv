@@ -1,0 +1,3 @@
+university_id,profile_id,university_name,location,contact_email,established_year,status,id,address,city,country,website,accreditation
+uni-0001,b1a1d1e1-5001-4000-8000-000000000501,PPSU University,"Vadodara, India",uniadmin@ppsu.edu,2015,active,b1a1d1e1-5001-4000-8000-000000000501,"369 University Road, Vadodara",Vadodara,India,https://ppsuuniversity.edu,NAAC A+ Grade
+uni-0002,b1a1d1e1-5002-4000-8000-000000000502,PPSU University 2,"Ahmedabad, India",uniadmin2@ppsu.edu,2018,active,b1a1d1e1-5002-4000-8000-000000000502,"268 University Road, Ahmedabad",Ahmedabad,India,https://ppsuuniversity2.edu,NAAC A+ Grade

@@ -1,0 +1,16 @@
+flowchart TD
+    A([Start]) --> B[Recruiter opens applications page]
+    B --> C[Filter by status, job, or date]
+    C --> D[Select candidate application]
+    D --> E{Decision}
+    E -->|Shortlist| F[Update status to shortlisted]
+    E -->|Reject| G[Update status to rejected]
+    E -->|Review| H[Update status to reviewing]
+    F --> I{Schedule interview now?}
+    I -->|Yes| J[Create interview event]
+    I -->|No| K[Keep in shortlisted queue]
+    G --> L[Notify student]
+    H --> L
+    J --> L
+    K --> L
+    L --> M([End])

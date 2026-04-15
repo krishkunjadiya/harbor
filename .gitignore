@@ -1,0 +1,178 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ============================================
+# Dependencies
+# ============================================
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+pnpm-lock.yaml
+
+# ============================================
+# Next.js
+# ============================================
+/.next/
+/out/
+.next/
+/build
+
+# ============================================
+# Production
+# ============================================
+/build
+dist/
+
+# ============================================
+# Environment Variables (IMPORTANT: Never commit secrets)
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.*.example
+
+# ============================================
+# Vercel
+# ============================================
+.vercel
+.vercel-build-env
+
+# ============================================
+# TypeScript
+# ============================================
+*.tsbuildinfo
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# ============================================
+# IDE & Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+*.sublime-project
+*.sublime-workspace
+.history/
+.vscode-insiders/
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================
+# Python / Virtual Environments
+# ============================================
+python_worker/.venv/
+python_worker/venv/
+*.py[cod]
+*$py.class
+__pycache__/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+.python-version
+
+# ============================================
+# Testing
+# ============================================
+coverage/
+.nyc_output/
+.jest/
+jest-results/
+
+# ============================================
+# Build & Compilation
+# ============================================
+dist/
+*.tsbuildinfo
+bun.lockb
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ============================================
+# Database
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Media Files (Larger development files)
+# ============================================
+*.mov
+*.mp4
+*.mp3
+*.zip
+
+# ============================================
+# Docker
+# ============================================
+.dockerignore
+docker-compose.override.yml
+
+# ============================================
+# API Keys & Secrets (Safety net)
+# ============================================
+secrets.json
+.secrets
+credentials.json
+
+# ============================================
+# Generated Files
+# ============================================
+generated/
+dist/
+build/
+
+# ============================================
+# Development Tools
+# ============================================
+.turbo/
+.eslintcache
+.stylelintcache
+
+# ============================================
+# Platform Specific
+# ============================================
+.env.*.local
+.cache/
+
+# ============================================
+# Storybook
+# ============================================
+storybook-static/
+
+# ============================================
+# Playwright
+# ============================================
+test-results/
+playwright-report/

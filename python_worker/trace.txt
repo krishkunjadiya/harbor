@@ -1,0 +1,95 @@
+Traceback (most recent call last):
+  File "<string>", line 8, in <module>
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\testclient.py", line 577, in put
+    return super().put(
+           ^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\httpx\_client.py", line 1181, in put
+    return self.request(
+           ^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\testclient.py", line 445, in request
+    return super().request(
+           ^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\testclient.py", line 348, in handle_request
+    raise exc
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\testclient.py", line 345, in handle_request
+    portal.call(self.app, scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\anyio\from_thread.py", line 334, in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\krish\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\krish\AppData\Local\Programs\Python\Python311\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\anyio\from_thread.py", line 259, in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\fastapi\applications.py", line 1160, in __call__
+    await super().__call__(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\fastapi\routing.py", line 119, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\fastapi\routing.py", line 105, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\fastapi\routing.py", line 431, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\fastapi\routing.py", line 313, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\inngest\fast_api.py", line 98, in put_inngest_api
+    await handler.put(
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\inngest\_internal\comm_lib\utils.py", line 102, in wrapper
+    res = await method(
+          ^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\inngest\_internal\comm_lib\handler.py", line 448, in put
+    return await syncer.out_of_band(self, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\inngest\_internal\comm_lib\handler.py", line 735, in out_of_band
+    res = await net.fetch_with_auth_fallback(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\inngest\_internal\net.py", line 368, in fetch_with_auth_fallback
+    f"Bearer {transforms.hash_signing_key(signing_key)}"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\KRISH(PPSU)\Semester 6\Major Project\Harbor\python_worker\.venv\Lib\site-packages\inngest\_internal\transforms.py", line 26, in hash_signing_key
+    bytearray.fromhex(remove_signing_key_prefix(key))
+ValueError: non-hexadecimal number found in fromhex() arg at position 1

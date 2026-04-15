@@ -1,0 +1,3062 @@
+[
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "6b0e7fe3-bbb9-48ca-8502-950eb237d415",
+    "record_name": "Dr. Lucas Evans",
+    "expected": 6,
+    "actual": 2,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "6b0e7fe3-bbb9-48ca-8502-950eb237d415",
+    "record_name": "Dr. Lucas Evans",
+    "expected": 294,
+    "actual": 2,
+    "difference": -292,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "6b5a0b0d-b8bd-44c6-8640-033d8f7c2e01",
+    "record_name": "Dr. Amelia Singh",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "6b5a0b0d-b8bd-44c6-8640-033d8f7c2e01",
+    "record_name": "Dr. Amelia Singh",
+    "expected": 252,
+    "actual": 1,
+    "difference": -251,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "6877e41d-278a-455b-b231-3c88dad37cd5",
+    "record_name": "Dr. Ethan Murphy",
+    "expected": 4,
+    "actual": 0,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "6877e41d-278a-455b-b231-3c88dad37cd5",
+    "record_name": "Dr. Ethan Murphy",
+    "expected": 98,
+    "actual": 0,
+    "difference": -98,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "f3bc4add-0f9e-4360-b9ac-6129feb76696",
+    "record_name": "Dr. Sophia Ramirez",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "f3bc4add-0f9e-4360-b9ac-6129feb76696",
+    "record_name": "Dr. Sophia Ramirez",
+    "expected": 283,
+    "actual": 1,
+    "difference": -282,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "a56915a1-578c-4012-b7f7-261756773c9a",
+    "record_name": "Dr. Michael Kumar",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "a56915a1-578c-4012-b7f7-261756773c9a",
+    "record_name": "Dr. Michael Kumar",
+    "expected": 99,
+    "actual": 1,
+    "difference": -98,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "4df49c0a-7ec7-4991-b92a-f053584b7993",
+    "record_name": "Dr. Jennifer Lee",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "4df49c0a-7ec7-4991-b92a-f053584b7993",
+    "record_name": "Dr. Jennifer Lee",
+    "expected": 119,
+    "actual": 1,
+    "difference": -118,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "378373c5-2164-4938-a5ca-ac764be2223e",
+    "record_name": "Dr. Robert Williams",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "378373c5-2164-4938-a5ca-ac764be2223e",
+    "record_name": "Dr. Robert Williams",
+    "expected": 116,
+    "actual": 1,
+    "difference": -115,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "2651dd2d-7899-43a4-a476-d214358bd478",
+    "record_name": "Dr. Patricia Garcia",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "2651dd2d-7899-43a4-a476-d214358bd478",
+    "record_name": "Dr. Patricia Garcia",
+    "expected": 104,
+    "actual": 1,
+    "difference": -103,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "47cb7171-0002-43f8-b2f0-805a7102168e",
+    "record_name": "Dr. David Martinez",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "47cb7171-0002-43f8-b2f0-805a7102168e",
+    "record_name": "Dr. David Martinez",
+    "expected": 69,
+    "actual": 1,
+    "difference": -68,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "aaef013a-7d2b-4dcb-80db-dc841806c739",
+    "record_name": "Dr. Maria Rodriguez",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "aaef013a-7d2b-4dcb-80db-dc841806c739",
+    "record_name": "Dr. Maria Rodriguez",
+    "expected": 293,
+    "actual": 1,
+    "difference": -292,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "fc189d48-af55-4628-a94c-bdb8ff1c6d39",
+    "record_name": "Dr. James Anderson",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "fc189d48-af55-4628-a94c-bdb8ff1c6d39",
+    "record_name": "Dr. James Anderson",
+    "expected": 147,
+    "actual": 1,
+    "difference": -146,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "3c5c422b-51f1-497d-bb45-48892b6d7d4b",
+    "record_name": "Dr. Linda Thomas",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "3c5c422b-51f1-497d-bb45-48892b6d7d4b",
+    "record_name": "Dr. Linda Thomas",
+    "expected": 233,
+    "actual": 1,
+    "difference": -232,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "4c48665e-02fc-45b7-9a02-ef2e888b8b51",
+    "record_name": "Dr. Michael Taylor",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "4c48665e-02fc-45b7-9a02-ef2e888b8b51",
+    "record_name": "Dr. Michael Taylor",
+    "expected": 65,
+    "actual": 1,
+    "difference": -64,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "284f1715-c994-4336-9121-a892cb7566cb",
+    "record_name": "Dr. Barbara Moore",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "284f1715-c994-4336-9121-a892cb7566cb",
+    "record_name": "Dr. Barbara Moore",
+    "expected": 129,
+    "actual": 1,
+    "difference": -128,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "6f86909b-9fdb-431e-b5ab-0d10c53dd788",
+    "record_name": "Dr. Richard Jackson",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "6f86909b-9fdb-431e-b5ab-0d10c53dd788",
+    "record_name": "Dr. Richard Jackson",
+    "expected": 120,
+    "actual": 1,
+    "difference": -119,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "d6ed74f3-a2fc-4b99-8a63-d50433317195",
+    "record_name": "Dr. Susan Martin",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "d6ed74f3-a2fc-4b99-8a63-d50433317195",
+    "record_name": "Dr. Susan Martin",
+    "expected": 200,
+    "actual": 1,
+    "difference": -199,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "52af6a1f-e115-4dd5-97b7-0e9974bab173",
+    "record_name": "Dr. Charles Lee",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "52af6a1f-e115-4dd5-97b7-0e9974bab173",
+    "record_name": "Dr. Charles Lee",
+    "expected": 172,
+    "actual": 1,
+    "difference": -171,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "26ab36ee-fcad-4f8c-b437-765f7c7e5f20",
+    "record_name": "Dr. Karen Perez",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "26ab36ee-fcad-4f8c-b437-765f7c7e5f20",
+    "record_name": "Dr. Karen Perez",
+    "expected": 160,
+    "actual": 1,
+    "difference": -159,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "8fa6bcca-4915-4772-97d1-6e0656b8f98b",
+    "record_name": "Dr. Joseph White",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "8fa6bcca-4915-4772-97d1-6e0656b8f98b",
+    "record_name": "Dr. Joseph White",
+    "expected": 53,
+    "actual": 1,
+    "difference": -52,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "386a9624-796e-4af0-a647-ce0c8c02bd80",
+    "record_name": "Dr. Nancy Harris",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "386a9624-796e-4af0-a647-ce0c8c02bd80",
+    "record_name": "Dr. Nancy Harris",
+    "expected": 129,
+    "actual": 1,
+    "difference": -128,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "c5697e38-aaad-4ca0-a889-ab067556aeae",
+    "record_name": "Dr. Thomas Sanchez",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "c5697e38-aaad-4ca0-a889-ab067556aeae",
+    "record_name": "Dr. Thomas Sanchez",
+    "expected": 255,
+    "actual": 1,
+    "difference": -254,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "bc9bac4b-9e9c-4d9f-a9e1-5facc49fe9ae",
+    "record_name": "Dr. Lisa Clark",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "bc9bac4b-9e9c-4d9f-a9e1-5facc49fe9ae",
+    "record_name": "Dr. Lisa Clark",
+    "expected": 247,
+    "actual": 1,
+    "difference": -246,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "1941db29-9db5-4231-8fb6-791c691d0815",
+    "record_name": "Dr. Paul Ramirez",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "1941db29-9db5-4231-8fb6-791c691d0815",
+    "record_name": "Dr. Paul Ramirez",
+    "expected": 290,
+    "actual": 1,
+    "difference": -289,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "d105355c-926c-4d4a-a5d2-0d855fd182cc",
+    "record_name": "Dr. Donna Lewis",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "d105355c-926c-4d4a-a5d2-0d855fd182cc",
+    "record_name": "Dr. Donna Lewis",
+    "expected": 286,
+    "actual": 1,
+    "difference": -285,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "34ebc301-4c8c-4a85-a864-fbb99616b464",
+    "record_name": "Dr. Mark Robinson",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "34ebc301-4c8c-4a85-a864-fbb99616b464",
+    "record_name": "Dr. Mark Robinson",
+    "expected": 140,
+    "actual": 1,
+    "difference": -139,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "fb516b54-4fd1-466b-bf5b-4dfb3faa219d",
+    "record_name": "Dr. Carol Walker",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "fb516b54-4fd1-466b-bf5b-4dfb3faa219d",
+    "record_name": "Dr. Carol Walker",
+    "expected": 129,
+    "actual": 1,
+    "difference": -128,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "f7508d52-3d06-4e56-9857-8bde7adb6adc",
+    "record_name": "Dr. Steven Hall",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "f7508d52-3d06-4e56-9857-8bde7adb6adc",
+    "record_name": "Dr. Steven Hall",
+    "expected": 60,
+    "actual": 1,
+    "difference": -59,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "bea09ef5-799f-4499-bf13-95a53ebf171f",
+    "record_name": "Dr. Michelle Allen",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "bea09ef5-799f-4499-bf13-95a53ebf171f",
+    "record_name": "Dr. Michelle Allen",
+    "expected": 149,
+    "actual": 1,
+    "difference": -148,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "be945471-70e1-49f3-8883-cbb13ef3bbe7",
+    "record_name": "Dr. Kevin Young",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "be945471-70e1-49f3-8883-cbb13ef3bbe7",
+    "record_name": "Dr. Kevin Young",
+    "expected": 216,
+    "actual": 1,
+    "difference": -215,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "463baf98-2796-4c62-83ea-a02d127451bb",
+    "record_name": "Dr. Sarah Hernandez",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "463baf98-2796-4c62-83ea-a02d127451bb",
+    "record_name": "Dr. Sarah Hernandez",
+    "expected": 168,
+    "actual": 1,
+    "difference": -167,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "1336d3a4-2690-49d4-bd07-45addb26bac3",
+    "record_name": "Dr. Daniel King",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "1336d3a4-2690-49d4-bd07-45addb26bac3",
+    "record_name": "Dr. Daniel King",
+    "expected": 270,
+    "actual": 1,
+    "difference": -269,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "fcba7d39-5cd1-46dd-a22e-acbbf044a0ed",
+    "record_name": "Dr. Betty Wright",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "fcba7d39-5cd1-46dd-a22e-acbbf044a0ed",
+    "record_name": "Dr. Betty Wright",
+    "expected": 80,
+    "actual": 1,
+    "difference": -79,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "438fbb53-5156-4c50-bec1-83aeb32bbb0d",
+    "record_name": "Dr. Matthew Lopez",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "438fbb53-5156-4c50-bec1-83aeb32bbb0d",
+    "record_name": "Dr. Matthew Lopez",
+    "expected": 164,
+    "actual": 1,
+    "difference": -163,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "34ea72a2-2d0b-44a4-87d7-d036a3ecf6b3",
+    "record_name": "Dr. Dorothy Hill",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "34ea72a2-2d0b-44a4-87d7-d036a3ecf6b3",
+    "record_name": "Dr. Dorothy Hill",
+    "expected": 81,
+    "actual": 1,
+    "difference": -80,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "aba51bbd-0aa2-448a-bf85-6448cd346505",
+    "record_name": "Dr. Gary Scott",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "aba51bbd-0aa2-448a-bf85-6448cd346505",
+    "record_name": "Dr. Gary Scott",
+    "expected": 61,
+    "actual": 1,
+    "difference": -60,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "f2bb3673-3796-4fa2-b5ed-72d626654c3e",
+    "record_name": "Dr. Sandra Green",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "f2bb3673-3796-4fa2-b5ed-72d626654c3e",
+    "record_name": "Dr. Sandra Green",
+    "expected": 283,
+    "actual": 1,
+    "difference": -282,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "c17129ee-3900-4d88-b47b-8acb1b308df3",
+    "record_name": "Dr. Anthony Adams",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "c17129ee-3900-4d88-b47b-8acb1b308df3",
+    "record_name": "Dr. Anthony Adams",
+    "expected": 210,
+    "actual": 1,
+    "difference": -209,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "a8cfb514-bc88-485b-86dc-791691a30a8b",
+    "record_name": "Dr. Ashley Baker",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "a8cfb514-bc88-485b-86dc-791691a30a8b",
+    "record_name": "Dr. Ashley Baker",
+    "expected": 82,
+    "actual": 1,
+    "difference": -81,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "e1341dca-a753-4bfb-980c-8ba29fb398cd",
+    "record_name": "Dr. Joshua Gonzalez",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "e1341dca-a753-4bfb-980c-8ba29fb398cd",
+    "record_name": "Dr. Joshua Gonzalez",
+    "expected": 232,
+    "actual": 1,
+    "difference": -231,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "804e3431-5827-4bbd-b116-fc6c8f5b29c6",
+    "record_name": "Dr. Kimberly Nelson",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "804e3431-5827-4bbd-b116-fc6c8f5b29c6",
+    "record_name": "Dr. Kimberly Nelson",
+    "expected": 178,
+    "actual": 1,
+    "difference": -177,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "660d6997-e7e4-4b01-850b-25bcf8c2d89b",
+    "record_name": "Dr. Brian Carter",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "660d6997-e7e4-4b01-850b-25bcf8c2d89b",
+    "record_name": "Dr. Brian Carter",
+    "expected": 100,
+    "actual": 1,
+    "difference": -99,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "442ae328-ff9a-4a61-b6bb-5f5b6233bf68",
+    "record_name": "Dr. Amy Mitchell",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "442ae328-ff9a-4a61-b6bb-5f5b6233bf68",
+    "record_name": "Dr. Amy Mitchell",
+    "expected": 191,
+    "actual": 1,
+    "difference": -190,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "26b4920b-ce95-4bf0-a1f8-6b016ee02a35",
+    "record_name": "Dr. Ryan Perez",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "26b4920b-ce95-4bf0-a1f8-6b016ee02a35",
+    "record_name": "Dr. Ryan Perez",
+    "expected": 165,
+    "actual": 1,
+    "difference": -164,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "c5ccb95f-8f18-466e-91fb-91b3b981e951",
+    "record_name": "Dr. Melissa Roberts",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "c5ccb95f-8f18-466e-91fb-91b3b981e951",
+    "record_name": "Dr. Melissa Roberts",
+    "expected": 206,
+    "actual": 1,
+    "difference": -205,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "0b506c4f-d819-44c4-af44-42cd667b3192",
+    "record_name": "Dr. Jeffrey Turner",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Medium"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "0b506c4f-d819-44c4-af44-42cd667b3192",
+    "record_name": "Dr. Jeffrey Turner",
+    "expected": 63,
+    "actual": 1,
+    "difference": -62,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "9fba0f39-9f22-4b8b-a10b-f18f8ad5ab40",
+    "record_name": "Dr. Brenda Phillips",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "9fba0f39-9f22-4b8b-a10b-f18f8ad5ab40",
+    "record_name": "Dr. Brenda Phillips",
+    "expected": 80,
+    "actual": 1,
+    "difference": -79,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "ad0052b3-2ca1-44c4-94bc-304b724ea5fa",
+    "record_name": "Dr. Jacob Campbell",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "ad0052b3-2ca1-44c4-94bc-304b724ea5fa",
+    "record_name": "Dr. Jacob Campbell",
+    "expected": 160,
+    "actual": 1,
+    "difference": -159,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "a54588e0-c79d-4533-929a-73092e7a0b5d",
+    "record_name": "Dr. Anna Parker",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "a54588e0-c79d-4533-929a-73092e7a0b5d",
+    "record_name": "Dr. Anna Parker",
+    "expected": 161,
+    "actual": 1,
+    "difference": -160,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "97781567-64cc-43c9-8253-f6997f23ece2",
+    "record_name": "Dr. Nicholas Evans",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "97781567-64cc-43c9-8253-f6997f23ece2",
+    "record_name": "Dr. Nicholas Evans",
+    "expected": 136,
+    "actual": 1,
+    "difference": -135,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Courses",
+    "source": "faculty.total_courses",
+    "record_id": "f5d790c2-35e0-4a81-a4a9-d8f6952a9ede",
+    "record_name": "Dr. Rebecca Edwards",
+    "expected": 7,
+    "actual": 1,
+    "difference": -6,
+    "impact": "High"
+  },
+  {
+    "category": "Faculty Students",
+    "source": "faculty.total_students",
+    "record_id": "f5d790c2-35e0-4a81-a4a9-d8f6952a9ede",
+    "record_name": "Dr. Rebecca Edwards",
+    "expected": 70,
+    "actual": 1,
+    "difference": -69,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "160946ba-1572-4c7b-8b9b-66855cbdf457",
+    "record_name": "Introduction to Programming",
+    "expected": 95,
+    "actual": 1,
+    "difference": -94,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "b195e991-faff-4dd5-9a91-1944fb2db3d4",
+    "record_name": "Thermodynamics",
+    "expected": 78,
+    "actual": 1,
+    "difference": -77,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "5a775eb4-2678-4004-9e52-0e5c37405b56",
+    "record_name": "Quantum Mechanics",
+    "expected": 55,
+    "actual": 1,
+    "difference": -54,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "0b2e702f-dac1-4f46-ab73-0f3cbbb62730",
+    "record_name": "Structural Analysis",
+    "expected": 48,
+    "actual": 1,
+    "difference": -47,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "d18a393c-432e-4571-8355-2eaf96fffd8d",
+    "record_name": "Data Structures",
+    "expected": 92,
+    "actual": 1,
+    "difference": -91,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "505a379d-4959-4839-9c82-d6f9e2cec942",
+    "record_name": "Object-Oriented Programming",
+    "expected": 75,
+    "actual": 1,
+    "difference": -74,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "04529923-fe19-4cbc-91eb-415ef6e3850d",
+    "record_name": "Classical Mechanics",
+    "expected": 85,
+    "actual": 1,
+    "difference": -84,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "ede3ceab-5821-420b-9584-187a3fd3f3b4",
+    "record_name": "Calculus I",
+    "expected": 98,
+    "actual": 1,
+    "difference": -97,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "a74bc1d4-71ba-4f1d-9bb4-86fe12e90fcd",
+    "record_name": "General Chemistry",
+    "expected": 80,
+    "actual": 1,
+    "difference": -79,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "b26824d5-728f-4d27-8d70-3b2f95043eba",
+    "record_name": "Engineering Graphics",
+    "expected": 68,
+    "actual": 1,
+    "difference": -67,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "2c046484-6596-4859-b080-fb5cd4dc8561",
+    "record_name": "Circuit Analysis",
+    "expected": 76,
+    "actual": 1,
+    "difference": -75,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "3e496ded-8d23-4a0c-aeab-af88e80d0781",
+    "record_name": "Surveying",
+    "expected": 58,
+    "actual": 1,
+    "difference": -57,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "00f4655f-002f-4ab8-8545-f576de026e3e",
+    "record_name": "Digital Electronics",
+    "expected": 72,
+    "actual": 1,
+    "difference": -71,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "8492db63-b8a1-4353-adc1-fdc4404eadb1",
+    "record_name": "Database Management",
+    "expected": 87,
+    "actual": 1,
+    "difference": -86,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "eb5c5960-345f-4702-b61c-a801810e5b9d",
+    "record_name": "Cell Biology",
+    "expected": 62,
+    "actual": 1,
+    "difference": -61,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "c2873369-80b2-431f-9c76-762b457dbd47",
+    "record_name": "Process Engineering",
+    "expected": 52,
+    "actual": 1,
+    "difference": -51,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "ca2287b9-a3a8-4427-a85d-34101532f584",
+    "record_name": "Aerodynamics",
+    "expected": 48,
+    "actual": 1,
+    "difference": -47,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "82443cc3-d7e2-42bb-9cde-6af22c107c95",
+    "record_name": "Environmental Science",
+    "expected": 67,
+    "actual": 1,
+    "difference": -66,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "7435e35b-caf8-46a5-86e6-11bd17c127d0",
+    "record_name": "Materials Science",
+    "expected": 57,
+    "actual": 1,
+    "difference": -56,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "e5949dff-8a68-4c6e-8e0c-062c6c101b47",
+    "record_name": "Biomedical Engineering",
+    "expected": 53,
+    "actual": 1,
+    "difference": -52,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "acf8c2db-8080-4f37-8454-9a9e4c7594c1",
+    "record_name": "Petroleum Engineering",
+    "expected": 43,
+    "actual": 1,
+    "difference": -42,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "42ad9d43-3e24-4101-b10e-f4fe756dec35",
+    "record_name": "Mining Engineering",
+    "expected": 48,
+    "actual": 1,
+    "difference": -47,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "b5837e35-007a-4c49-bb5a-eb6586062b11",
+    "record_name": "Metallurgical Engineering",
+    "expected": 52,
+    "actual": 1,
+    "difference": -51,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "908e538c-d5a4-4319-b95c-e0e27139b3ee",
+    "record_name": "Industrial Engineering",
+    "expected": 62,
+    "actual": 1,
+    "difference": -61,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "f367f5b5-f548-4b2e-83f9-cd8a830731e8",
+    "record_name": "Textile Engineering",
+    "expected": 47,
+    "actual": 1,
+    "difference": -46,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "c548540d-4c98-46cf-aed5-e2d1b21d59eb",
+    "record_name": "Food Technology",
+    "expected": 57,
+    "actual": 1,
+    "difference": -56,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "0a6d6307-8a19-4a44-8be6-532bda054f97",
+    "record_name": "Agriculture Engineering",
+    "expected": 53,
+    "actual": 1,
+    "difference": -52,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "bdc4dfd3-7d5e-42d2-9869-9411edd4cc8b",
+    "record_name": "Marine Engineering",
+    "expected": 43,
+    "actual": 1,
+    "difference": -42,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "a657e480-2205-43fb-9160-3ad892f6c1b6",
+    "record_name": "Nuclear Engineering",
+    "expected": 38,
+    "actual": 1,
+    "difference": -37,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "90070ce8-e8cc-4665-8bf3-0fe27cce49ad",
+    "record_name": "Robotics",
+    "expected": 68,
+    "actual": 1,
+    "difference": -67,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "fcd78eef-0b0c-4bf7-b482-d5776d40331d",
+    "record_name": "Data Science",
+    "expected": 82,
+    "actual": 1,
+    "difference": -81,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "48bb619f-ca84-429c-87dd-69f66b76ffcc",
+    "record_name": "Artificial Intelligence",
+    "expected": 77,
+    "actual": 1,
+    "difference": -76,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "b11dc10f-55b6-4ce9-ba46-b6a4775ade15",
+    "record_name": "Cybersecurity",
+    "expected": 72,
+    "actual": 1,
+    "difference": -71,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "f5008747-d345-4483-812b-908a2f9c3fa8",
+    "record_name": "Cloud Computing",
+    "expected": 67,
+    "actual": 1,
+    "difference": -66,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "12098868-a490-450c-bb3a-32de5eb10cd3",
+    "record_name": "Machine Learning",
+    "expected": 63,
+    "actual": 1,
+    "difference": -62,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "91e3d419-7c44-47b4-a526-b119abc27685",
+    "record_name": "Internet of Things",
+    "expected": 58,
+    "actual": 1,
+    "difference": -57,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "fcc72df8-ecca-400c-839b-7f8f8279c595",
+    "record_name": "Blockchain",
+    "expected": 52,
+    "actual": 1,
+    "difference": -51,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "312ecda0-6354-4a38-ba6f-a3285fa729b1",
+    "record_name": "Quantum Computing",
+    "expected": 43,
+    "actual": 1,
+    "difference": -42,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "544d77c5-0a2a-49c5-9efb-18ed140b92e9",
+    "record_name": "Augmented Reality",
+    "expected": 48,
+    "actual": 1,
+    "difference": -47,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "de1773f2-25d6-4d8a-b232-2136e56986f1",
+    "record_name": "Game Development",
+    "expected": 68,
+    "actual": 1,
+    "difference": -67,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "ac26a1b1-08fc-4f1c-99db-e194f93fb41e",
+    "record_name": "Mobile Development",
+    "expected": 62,
+    "actual": 1,
+    "difference": -61,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "919f0682-07e3-43de-b4d3-05672811d30e",
+    "record_name": "Web Development",
+    "expected": 77,
+    "actual": 1,
+    "difference": -76,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "759a9df6-9c8d-4bdb-9ebf-e977ddd6aecc",
+    "record_name": "DevOps",
+    "expected": 58,
+    "actual": 1,
+    "difference": -57,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "9465752d-9c7b-461f-8805-36bbe7b325c5",
+    "record_name": "Software Engineering",
+    "expected": 72,
+    "actual": 1,
+    "difference": -71,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "ebcd2376-ab2f-419b-94ca-96cd99d9eedb",
+    "record_name": "Network Engineering",
+    "expected": 62,
+    "actual": 1,
+    "difference": -61,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "f22c10d4-0e8b-46d3-a083-234c78660151",
+    "record_name": "Database Systems",
+    "expected": 68,
+    "actual": 1,
+    "difference": -67,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "9dfe3cb5-7a3b-443f-8781-4c6127121717",
+    "record_name": "Systems Architecture",
+    "expected": 57,
+    "actual": 1,
+    "difference": -56,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "f56df2b0-7db4-4c49-aeef-d13a90dc133a",
+    "record_name": "Operating Systems",
+    "expected": 72,
+    "actual": 1,
+    "difference": -71,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "5858a868-afba-4c7e-896c-1ab0a5e55f4d",
+    "record_name": "Distributed Systems",
+    "expected": 62,
+    "actual": 1,
+    "difference": -61,
+    "impact": "High"
+  },
+  {
+    "category": "Course Enrollments",
+    "source": "courses.total_students",
+    "record_id": "76219bc1-6b1e-4605-b1b6-ec6425f7cc0a",
+    "record_name": "Advanced Algorithms",
+    "expected": 53,
+    "actual": 1,
+    "difference": -52,
+    "impact": "High"
+  },
+  {
+    "category": "Department Students",
+    "source": "departments.total_students",
+    "record_id": "fa0bc56b-94f0-411e-8924-18c1ce6dcb57",
+    "record_name": "Computer Science",
+    "expected": 500,
+    "actual": 8,
+    "difference": -492,
+    "impact": "High"
+  },
+  {
+    "category": "Department Faculty",
+    "source": "departments.total_faculty",
+    "record_id": "fa0bc56b-94f0-411e-8924-18c1ce6dcb57",
+    "record_name": "Computer Science",
+    "expected": 30,
+    "actual": 45,
+    "difference": 15,
+    "impact": "High"
+  },
+  {
+    "category": "Department Courses",
+    "source": "departments.total_courses",
+    "record_id": "fa0bc56b-94f0-411e-8924-18c1ce6dcb57",
+    "record_name": "Computer Science",
+    "expected": 40,
+    "actual": 30,
+    "difference": -10,
+    "impact": "Low"
+  },
+  {
+    "category": "Department Students",
+    "source": "departments.total_students",
+    "record_id": "d2375f54-78be-4df9-a41b-a2f5a44c0e5e",
+    "record_name": "Mechanical Engineering",
+    "expected": 350,
+    "actual": 0,
+    "difference": -350,
+    "impact": "High"
+  },
+  {
+    "category": "Department Faculty",
+    "source": "departments.total_faculty",
+    "record_id": "d2375f54-78be-4df9-a41b-a2f5a44c0e5e",
+    "record_name": "Mechanical Engineering",
+    "expected": 20,
+    "actual": 2,
+    "difference": -18,
+    "impact": "High"
+  },
+  {
+    "category": "Department Courses",
+    "source": "departments.total_courses",
+    "record_id": "d2375f54-78be-4df9-a41b-a2f5a44c0e5e",
+    "record_name": "Mechanical Engineering",
+    "expected": 25,
+    "actual": 8,
+    "difference": -17,
+    "impact": "Medium"
+  },
+  {
+    "category": "Department Students",
+    "source": "departments.total_students",
+    "record_id": "0eb92611-1cee-454a-9fcf-a7a56be49a9c",
+    "record_name": "Physics",
+    "expected": 200,
+    "actual": 6,
+    "difference": -194,
+    "impact": "High"
+  },
+  {
+    "category": "Department Faculty",
+    "source": "departments.total_faculty",
+    "record_id": "0eb92611-1cee-454a-9fcf-a7a56be49a9c",
+    "record_name": "Physics",
+    "expected": 15,
+    "actual": 2,
+    "difference": -13,
+    "impact": "High"
+  },
+  {
+    "category": "Department Courses",
+    "source": "departments.total_courses",
+    "record_id": "0eb92611-1cee-454a-9fcf-a7a56be49a9c",
+    "record_name": "Physics",
+    "expected": 20,
+    "actual": 6,
+    "difference": -14,
+    "impact": "Medium"
+  },
+  {
+    "category": "Department Students",
+    "source": "departments.total_students",
+    "record_id": "f4faa58e-a111-49f8-a925-aee51888c83a",
+    "record_name": "Civil Engineering",
+    "expected": 180,
+    "actual": 0,
+    "difference": -180,
+    "impact": "High"
+  },
+  {
+    "category": "Department Faculty",
+    "source": "departments.total_faculty",
+    "record_id": "f4faa58e-a111-49f8-a925-aee51888c83a",
+    "record_name": "Civil Engineering",
+    "expected": 12,
+    "actual": 1,
+    "difference": -11,
+    "impact": "High"
+  },
+  {
+    "category": "Department Courses",
+    "source": "departments.total_courses",
+    "record_id": "f4faa58e-a111-49f8-a925-aee51888c83a",
+    "record_name": "Civil Engineering",
+    "expected": 18,
+    "actual": 6,
+    "difference": -12,
+    "impact": "Medium"
+  },
+  {
+    "category": "University Students",
+    "source": "universities.total_students",
+    "record_id": "b1a1d1e1-5001-4000-8000-000000000501",
+    "record_name": "PPSU University",
+    "expected": 12044,
+    "actual": 29,
+    "difference": -12015,
+    "impact": "High"
+  },
+  {
+    "category": "University Faculty",
+    "source": "universities.total_faculty",
+    "record_id": "b1a1d1e1-5001-4000-8000-000000000501",
+    "record_name": "PPSU University",
+    "expected": 217,
+    "actual": 4,
+    "difference": -213,
+    "impact": "High"
+  },
+  {
+    "category": "University Students",
+    "source": "universities.total_students",
+    "record_id": "b1a1d1e1-5002-4000-8000-000000000502",
+    "record_name": "PPSU University 2",
+    "expected": 12691,
+    "actual": 21,
+    "difference": -12670,
+    "impact": "High"
+  },
+  {
+    "category": "University Faculty",
+    "source": "universities.total_faculty",
+    "record_id": "b1a1d1e1-5002-4000-8000-000000000502",
+    "record_name": "PPSU University 2",
+    "expected": 429,
+    "actual": 46,
+    "difference": -383,
+    "impact": "High"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "472b9d05-d033-4299-be94-a8760618434b",
+    "record_name": "JavaScript",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "98303e4b-c55f-4920-bd33-24b246e41bd0",
+    "record_name": "React",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "5d287796-5952-452a-ae47-4d07c1b2c51f",
+    "record_name": "Python",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "ab90465a-9388-48fc-8866-a6529dabfdbb",
+    "record_name": "Java",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "57331e59-013a-4c19-bace-0f1edd9035a8",
+    "record_name": "HTML",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "2caf5e40-b03a-428d-bbd5-368215e58d27",
+    "record_name": "CSS",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "320393ca-75fa-4b3c-ad12-d14f863ca2a6",
+    "record_name": "C++",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "980d80e1-5a39-4cc1-b53d-5488fddd68f1",
+    "record_name": "Node.js",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "91685659-f81b-4816-b4fd-46b9bdbc31c9",
+    "record_name": "TypeScript",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "85f1f318-75bc-4e0f-bd0c-241a5043109b",
+    "record_name": "Django",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "a6da73f7-5efc-4f18-9fb4-229909cce9d4",
+    "record_name": "Kotlin",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "e6cb07a7-6d9a-4625-aa51-5603fedc6228",
+    "record_name": "Swift",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "9aac2f49-f727-4cb3-9c2f-51d4ef5c84da",
+    "record_name": "Rust",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "d55a6e0a-ae6e-4116-bd8b-a5082a1faa44",
+    "record_name": "Ruby",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "094a55fd-77e6-4493-8b1b-a51c5080265c",
+    "record_name": "Scala",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "7c37b817-924f-4a09-aaa2-17b9009973eb",
+    "record_name": "Matlab",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "f700d6c8-415f-468d-90e4-e2c323c067ed",
+    "record_name": "R",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "ad230494-29bd-46c7-be8c-9c1f666d0ffd",
+    "record_name": "Excel",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "689c2def-3ce7-4fbb-a301-616740dd2b0e",
+    "record_name": "PowerPoint",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "3ba565a8-5ea8-42c4-a57b-aed033e41761",
+    "record_name": "Word",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "6a2f573a-a4b5-4b31-b437-1fc552988e78",
+    "record_name": "Access",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "19aa87c2-2a95-4409-ae16-71954983b710",
+    "record_name": "Outlook",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "e7f999ed-19ef-4962-a305-bb663cf30db8",
+    "record_name": "Teams",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "31581713-e4c6-42ed-a0f3-4cc24eb12be5",
+    "record_name": "Zoom",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "d70e02af-8af5-47ab-9833-9b254d3d05d1",
+    "record_name": "Slack",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "968c6215-2619-4f4f-92e1-98ae669b8c22",
+    "record_name": "Trello",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "f6356865-0a6f-4c05-8dad-5446b522bec8",
+    "record_name": "Jira",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "7320d4c4-0fd6-49c9-8862-1d93251709fe",
+    "record_name": "Git",
+    "expected": 6,
+    "actual": 1,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "79cbf429-3a50-4c84-b552-bf9cc882306f",
+    "record_name": "GitHub",
+    "expected": 5,
+    "actual": 1,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "2cfb1cfa-b807-40d5-a509-f8ce8cfe607c",
+    "record_name": "Bitbucket",
+    "expected": 4,
+    "actual": 1,
+    "difference": -3,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "0b111d5c-5061-4a0e-a9b7-a5233f29644a",
+    "record_name": "Docker",
+    "expected": 3,
+    "actual": 1,
+    "difference": -2,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "40103782-2bd1-4912-b8e1-58452609f4e0",
+    "record_name": "Kubernetes",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "e59f5014-43cf-4147-848e-dc36488d5f2c",
+    "record_name": "AWS",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "4aea8462-3b1d-4eef-a76e-ef0048d6e582",
+    "record_name": "Azure",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "8ca4edc9-27cf-4501-a6b9-1b5346fd5904",
+    "record_name": "GCP",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "4b6f4306-e99e-4483-86dc-8a6d73200792",
+    "record_name": "Linux",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "03bee7a6-1a8e-42e7-bc20-e812e89a64e0",
+    "record_name": "Windows",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "c4eede20-d820-4872-89c0-3c4cf3d68faa",
+    "record_name": "MacOS",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "d9c43a4d-ad2c-459e-b158-7be03024d3e4",
+    "record_name": "Android",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "1824f915-635e-4777-b636-831225f67821",
+    "record_name": "iOS",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "1c461407-0e61-44db-92c3-f3e6ddc1de30",
+    "record_name": "Firebase",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Skill Endorsements",
+    "source": "user_skills.endorsements",
+    "record_id": "2bf7d2eb-8227-43ab-8f39-08f7f599c0e3",
+    "record_name": "Heroku",
+    "expected": 2,
+    "actual": 1,
+    "difference": -1,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "226b31a8-8c8b-44df-8332-b141f6909bb2",
+    "record_name": "Frontend Developer",
+    "expected": 12,
+    "actual": 2,
+    "difference": -10,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "63c1b239-0696-4ec4-92a8-acaaa44d18f3",
+    "record_name": "Backend Engineer",
+    "expected": 8,
+    "actual": 2,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "93933cf6-9a39-432b-834e-1a3cd67d9577",
+    "record_name": "Data Analyst",
+    "expected": 10,
+    "actual": 2,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "699b0393-9ee8-4d59-a807-10df0f72294f",
+    "record_name": "Cloud Architect",
+    "expected": 6,
+    "actual": 2,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "2ad8e3df-e5ed-4c5c-a761-bd2e7efe1484",
+    "record_name": "Financial Analyst",
+    "expected": 9,
+    "actual": 2,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "4fccf0fe-02df-46b4-ade4-5539e91eb5a5",
+    "record_name": "Education Consultant",
+    "expected": 5,
+    "actual": 2,
+    "difference": -3,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "c34ad9b0-4646-4c00-9c07-3eebe1b4870f",
+    "record_name": "Healthcare Data Scientist",
+    "expected": 7,
+    "actual": 2,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "060a8795-8270-4406-abff-d0b6d4984fe8",
+    "record_name": "Sustainability Analyst",
+    "expected": 8,
+    "actual": 2,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "a2698dc3-0a78-42d5-8e1e-a459125654e3",
+    "record_name": "E-commerce Manager",
+    "expected": 11,
+    "actual": 2,
+    "difference": -9,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "83585ed2-1a6f-47bc-a687-56dda1106945",
+    "record_name": "Mechanical Engineer",
+    "expected": 6,
+    "actual": 2,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "f311c5e8-c692-4bea-b407-2c0a7bdcfb0e",
+    "record_name": "Biotech Researcher",
+    "expected": 7,
+    "actual": 2,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "090e537a-5645-48f2-b583-c6ea2e5eb546",
+    "record_name": "Marketing Specialist",
+    "expected": 10,
+    "actual": 2,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "14fc0a5f-ea02-495f-b992-77429453b76f",
+    "record_name": "Cybersecurity Analyst",
+    "expected": 8,
+    "actual": 2,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "87530234-f36f-4dc9-88fa-1c919341de8e",
+    "record_name": "Civil Engineer",
+    "expected": 9,
+    "actual": 2,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "275677f9-3c22-4cc0-bbfc-c9c15fc1ddc8",
+    "record_name": "Agricultural Scientist",
+    "expected": 6,
+    "actual": 2,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "cac7f3cf-4580-4c9b-9a32-200f297f5c7d",
+    "record_name": "Travel Consultant",
+    "expected": 5,
+    "actual": 2,
+    "difference": -3,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "f86b4e40-8d49-4fc9-8a00-138beda0113c",
+    "record_name": "Food Scientist",
+    "expected": 7,
+    "actual": 2,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "d4f3ec23-527f-432f-b597-cea04aa90e51",
+    "record_name": "Content Creator",
+    "expected": 8,
+    "actual": 2,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "6f618fff-0717-4929-bda4-b835edceede4",
+    "record_name": "Legal Associate",
+    "expected": 6,
+    "actual": 2,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "a6b1e8cb-25b5-4fd8-92f7-da67dc51b11b",
+    "record_name": "Urban Planner",
+    "expected": 7,
+    "actual": 2,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "8d2f129c-d0b4-4844-bcc5-2f7ada1397d5",
+    "record_name": "Mobile Developer",
+    "expected": 9,
+    "actual": 2,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "72310bef-603b-4aaa-9ddb-735e927f35a9",
+    "record_name": "DevOps Engineer",
+    "expected": 8,
+    "actual": 2,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "c474e87c-53e7-4628-9df9-888c520ae858",
+    "record_name": "Business Intelligence Analyst",
+    "expected": 10,
+    "actual": 2,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "ce86d8d2-80ac-44c0-901d-a58b56b3c71f",
+    "record_name": "Cloud Engineer",
+    "expected": 6,
+    "actual": 2,
+    "difference": -4,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "11758670-72a6-460e-9b75-2b886f9e394c",
+    "record_name": "Accountant",
+    "expected": 9,
+    "actual": 2,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "7eddbfc4-a130-4ef5-ab4e-8d6d508815a6",
+    "record_name": "Instructional Designer",
+    "expected": 5,
+    "actual": 0,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "eb58a61d-c3be-4da4-8419-c9ee773d1b8e",
+    "record_name": "Clinical Data Manager",
+    "expected": 7,
+    "actual": 0,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "a2873b72-a7a2-415d-8d77-a17c674532bc",
+    "record_name": "Environmental Engineer",
+    "expected": 8,
+    "actual": 0,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "30df5694-c37b-48ad-b28e-7098e832befc",
+    "record_name": "Digital Marketing Manager",
+    "expected": 11,
+    "actual": 0,
+    "difference": -11,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "7a19e193-c015-4751-b300-c4cc1650aa4f",
+    "record_name": "Automotive Designer",
+    "expected": 6,
+    "actual": 0,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "4364ae7a-8dae-442f-b2f0-4eefafc631d6",
+    "record_name": "Lab Technician",
+    "expected": 7,
+    "actual": 0,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "e7b78f88-cb9a-4e56-b784-ff60e8c86709",
+    "record_name": "Brand Manager",
+    "expected": 10,
+    "actual": 0,
+    "difference": -10,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "49b33e99-0b8e-4019-bd6b-c0ca11f61e91",
+    "record_name": "Network Engineer",
+    "expected": 8,
+    "actual": 0,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "9cdc4c52-d084-48b8-a4b0-dbf638e52c3f",
+    "record_name": "Site Supervisor",
+    "expected": 9,
+    "actual": 0,
+    "difference": -9,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "16f05e3c-5225-4eb5-ad8c-686f3c7d86bb",
+    "record_name": "Farm Manager",
+    "expected": 6,
+    "actual": 0,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "baced468-9e62-41ac-8434-128830bb80c0",
+    "record_name": "Tour Guide",
+    "expected": 5,
+    "actual": 0,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "3dd76ee1-8f7e-4474-982c-f12ee7535530",
+    "record_name": "Quality Assurance Analyst",
+    "expected": 7,
+    "actual": 0,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "a420d005-2dd2-4abb-abd1-02ac9e97a330",
+    "record_name": "Video Editor",
+    "expected": 8,
+    "actual": 0,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "0e24dfd1-2247-4392-a6ba-25e17e371528",
+    "record_name": "Paralegal",
+    "expected": 6,
+    "actual": 0,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "1503a735-212c-472a-8aec-93b9a1d9e45c",
+    "record_name": "GIS Analyst",
+    "expected": 7,
+    "actual": 0,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "1fcf36c4-3f82-4374-8c19-dde6c64a71f0",
+    "record_name": "QA Engineer",
+    "expected": 12,
+    "actual": 0,
+    "difference": -12,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "c6f30310-453f-438e-96ad-dd2452d0c8a1",
+    "record_name": "Product Manager",
+    "expected": 8,
+    "actual": 0,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "b92483a1-96bb-4092-880c-830fd2cc74dd",
+    "record_name": "Database Administrator",
+    "expected": 10,
+    "actual": 0,
+    "difference": -10,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "0bcd626a-f387-49b8-8752-f73c469a59df",
+    "record_name": "DevOps Specialist",
+    "expected": 6,
+    "actual": 0,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "4c988121-ecbf-491e-8e6b-18e860b65473",
+    "record_name": "Financial Planner",
+    "expected": 9,
+    "actual": 0,
+    "difference": -9,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "4c049a80-961d-4612-ab0a-48d90bc63e01",
+    "record_name": "Academic Advisor",
+    "expected": 5,
+    "actual": 0,
+    "difference": -5,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "24fab086-28ff-45d5-8889-15039eaea0b8",
+    "record_name": "Medical Writer",
+    "expected": 7,
+    "actual": 0,
+    "difference": -7,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "55d8df69-8abb-4762-b0d6-95e00d15e993",
+    "record_name": "Renewable Energy Engineer",
+    "expected": 8,
+    "actual": 0,
+    "difference": -8,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "1df78374-2710-469f-aa2b-198b2bfaa11a",
+    "record_name": "Operations Manager",
+    "expected": 11,
+    "actual": 0,
+    "difference": -11,
+    "impact": "Low"
+  },
+  {
+    "category": "Job Applications",
+    "source": "jobs.applications_count",
+    "record_id": "43daf8e3-15ea-4377-8652-377905d09081",
+    "record_name": "Production Supervisor",
+    "expected": 6,
+    "actual": 0,
+    "difference": -6,
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0001-4000-8000-000000000001",
+    "record_name": "stu-0001",
+    "expected": "3.97",
+    "actual": "3.85",
+    "difference": "-0.12",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0002-4000-8000-000000000002",
+    "record_name": "stu-0002",
+    "expected": "3.29",
+    "actual": "3.65",
+    "difference": "0.36",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0003-4000-8000-000000000003",
+    "record_name": "stu-0003",
+    "expected": "2.52",
+    "actual": "3.92",
+    "difference": "1.40",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0004-4000-8000-000000000004",
+    "record_name": "stu-0004",
+    "expected": "3.52",
+    "actual": "3.40",
+    "difference": "-0.12",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0006-4000-8000-000000000006",
+    "record_name": "stu-0006",
+    "expected": "2.85",
+    "actual": "3.60",
+    "difference": "0.75",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0007-4000-8000-000000000007",
+    "record_name": "stu-0007",
+    "expected": "3.09",
+    "actual": "3.90",
+    "difference": "0.81",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0008-4000-8000-000000000008",
+    "record_name": "stu-0008",
+    "expected": "3.81",
+    "actual": "3.35",
+    "difference": "-0.46",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0009-4000-8000-000000000009",
+    "record_name": "stu-0009",
+    "expected": "2.74",
+    "actual": "3.88",
+    "difference": "1.14",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0010-4000-8000-000000000010",
+    "record_name": "stu-0010",
+    "expected": "3.01",
+    "actual": "3.62",
+    "difference": "0.61",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0011-4000-8000-000000000011",
+    "record_name": "stu-0011",
+    "expected": "2.71",
+    "actual": "3.95",
+    "difference": "1.24",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0012-4000-8000-000000000012",
+    "record_name": "stu-0012",
+    "expected": "3.80",
+    "actual": "3.45",
+    "difference": "-0.35",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0013-4000-8000-000000000013",
+    "record_name": "stu-0013",
+    "expected": "3.18",
+    "actual": "3.82",
+    "difference": "0.64",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0014-4000-8000-000000000014",
+    "record_name": "stu-0014",
+    "expected": "3.23",
+    "actual": "3.67",
+    "difference": "0.44",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0015-4000-8000-000000000015",
+    "record_name": "stu-0015",
+    "expected": "3.37",
+    "actual": "3.93",
+    "difference": "0.56",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0016-4000-8000-000000000016",
+    "record_name": "stu-0016",
+    "expected": "3.50",
+    "actual": "3.38",
+    "difference": "-0.12",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0017-4000-8000-000000000017",
+    "record_name": "stu-0017",
+    "expected": "2.87",
+    "actual": "3.86",
+    "difference": "0.99",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0018-4000-8000-000000000018",
+    "record_name": "stu-0018",
+    "expected": "3.98",
+    "actual": "3.63",
+    "difference": "-0.35",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0019-4000-8000-000000000019",
+    "record_name": "stu-0019",
+    "expected": "2.71",
+    "actual": "3.91",
+    "difference": "1.20",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0020-4000-8000-000000000020",
+    "record_name": "stu-0020",
+    "expected": "3.16",
+    "actual": "3.42",
+    "difference": "0.26",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0021-4000-8000-000000000021",
+    "record_name": "stu-0021",
+    "expected": "2.61",
+    "actual": "3.87",
+    "difference": "1.26",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0022-4000-8000-000000000022",
+    "record_name": "stu-0022",
+    "expected": "2.60",
+    "actual": "3.65",
+    "difference": "1.05",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0023-4000-8000-000000000023",
+    "record_name": "stu-0023",
+    "expected": "3.59",
+    "actual": "3.94",
+    "difference": "0.35",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0024-4000-8000-000000000024",
+    "record_name": "stu-0024",
+    "expected": "2.84",
+    "actual": "3.36",
+    "difference": "0.52",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0025-4000-8000-000000000025",
+    "record_name": "stu-0025",
+    "expected": "2.95",
+    "actual": "3.89",
+    "difference": "0.94",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0027-4000-8000-000000000027",
+    "record_name": "stu-0027",
+    "expected": "3.31",
+    "actual": "3.96",
+    "difference": "0.65",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0028-4000-8000-000000000028",
+    "record_name": "stu-0028",
+    "expected": "2.57",
+    "actual": "3.39",
+    "difference": "0.82",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0029-4000-8000-000000000029",
+    "record_name": "stu-0029",
+    "expected": "3.45",
+    "actual": "3.90",
+    "difference": "0.45",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0030-4000-8000-000000000030",
+    "record_name": "stu-0030",
+    "expected": "2.98",
+    "actual": "3.70",
+    "difference": "0.72",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0031-4000-8000-000000000031",
+    "record_name": "stu-0031",
+    "expected": "2.82",
+    "actual": "3.97",
+    "difference": "1.15",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0032-4000-8000-000000000032",
+    "record_name": "stu-0032",
+    "expected": "2.80",
+    "actual": "3.41",
+    "difference": "0.61",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0033-4000-8000-000000000033",
+    "record_name": "stu-0033",
+    "expected": "2.71",
+    "actual": "3.91",
+    "difference": "1.20",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0034-4000-8000-000000000034",
+    "record_name": "stu-0034",
+    "expected": "2.89",
+    "actual": "3.72",
+    "difference": "0.83",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0035-4000-8000-000000000035",
+    "record_name": "stu-0035",
+    "expected": "2.67",
+    "actual": "3.98",
+    "difference": "1.31",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0036-4000-8000-000000000036",
+    "record_name": "stu-0036",
+    "expected": "2.80",
+    "actual": "3.44",
+    "difference": "0.64",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0037-4000-8000-000000000037",
+    "record_name": "stu-0037",
+    "expected": "3.04",
+    "actual": "3.93",
+    "difference": "0.89",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0038-4000-8000-000000000038",
+    "record_name": "stu-0038",
+    "expected": "3.50",
+    "actual": "3.74",
+    "difference": "0.24",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0039-4000-8000-000000000039",
+    "record_name": "stu-0039",
+    "expected": "3.22",
+    "actual": "3.99",
+    "difference": "0.77",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0040-4000-8000-000000000040",
+    "record_name": "stu-0040",
+    "expected": "3.85",
+    "actual": "3.47",
+    "difference": "-0.38",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0041-4000-8000-000000000041",
+    "record_name": "stu-0041",
+    "expected": "2.60",
+    "actual": "3.95",
+    "difference": "1.35",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0042-4000-8000-000000000042",
+    "record_name": "stu-0042",
+    "expected": "3.92",
+    "actual": "3.77",
+    "difference": "-0.15",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0043-4000-8000-000000000043",
+    "record_name": "stu-0043",
+    "expected": "3.56",
+    "actual": "3.96",
+    "difference": "0.40",
+    "impact": "Low"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0044-4000-8000-000000000044",
+    "record_name": "stu-0044",
+    "expected": "2.95",
+    "actual": "3.50",
+    "difference": "0.55",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0045-4000-8000-000000000045",
+    "record_name": "stu-0045",
+    "expected": "2.61",
+    "actual": "3.97",
+    "difference": "1.36",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0046-4000-8000-000000000046",
+    "record_name": "stu-0046",
+    "expected": "3.08",
+    "actual": "3.79",
+    "difference": "0.71",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0047-4000-8000-000000000047",
+    "record_name": "stu-0047",
+    "expected": "3.40",
+    "actual": "3.98",
+    "difference": "0.58",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0048-4000-8000-000000000048",
+    "record_name": "stu-0048",
+    "expected": "2.99",
+    "actual": "3.53",
+    "difference": "0.54",
+    "impact": "Medium"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0049-4000-8000-000000000049",
+    "record_name": "stu-0049",
+    "expected": "2.65",
+    "actual": "3.99",
+    "difference": "1.34",
+    "impact": "High"
+  },
+  {
+    "category": "Student GPA",
+    "source": "students vs transcripts.gpa/cumulative_gpa",
+    "record_id": "b1a1d1e1-0050-4000-8000-000000000050",
+    "record_name": "stu-0050",
+    "expected": "3.57",
+    "actual": "3.81",
+    "difference": "0.24",
+    "impact": "Low"
+  }
+]

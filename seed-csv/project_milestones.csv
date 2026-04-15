@@ -1,0 +1,51 @@
+id,milestone_id,project_id,title,description,due_date,completed,completed_at,created_at
+32b165de-532b-4cf8-8281-509a6b300058,mil-0001,40a0b2af-cbbe-42e5-80e4-73ff2b4e45a9,Prototype Complete,Initial prototype ready for review.,2024-02-20,true,2024-02-19,2024-01-25T09:00:00Z
+80e84e0c-7b48-47cc-a6cd-3e997b64f69d,mil-0002,ddccfe6e-e073-4145-9139-cb9c9c9d95e3,Final Report,Submit final project report.,2024-03-10,false,,2024-01-25T09:00:00Z
+f731c312-fa35-4384-ba27-d448385943b6,mil-0003,b964f7ce-ad58-4350-bd62-59920701d12a,Design Review,Review project design with mentor.,2024-02-25,true,2024-02-24,2024-01-26T09:00:00Z
+71931348-2bee-42d5-875e-bcb7b4e714c9,mil-0004,2a528521-3505-4c3b-b5df-b7e3fff80ee5,Code Freeze,All code must be finalized.,2024-03-01,false,,2024-01-27T09:00:00Z
+30cb5a97-0041-4aeb-a028-46557f59d991,mil-0005,1a7f5907-8fab-4df0-9ee2-27a0fabab0a2,Testing Phase,Begin comprehensive testing.,2024-03-05,false,,2024-01-28T09:00:00Z
+69fa94db-9154-40dc-81c9-76c253e95661,mil-0006,b788960f-12c0-42de-92c4-1e164e7a1063,Documentation Complete,All documentation submitted.,2024-03-10,true,2024-03-09,2024-01-29T09:00:00Z
+4d1d8b35-7aa7-4a13-95d5-6c5b1a591782,mil-0007,ab18eb41-e66b-4419-9793-f8361fd7f28b,Demo Scheduled,Project demo scheduled with faculty.,2024-03-15,false,,2024-01-30T09:00:00Z
+fb87114f-7d78-461d-97bd-829a90d9fa76,mil-0008,00438081-8697-4b88-b23f-9fbc190a7561,Peer Review,Peer review session completed.,2024-03-20,true,2024-03-19,2024-01-31T09:00:00Z
+57a5b8a3-9eb6-4164-9571-8bd1fbf6a2a7,mil-0009,f44addf8-81c8-4e34-ba82-68ca0cc1e68c,Deployment,Deploy project to production.,2024-03-25,false,,2024-02-01T09:00:00Z
+7ad59805-3a06-4326-a18d-49b08d9bf81f,mil-0010,6e602842-7cdf-437d-b0cd-5b17d60b07e5,Feedback Incorporated,Incorporate feedback from demo.,2024-03-30,true,2024-03-29,2024-02-02T09:00:00Z
+34066db2-d5b2-47ec-addb-ea3bd0939383,mil-0011,36c662c1-ecfc-4463-99ff-a4088e908aea,Initial Planning,Project plan finalized.,2024-02-10,true,2024-02-09,2024-02-03T09:00:00Z
+860b65a8-4231-438b-8c27-9a60097161a6,mil-0012,8d5bf9a3-0301-4301-a2e5-1371a2721cd8,Requirements Gathering,Requirements documented.,2024-02-15,false,,2024-02-04T09:00:00Z
+7db4b16c-8c0b-4b59-a2a8-551f3d415bdd,mil-0013,169aab18-81df-47ed-8b6d-3b593da17da6,Prototype Demo,Prototype demo completed.,2024-02-20,true,2024-02-19,2024-02-05T09:00:00Z
+df77d53d-efb0-4515-afab-8426ee987c95,mil-0014,7a449346-a383-4b09-a89f-60a949fdd542,Code Review,Code reviewed by mentor.,2024-02-25,false,,2024-02-06T09:00:00Z
+62925ed6-e4c1-48d3-896b-7ce55a3d6e0b,mil-0015,f371c54d-9110-47f7-89ca-475f23d8861e,Testing Complete,All tests passed.,2024-03-01,true,2024-02-28,2024-02-07T09:00:00Z
+5166dbae-612d-4b8a-8826-cae2064a0d48,mil-0016,48f38141-52ce-485c-9c28-3dd7c4afc8cc,Final Submission,Project submitted for grading.,2024-03-05,false,,2024-02-08T09:00:00Z
+db0dcde0-4825-414d-a1b6-5b1e811d3f0e,mil-0017,e62c8235-e6a4-4fe5-9325-b9aa6cbec614,Presentation Scheduled,Presentation date confirmed.,2024-03-10,true,2024-03-09,2024-02-09T09:00:00Z
+b23b7d63-a91c-4845-96d1-4e14f6293d9c,mil-0018,d0113536-d7cb-43fb-a4e7-c6ac0edc3696,Peer Feedback,Peer feedback received.,2024-03-15,false,,2024-02-10T09:00:00Z
+8354c57d-5693-4c3e-b1b8-675d7a4c1c49,mil-0019,028f7906-8524-4010-81c6-9919906e4112,Deployment Review,Deployment reviewed by admin.,2024-03-20,true,2024-03-19,2024-02-11T09:00:00Z
+7267b520-5069-42a6-a87b-6e75cefa028e,mil-0020,aae86052-c43a-4822-bf90-b77651efcc20,Retrospective,Project retrospective held.,2024-03-25,false,,2024-02-12T09:00:00Z
+3f4b1169-4305-4ac6-9ca7-a4ed29bd775f,mil-0021,29406dc2-76e7-4b4f-9ed5-1607c24c3a2c,Initial Setup,Project setup completed.,2024-02-13,true,2024-02-12,2024-02-13T09:00:00Z
+88d1f0a9-035f-4c72-a37b-48d8eb8a5972,mil-0022,e2e162ef-41c2-4358-a5b9-fe92e2d5e601,Requirements Finalized,Requirements finalized with client.,2024-02-18,false,,2024-02-14T09:00:00Z
+6f3bf623-f5ba-487f-a912-08d6864ef88f,mil-0023,efd76bd9-f7fa-4ecf-9b08-ee1b8a39026d,Prototype Built,Prototype built and tested.,2024-02-23,true,2024-02-22,2024-02-15T09:00:00Z
+6dabaa0f-42f6-4635-b991-f5a2dc8caa34,mil-0024,3a902ddf-feda-49e6-8f3f-411cab2aa2c3,Code Optimization,Code optimized for performance.,2024-02-28,false,,2024-02-16T09:00:00Z
+ea8aff21-4a31-4c2c-a24e-c12ec50d24e3,mil-0025,42bed186-f561-4511-b167-706cbc85a140,Testing Started,Testing phase started.,2024-03-05,true,2024-03-04,2024-02-17T09:00:00Z
+4378a801-afa1-4340-ba45-730d2e29726b,mil-0026,cbeb31bd-c102-4700-ad3c-52939c7d46e6,Documentation Drafted,Draft documentation submitted.,2024-03-10,false,,2024-02-18T09:00:00Z
+05bd25c7-95fc-4e7d-a5c3-55766ccd3f6a,mil-0027,8f7f9aae-d5e3-4fdb-988c-cc8220949333,Demo Completed,Demo completed for stakeholders.,2024-03-15,true,2024-03-14,2024-02-19T09:00:00Z
+d9e39e2b-c926-435f-bd81-ec79a6bcb1f0,mil-0028,39b0eff5-72c6-4d06-bbbe-35c304a1e953,Peer Review Scheduled,Peer review scheduled.,2024-03-20,false,,2024-02-20T09:00:00Z
+7f193016-d42b-473a-b729-6ea4e87a5f7b,mil-0029,664ebe9e-0067-4286-b20c-b286626b0361,Deployment Initiated,Deployment process started.,2024-03-25,true,2024-03-24,2024-02-21T09:00:00Z
+424819f8-517a-4b84-8ad1-048668663f31,mil-0030,e889ae95-78a0-46ee-b446-6fb2374b539d,Feedback Session,Feedback session held.,2024-03-30,false,,2024-02-22T09:00:00Z
+ff0da670-a848-4833-9106-927c48c3ae4c,mil-0031,6acae811-0169-4c1f-b3ef-639dee3427c5,Planning Meeting,Initial planning meeting held.,2024-02-23,true,2024-02-22,2024-02-23T09:00:00Z
+6ad66c65-61a9-4b90-b297-ca15397fc47d,mil-0032,5538e431-ad7e-456f-ad73-e3f8d627a7e6,Requirements Review,Requirements reviewed by team.,2024-02-28,false,,2024-02-24T09:00:00Z
+f564aaae-3edc-4365-aec8-4a7f8c32f77a,mil-0033,13f86c83-ce4d-443d-8c3c-b48c4f5328da,Prototype Presented,Prototype presented to client.,2024-03-05,true,2024-03-04,2024-02-25T09:00:00Z
+775e2bac-c52b-459e-8e2f-5abbe0646dc3,mil-0034,dd21aee7-2ff3-4868-80bf-3d0d34ecfa83,Code Refactored,Code refactored for maintainability.,2024-03-10,false,,2024-02-26T09:00:00Z
+8744e6a4-bc43-4dc3-9789-ab28e7094fe7,mil-0035,106d4ee7-9bcb-436a-83bc-341f68ec27b2,Testing Finalized,Final testing completed.,2024-03-15,true,2024-03-14,2024-02-27T09:00:00Z
+4e77d5bd-3a4c-44e8-b399-24416ff490a7,mil-0036,86136b3c-d7e6-4f06-aef2-de05ad5cc90b,Submission Ready,Project ready for submission.,2024-03-20,false,,2024-02-28T09:00:00Z
+06cc483c-4759-4ab9-8689-f37e4e549369,mil-0037,db0df0c1-9649-402a-89f4-5881932af9d0,Presentation Held,Project presentation held.,2024-03-25,true,2024-03-24,2024-02-29T09:00:00Z
+21fb4e1e-8f99-4c2d-a0ca-03dc288924a1,mil-0038,3650c209-651a-4465-9908-d9d3cfe10fd3,Peer Feedback Incorporated,Peer feedback incorporated.,2024-03-30,false,,2024-03-01T09:00:00Z
+710daaf6-bf12-4dea-a877-8655b0875499,mil-0039,acb7ce78-1fa9-4325-833a-3c0a3ae09abc,Deployment Finalized,Deployment finalized.,2024-04-04,true,2024-04-03,2024-03-02T09:00:00Z
+db37044e-6205-4e77-81a5-a6310148313c,mil-0040,d5aeafec-9971-42cc-86f8-650194643a2d,Retrospective Completed,Retrospective completed.,2024-04-09,false,,2024-03-03T09:00:00Z
+1c81b0a4-db18-4523-ab38-ffc747f48823,mil-0041,4e3bff1a-9996-419a-a243-27e0277e4699,Initial Setup Done,Initial setup done.,2024-03-04,true,2024-03-03,2024-03-04T09:00:00Z
+e102eb1f-8270-423f-8fef-e971a04a7a85,mil-0042,d98b2bf6-539f-4c41-90a7-0da71d4b812a,Requirements Confirmed,Requirements confirmed with client.,2024-03-09,false,,2024-03-05T09:00:00Z
+33954a1f-7df1-4885-b077-000f555e5f8b,mil-0043,6d583dad-6eb8-4358-a2d7-efda0f4807c3,Prototype Finalized,Prototype finalized.,2024-03-14,true,2024-03-13,2024-03-06T09:00:00Z
+dcf3721f-9996-44bb-8b19-4d50356a6ce2,mil-0044,44af383c-e4d2-4fcc-b65d-66d5f24de459,Code Optimized,Code optimized for speed.,2024-03-19,false,,2024-03-07T09:00:00Z
+5c01bfcc-d98c-457a-adbc-c53b365dee00,mil-0045,3633a092-a70f-48e1-8cca-44de532bb3fd,Testing Completed,Testing completed.,2024-03-24,true,2024-03-23,2024-03-08T09:00:00Z
+c6eb5e75-8a66-4645-838e-fb04dc5b6113,mil-0046,fc520a3e-0657-4270-b3a4-2170d16dca0b,Documentation Finalized,Documentation finalized.,2024-03-29,false,,2024-03-09T09:00:00Z
+3d93fb91-7b57-4054-90b3-05c58c0f367c,mil-0047,65f47b2e-4442-4f9f-8f10-e08bad7ff2b1,Demo Held,Demo held for faculty.,2024-04-03,true,2024-04-02,2024-03-10T09:00:00Z
+5a71e03d-ba72-4022-b2dd-eece2810afc3,mil-0048,7d837235-4159-46d3-977c-5671dfcc8856,Peer Review Done,Peer review done.,2024-04-08,false,,2024-03-11T09:00:00Z
+bced6841-b6c5-47a1-9f5c-5c24b75c3eb4,mil-0049,6dd07a5f-18cb-4f27-bbfe-0c29b8e417dc,Deployment Done,Deployment done.,2024-04-13,true,2024-04-12,2024-03-12T09:00:00Z
+250d149d-2710-4685-bff1-a5fa2ac1b179,mil-0050,2a5643ed-63c5-41d6-b7a6-d47d55c50363,Retrospective Held,Retrospective held.,2024-04-18,false,,2024-03-13T09:00:00Z

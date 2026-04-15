@@ -1,0 +1,608 @@
+{
+  "picture": {
+    "hidden": false,
+    "url": "https://sophiamartin.dev",
+    "size": 80,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 0,
+    "borderColor": "rgba(0, 0, 0, 0.5)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0.5)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Sophia Martin",
+    "headline": "Senior Software Engineer | Full Stack | Cloud-Native Systems",
+    "email": "sophia.martin@harbor.edu",
+    "phone": "+1 415 555 0198",
+    "location": "San Francisco, California, USA",
+    "website": {
+      "url": "",
+      "label": ""
+    },
+    "customFields": []
+  },
+  "summary": {
+    "title": "",
+    "columns": 1,
+    "hidden": false,
+    "content": "<p>Senior software engineer with 6+ years of experience building high-scale SaaS platforms across education, fintech, and developer tooling. Strong track record in shipping resilient distributed systems, reducing cloud spend, and leading cross-functional delivery. Passionate about clean architecture, product-thinking, and mentoring early-career engineers.</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d758e-5e0f-762e-9726-eef8459245e3",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "acorn",
+          "network": "LinkedIn",
+          "username": "sophia-martin-engineer",
+          "website": {
+            "url": "",
+            "label": ""
+          }
+        },
+        {
+          "id": "019d758e-715d-7121-8a3f-2d58c54df86a",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "acorn",
+          "network": "GitHub",
+          "username": "sophiamartin-dev",
+          "website": {
+            "url": "",
+            "label": ""
+          }
+        },
+        {
+          "id": "019d758e-7fd0-763c-94a9-e2b59d257db0",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "acorn",
+          "network": "Portfolio",
+          "username": "sophiamartin.dev",
+          "website": {
+            "url": "",
+            "label": ""
+          }
+        },
+        {
+          "id": "019d758e-8fa7-71cb-b35c-99f9fdf3e933",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "acorn",
+          "network": "LeetCode",
+          "username": "sophia_codes",
+          "website": {
+            "url": "",
+            "label": ""
+          }
+        }
+      ]
+    },
+    "experience": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d758f-3a38-7218-92a0-ad06f280576a",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Harbor Labs",
+          "position": "Senior Software Engineer",
+          "location": "San Francisco, CA",
+          "period": "Jul 2023 - Present",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "",
+          "roles": []
+        },
+        {
+          "id": "019d758f-6036-763a-bf9b-7eb96a6949d4",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "NovaStack Technologies",
+          "position": "Software Engineer II",
+          "location": "Remote",
+          "period": "Jan 2021 - Jun 2023",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "",
+          "roles": []
+        },
+        {
+          "id": "019d758f-873b-7404-b945-1f37bf9f1975",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "ByteBridge Solutions",
+          "position": "Software Engineer",
+          "location": "Austin, TX",
+          "period": "Jun 2019 - Dec 2020",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "",
+          "roles": []
+        }
+      ]
+    },
+    "education": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d758f-a7b9-725b-8e61-ca44f9f40c13",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "University of California, Berkeley",
+          "degree": "Master of Science",
+          "area": "Computer Science",
+          "grade": "3.9/4.0",
+          "location": "Berkeley, CA",
+          "period": "2017 - 2019",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d758f-d8d8-712e-82d5-4e993bb62ec7",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "P P Savani University",
+          "degree": "Bachelor of Technology",
+          "area": "Computer Engineering",
+          "grade": "8.8 CGPA",
+          "location": "Surat, India",
+          "period": "2013 - 2017",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "projects": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d7590-06f9-70cf-93d1-7d4d1c575873",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "name": "Harbor Resume Automation",
+          "period": "2026",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d7590-1b8e-742b-ab65-9c7765728622",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "name": "Realtime Student Analytics Platform",
+          "period": "2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d7590-2ff5-75c8-8cf1-911823e9446b",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "name": "Cloud Cost Optimizer",
+          "period": "2024",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d7590-3ff2-73af-a587-3771ec39d14e",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "name": "Campus Placement Portal",
+          "period": "2023",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "skills": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d758e-9b99-73e4-898d-9e3635c1608c",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "TypeScript",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-a7dc-72cf-9ca2-62b62e50df80",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "JavaScript",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-b3e6-7420-821f-570d579dc1c4",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "React",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-bdef-76b3-a211-695b49ef2959",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Next.js",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-c937-768f-9438-2702fe46d47f",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Node.js",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-d33c-779b-81ec-ce01917581a7",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "PostgreSQL",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-dea7-7551-a948-05ac40ff15fd",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Redis",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-e847-737d-9634-ef8b03f0a369",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Docker",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758e-f3c1-7241-887f-3c08911779ea",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Kubernetes",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758f-001c-702f-a60a-62804253f35c",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "AWS",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758f-08a0-7237-b76a-67f4653f7d73",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "CI/CD",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758f-12e3-713c-bfb8-818ef08925b1",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "System Design",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758f-1fda-7249-9ae7-4d8cfc0b9f3b",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "GraphQL",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d758f-2d9f-7399-b9b7-6eb5ba06570b",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "REST APIs",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        }
+      ]
+    },
+    "languages": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d7590-b0b8-7439-8577-23f51a71b4c2",
+          "hidden": false,
+          "language": "English",
+          "fluency": "Native or Bilingual",
+          "level": 0
+        },
+        {
+          "id": "019d7590-ccd5-7448-a28d-7f914d3c98fb",
+          "hidden": false,
+          "language": "Hindi",
+          "fluency": "Native or Bilingual",
+          "level": 0
+        },
+        {
+          "id": "019d7590-e0b5-7249-b485-ba1ab9f79041",
+          "hidden": false,
+          "language": "Spanish",
+          "fluency": "Professional Working Proficiency",
+          "level": 0
+        }
+      ]
+    },
+    "interests": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "awards": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d7590-f738-75c8-8a3c-f7886966c5d8",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Engineering Excellence Award",
+          "awarder": "Harbor Labs",
+          "date": "2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d7591-11b6-711c-be85-c769dfb02de6",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Best Capstone Project",
+          "awarder": "P P Savani University",
+          "date": "2017",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "certifications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d7590-52b1-75bc-84c3-ffa4b9af4b48",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "AWS Certified Solutions Architect - Associate",
+          "issuer": "Amazon Web Services",
+          "date": "2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d7590-752c-7382-8266-3e60157fefd8",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Google Professional Cloud Developer",
+          "issuer": "Google Cloud",
+          "date": "2024",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        },
+        {
+          "id": "019d7590-908d-7522-9c22-ec7e92fc74c0",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "Certified Kubernetes Application Developer",
+          "issuer": "The Linux Foundation",
+          "date": "2024",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "publications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "volunteer": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "references": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    }
+  },
+  "customSections": [],
+  "metadata": {
+    "template": "onyx",
+    "layout": {
+      "sidebarWidth": 35,
+      "pages": [
+        {
+          "fullWidth": false,
+          "main": [
+            "profiles",
+            "summary",
+            "education",
+            "experience",
+            "projects",
+            "volunteer",
+            "references"
+          ],
+          "sidebar": [
+            "skills",
+            "certifications",
+            "awards",
+            "languages",
+            "interests",
+            "publications"
+          ]
+        }
+      ]
+    },
+    "css": {
+      "enabled": false,
+      "value": ""
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 6,
+      "marginX": 14,
+      "marginY": 12,
+      "format": "a4",
+      "locale": "en-US",
+      "hideIcons": false
+    },
+    "design": {
+      "level": {
+        "icon": "star",
+        "type": "circle"
+      },
+      "colors": {
+        "primary": "rgba(220, 38, 38, 1)",
+        "text": "rgba(0, 0, 0, 1)",
+        "background": "rgba(255, 255, 255, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": [
+          "400",
+          "500"
+        ],
+        "fontSize": 10,
+        "lineHeight": 1.5
+      },
+      "heading": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": [
+          "600"
+        ],
+        "fontSize": 14,
+        "lineHeight": 1.5
+      }
+    },
+    "notes": ""
+  }
+}

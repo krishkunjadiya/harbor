@@ -1,0 +1,84 @@
+{
+  "sections": [
+    {
+      "id": "before-interview",
+      "title": "Before the Interview",
+      "description": "Preparation checklist for 24-48 hours before your interview.",
+      "items": [
+        "Read the job description and identify 5 required skills.",
+        "Prepare one STAR story each for leadership, conflict, and failure.",
+        "Revise 2-3 core projects and be ready to explain impact metrics.",
+        "Practice role-specific fundamentals for at least 45 minutes.",
+        "Test camera, microphone, and internet reliability in advance."
+      ],
+      "links": [
+        {
+          "label": "STAR Method Guide",
+          "url": "https://www.themuse.com/advice/star-interview-method"
+        },
+        {
+          "label": "Behavioral Question Prep",
+          "url": "https://www.indeed.com/career-advice/interviewing/behavioral-interview-questions"
+        }
+      ]
+    },
+    {
+      "id": "technical-round",
+      "title": "Technical Round",
+      "description": "How to structure technical answers under time pressure.",
+      "items": [
+        "Clarify constraints and assumptions before coding or designing.",
+        "Explain your approach out loud before implementation.",
+        "Discuss complexity and trade-offs even if not asked.",
+        "Call out edge cases and how your solution handles them.",
+        "Close with test cases and production-readiness checks."
+      ],
+      "links": [
+        {
+          "label": "System Design Primer",
+          "url": "https://github.com/donnemartin/system-design-primer"
+        },
+        {
+          "label": "LeetCode Patterns",
+          "url": "https://seanprashad.com/leetcode-patterns/"
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "title": "Communication and Presence",
+      "description": "Communication habits that improve interviewer confidence.",
+      "items": [
+        "Answer in short structured blocks: context, action, result.",
+        "Use concrete numbers when describing outcomes.",
+        "Pause and think briefly instead of rushing into weak answers.",
+        "Ask one clarifying question when requirements are ambiguous.",
+        "Summarize your final answer in one sentence."
+      ],
+      "links": [
+        {
+          "label": "Technical Communication Tips",
+          "url": "https://www.coursera.org/articles/technical-communication"
+        }
+      ]
+    },
+    {
+      "id": "after-interview",
+      "title": "After the Interview",
+      "description": "Post-interview loop to improve next performance.",
+      "items": [
+        "Write down every question asked within 30 minutes.",
+        "Score your own responses and identify 2 weak topics.",
+        "Send a concise thank-you message within 24 hours.",
+        "Convert mistakes into targeted prep-card topics.",
+        "Schedule your next mock session immediately."
+      ],
+      "links": [
+        {
+          "label": "Follow-up Email Templates",
+          "url": "https://hbr.org/2024/08/how-to-write-an-interview-thank-you-email"
+        }
+      ]
+    }
+  ]
+}

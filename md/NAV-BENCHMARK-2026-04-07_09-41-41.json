@@ -1,0 +1,63 @@
+{
+  "startedAt": "2026-04-07T09:41:41.371Z",
+  "baseUrl": "http://localhost:3000",
+  "role": "recruiter",
+  "org": "techcorp",
+  "repeats": 7,
+  "results": [
+    {
+      "name": "dashboard->applications",
+      "from": "/techcorp/dashboard",
+      "to": "/techcorp/applications",
+      "durations": [
+        8528.189599999998,
+        2571.701000000001,
+        2871.7476999999926,
+        4581.091199999995,
+        24130.353999999992,
+        1857.5701000000117,
+        1256.7225000000035
+      ],
+      "cold": 8528.189599999998,
+      "warmDurations": [
+        2571.701000000001,
+        2871.7476999999926,
+        4581.091199999995,
+        24130.353999999992,
+        1857.5701000000117,
+        1256.7225000000035
+      ],
+      "warmP50": 2571.701000000001,
+      "warmP95": 24130.353999999992,
+      "warmAvg": 6211.531083333332,
+      "warmSamples": 6,
+      "failed": false
+    },
+    {
+      "name": "dashboard->reports",
+      "from": "/techcorp/dashboard",
+      "to": "/techcorp/reports",
+      "durations": [],
+      "cold": null,
+      "warmDurations": [],
+      "warmP50": null,
+      "warmP95": null,
+      "warmAvg": null,
+      "warmSamples": 0,
+      "failed": true
+    },
+    {
+      "name": "dashboard->saved-candidates",
+      "from": "/techcorp/dashboard",
+      "to": "/techcorp/saved-candidates",
+      "durations": [],
+      "cold": null,
+      "warmDurations": [],
+      "warmP50": null,
+      "warmP95": null,
+      "warmAvg": null,
+      "warmSamples": 0,
+      "failed": true
+    }
+  ]
+}

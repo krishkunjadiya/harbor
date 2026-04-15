@@ -1,0 +1,337 @@
+{
+  "picture": {
+    "hidden": false,
+    "url": "",
+    "size": 80,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 0,
+    "borderColor": "rgba(0, 0, 0, 0.5)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0.5)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Sophia Martin 2026-04-09 14:39:57",
+    "headline": "Software Engineer | Full Stack Developer | AI Enthusiast",
+    "email": "sophia.martin@harbor.edu",
+    "phone": "+1 555 010 2024",
+    "location": "San Francisco, CA",
+    "website": {
+      "url": "",
+      "label": ""
+    },
+    "customFields": []
+  },
+  "summary": {
+    "title": "",
+    "columns": 1,
+    "hidden": false,
+    "content": "<p>Results-driven software engineer with strong problem-solving skills, production experience, and a focus on performance and clean architecture.</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d72b0-7228-703d-ab14-bea5d094187b",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "icon": "acorn",
+          "network": "GitHub",
+          "username": "sophiamartin-dev",
+          "website": {
+            "url": "",
+            "label": ""
+          }
+        }
+      ]
+    },
+    "experience": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d7221-15b5-73a8-a635-3051668e4295",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Harbor Labs",
+          "position": "Software Engineer Intern",
+          "location": "Remote",
+          "period": "Jan 2025 - Present",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "",
+          "roles": []
+        },
+        {
+          "id": "019d72b0-a2c9-72c2-97a2-f6f791d01bf0",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "company": "Harbor Labs",
+          "position": "Software Engineer Intern",
+          "location": "Remote",
+          "period": "Jan 2025 - Present",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": "",
+          "roles": []
+        }
+      ]
+    },
+    "education": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d72b0-c5ff-7667-bbd2-edb67eb70877",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "school": "P P Savani University",
+          "degree": "Bachelor of Technology",
+          "area": "Computer Engineering",
+          "grade": "8.8 CGPA",
+          "location": "Surat, India",
+          "period": "2022 - 2026",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "projects": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d72b0-f3b2-7706-9e23-0a674f9370e3",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "name": "Harbor Resume Automation",
+          "period": "2026",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "skills": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d7221-1046-7124-9a7b-a7e1d4243b55",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "TypeScript",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d72b0-8366-7409-8873-51a77f980947",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "TypeScript",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        },
+        {
+          "id": "019d72b0-9259-77e9-85de-51c1aed654af",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "React",
+          "proficiency": "Advanced",
+          "level": 0,
+          "keywords": []
+        }
+      ]
+    },
+    "languages": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d72b1-2156-734b-ad46-b46492bc0192",
+          "hidden": false,
+          "language": "English",
+          "fluency": "Professional Working Proficiency",
+          "level": 0
+        },
+        {
+          "id": "019d72b1-3945-74dc-9971-d6b2164f01dd",
+          "hidden": false,
+          "language": "Hindi",
+          "fluency": "Native",
+          "level": 0
+        }
+      ]
+    },
+    "interests": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d72b1-43cb-706b-bf65-35b0d21c9806",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "System Design",
+          "keywords": []
+        },
+        {
+          "id": "019d72b1-50a2-754d-9730-b30b352048fa",
+          "hidden": false,
+          "icon": "acorn",
+          "name": "Open Source",
+          "keywords": []
+        }
+      ]
+    },
+    "awards": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "certifications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "019d72b1-07c4-7279-ae0f-e18bbe1b8af2",
+          "hidden": false,
+          "options": {
+            "showLinkInTitle": false
+          },
+          "title": "AWS Cloud Practitioner",
+          "issuer": "Amazon Web Services",
+          "date": "2025",
+          "website": {
+            "url": "",
+            "label": ""
+          },
+          "description": ""
+        }
+      ]
+    },
+    "publications": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "volunteer": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    },
+    "references": {
+      "title": "",
+      "columns": 1,
+      "hidden": false,
+      "items": []
+    }
+  },
+  "customSections": [],
+  "metadata": {
+    "template": "onyx",
+    "layout": {
+      "sidebarWidth": 35,
+      "pages": [
+        {
+          "fullWidth": false,
+          "main": [
+            "profiles",
+            "summary",
+            "education",
+            "experience",
+            "projects",
+            "volunteer",
+            "references"
+          ],
+          "sidebar": [
+            "skills",
+            "certifications",
+            "awards",
+            "languages",
+            "interests",
+            "publications"
+          ]
+        }
+      ]
+    },
+    "css": {
+      "enabled": false,
+      "value": ""
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 6,
+      "marginX": 14,
+      "marginY": 12,
+      "format": "a4",
+      "locale": "en-US",
+      "hideIcons": false
+    },
+    "design": {
+      "level": {
+        "icon": "star",
+        "type": "circle"
+      },
+      "colors": {
+        "primary": "rgba(220, 38, 38, 1)",
+        "text": "rgba(0, 0, 0, 1)",
+        "background": "rgba(255, 255, 255, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": [
+          "400",
+          "500"
+        ],
+        "fontSize": 10,
+        "lineHeight": 1.5
+      },
+      "heading": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": [
+          "600"
+        ],
+        "fontSize": 14,
+        "lineHeight": 1.5
+      }
+    },
+    "notes": ""
+  }
+}

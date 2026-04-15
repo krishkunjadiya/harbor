@@ -1,0 +1,29 @@
+flowchart LR
+    STU([Student])
+    REC([Recruiter])
+    UNI([University or Faculty])
+    ADM([Admin])
+
+    UC1((Manage Profile))
+    UC2((Apply to Jobs))
+    UC3((Practice Interviews))
+    UC4((Analyze Resume))
+    UC5((Post Jobs))
+    UC6((Review Applications))
+    UC7((Schedule Interviews))
+    UC8((Generate Reports))
+    UC9((Manage Records and Credentials))
+    UC10((Manage Users and Policies))
+
+    STU --> UC1
+    STU --> UC2
+    STU --> UC3
+    STU --> UC4
+
+    REC --> UC5
+    REC --> UC6
+    REC --> UC7
+    REC --> UC8
+
+    UNI --> UC9
+    ADM --> UC10

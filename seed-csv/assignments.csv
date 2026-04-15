@@ -1,0 +1,51 @@
+id,assignment_id,course_id,title,description,due_date,max_points,weight,assignment_type,created_at
+97a3556f-85cf-49f0-8615-e28ad4f474b3,asg-0001,160946ba-1572-4c7b-8b9b-66855cbdf457,Python Basics,Write Python scripts for basic problems.,2024-02-10,100,0.2,homework,2024-01-25T09:00:00Z
+3d4b4caf-4c1b-40d5-a7f5-2a4443b91cfa,asg-0002,b195e991-faff-4dd5-9a91-1944fb2db3d4,Thermodynamics Lab,Lab report on heat engines.,2024-02-15,50,0.15,lab,2024-01-25T09:00:00Z
+a3ec1bca-994c-416a-8051-94cb65419024,asg-0003,5a775eb4-2678-4004-9e52-0e5c37405b56,Data Structures,Implement linked lists in Python.,2024-02-20,100,0.2,homework,2024-01-26T09:00:00Z
+d46a279c-0e9e-4209-9480-c38fba0c0638,asg-0004,0b2e702f-dac1-4f46-ab73-0f3cbbb62730,Machine Learning,Build a regression model using Python.,2024-02-25,100,0.25,project,2024-01-27T09:00:00Z
+aa92de89-dc2c-464a-9415-b19caf457f75,asg-0005,d18a393c-432e-4571-8355-2eaf96fffd8d,Artificial Intelligence,Create a simple chatbot using NLP.,2024-03-01,100,0.3,project,2024-01-28T09:00:00Z
+942bcceb-a534-4cf1-a0a9-df10ac7df0f6,asg-0006,505a379d-4959-4839-9c82-d6f9e2cec942,Computer Networks,Simulate network traffic using Python.,2024-03-05,100,0.2,lab,2024-01-29T09:00:00Z
+579a92a8-ded6-44ca-8da6-0003dac9b349,asg-0007,04529923-fe19-4cbc-91eb-415ef6e3850d,Web Development,Build a portfolio website using HTML/CSS.,2024-03-10,100,0.2,project,2024-01-30T09:00:00Z
+cc9da4cf-51d3-4a84-994f-c3129f4e159c,asg-0008,ede3ceab-5821-420b-9584-187a3fd3f3b4,Database Systems,Design a relational schema for a database.,2024-03-15,100,0.25,project,2024-01-31T09:00:00Z
+ffae7ce7-e487-46d0-a0b5-aa52165aff33,asg-0009,a74bc1d4-71ba-4f1d-9bb4-86fe12e90fcd,Operating Systems,Implement process scheduling algorithms.,2024-03-20,100,0.2,homework,2024-02-01T09:00:00Z
+61d2883a-a4ec-479e-ac96-4cde43a21640,asg-0010,b26824d5-728f-4d27-8d70-3b2f95043eba,Algorithms,Solve graph problems using Python.,2024-03-25,100,0.25,project,2024-02-02T09:00:00Z
+d7afef12-ce2d-479e-ada5-151471e590e5,asg-0011,2c046484-6596-4859-b080-fb5cd4dc8561,Mobile App Development,Create a mobile app using Flutter.,2024-03-30,100,0.3,project,2024-02-03T09:00:00Z
+d1e51a2e-28d8-438f-bd40-4056316fb8ad,asg-0012,3e496ded-8d23-4a0c-aeab-af88e80d0781,Cloud Computing,Deploy an application to AWS.,2024-04-04,100,0.25,project,2024-02-04T09:00:00Z
+fdc08309-bb63-48ad-9d7e-1b8c67358b4f,asg-0013,00f4655f-002f-4ab8-8545-f576de026e3e,Cybersecurity,Analyze vulnerabilities in a web application.,2024-04-09,100,0.2,lab,2024-02-05T09:00:00Z
+a9eb389d-26f5-4feb-b9b9-4597ce40972e,asg-0014,8492db63-b8a1-4353-adc1-fdc4404eadb1,Software Engineering,Design a UML diagram for a software project.,2024-04-14,100,0.25,project,2024-02-06T09:00:00Z
+49aaa360-9845-4c1a-b761-55ba02ca7564,asg-0015,eb5c5960-345f-4702-b61c-a801810e5b9d,Big Data Analytics,Process large datasets using Spark.,2024-04-19,100,0.3,project,2024-02-07T09:00:00Z
+6e18b5fd-118a-4449-a6d8-d4c9afae32cc,asg-0016,c2873369-80b2-431f-9c76-762b457dbd47,DevOps,Automate CI/CD pipeline for a web application.,2024-04-24,100,0.25,project,2024-02-08T09:00:00Z
+8ac6d8c2-0ea8-499e-97ff-ff8b8b7457bc,asg-0017,ca2287b9-a3a8-4427-a85d-34101532f584,UI/UX Design,Design a user interface for a mobile app.,2024-04-29,100,0.2,project,2024-02-09T09:00:00Z
+501fd912-2e5d-4a0b-849e-0a8452603e6b,asg-0018,82443cc3-d7e2-42bb-9cde-6af22c107c95,Embedded Systems,Program a microcontroller for a robotics project.,2024-05-04,100,0.25,project,2024-02-10T09:00:00Z
+82156a25-f3a2-4509-a753-f3e1d34a38d2,asg-0019,7435e35b-caf8-46a5-86e6-11bd17c127d0,Game Development,Create a simple game using Unity.,2024-05-09,100,0.3,project,2024-02-11T09:00:00Z
+266ee5f9-21f4-42a5-85fe-99f4b2b1820d,asg-0020,e5949dff-8a68-4c6e-8e0c-062c6c101b47,AI Ethics,Discuss ethical issues in AI development.,2024-05-14,100,0.2,homework,2024-02-12T09:00:00Z
+e7a17b32-9c89-4b9f-b426-eb2705385987,asg-0021,acf8c2db-8080-4f37-8454-9a9e4c7594c1,Network Security,Configure a firewall for a network.,2024-05-19,100,0.25,project,2024-02-13T09:00:00Z
+278b29db-3076-4fef-b241-e84f3ab1e914,asg-0022,42ad9d43-3e24-4101-b10e-f4fe756dec35,Data Mining,Extract patterns from large datasets.,2024-05-24,100,0.3,project,2024-02-14T09:00:00Z
+5e3db476-0acd-4160-93cc-e8b9c42da6e3,asg-0023,b5837e35-007a-4c49-bb5a-eb6586062b11,Blockchain,Implement a smart contract on Ethereum.,2024-05-29,100,0.25,project,2024-02-15T09:00:00Z
+a5d7e9ab-6980-4e9d-ae63-b7e633194dec,asg-0024,908e538c-d5a4-4319-b95c-e0e27139b3ee,AR/VR Development,Build a VR experience using Unity.,2024-06-03,100,0.3,project,2024-02-16T09:00:00Z
+e5868d95-56ff-4862-ab86-f152dc4d2942,asg-0025,f367f5b5-f548-4b2e-83f9-cd8a830731e8,Quantum Computing,Simulate quantum algorithms using Qiskit.,2024-06-08,100,0.25,project,2024-02-17T09:00:00Z
+316223d6-dad0-465d-9ac0-0a119a77639a,asg-0026,c548540d-4c98-46cf-aed5-e2d1b21d59eb,Natural Language Processing,Text classification task using Python.,2024-06-13,100,0.3,project,2024-02-18T09:00:00Z
+090893a5-ec48-4975-a52d-998c07718766,asg-0027,0a6d6307-8a19-4a44-8be6-532bda054f97,Computer Vision,Image recognition project using OpenCV.,2024-06-18,100,0.25,project,2024-02-19T09:00:00Z
+0718876d-5687-4e6f-8df2-0df82066bad7,asg-0028,bdc4dfd3-7d5e-42d2-9869-9411edd4cc8b,Robotics,Build a robot arm controlled by a microcontroller.,2024-06-23,100,0.3,project,2024-02-20T09:00:00Z
+58c4b25a-9392-46e6-9465-3e41d46c00e6,asg-0029,a657e480-2205-43fb-9160-3ad892f6c1b6,Digital Marketing,Create a marketing campaign for a product.,2024-06-28,100,0.25,project,2024-02-21T09:00:00Z
+526d63e1-2940-4977-8e47-ccb68193c9ca,asg-0030,90070ce8-e8cc-4665-8bf3-0fe27cce49ad,Business Analytics,Analyze business data using Excel.,2024-07-03,100,0.2,homework,2024-02-22T09:00:00Z
+1c1aa769-1010-49f5-bd0a-eb04e5476bb4,asg-0031,fcd78eef-0b0c-4bf7-b482-d5776d40331d,Entrepreneurship,Pitch a startup idea to investors.,2024-07-08,100,0.3,project,2024-02-23T09:00:00Z
+3780117a-5b46-4bd8-87ad-7cad4e136764,asg-0032,48bb619f-ca84-429c-87dd-69f66b76ffcc,Financial Management,Prepare a budget report for a project.,2024-07-13,100,0.25,project,2024-02-24T09:00:00Z
+c215269e-6f01-453c-b466-32270b9cfe1e,asg-0033,b11dc10f-55b6-4ce9-ba46-b6a4775ade15,Operations Research,Optimize a supply chain for a company.,2024-07-18,100,0.2,homework,2024-02-25T09:00:00Z
+ed84caab-3b42-45d0-85ae-b6489850e402,asg-0034,f5008747-d345-4483-812b-908a2f9c3fa8,Statistics,Analyze survey data using statistical methods.,2024-07-23,100,0.25,project,2024-02-26T09:00:00Z
+08a7067c-5475-4417-a72f-a0922930eaeb,asg-0035,12098868-a490-450c-bb3a-32de5eb10cd3,Mathematics,Solve calculus problems using Python.,2024-07-28,100,0.2,homework,2024-02-27T09:00:00Z
+fa84c0b5-454a-43f0-8628-506a1568db92,asg-0036,91e3d419-7c44-47b4-a526-b119abc27685,Physics,Conduct a lab experiment on motion.,2024-08-02,100,0.25,lab,2024-02-28T09:00:00Z
+96f30482-b61d-4e6b-a9f6-beaf5545e800,asg-0037,fcc72df8-ecca-400c-839b-7f8f8279c595,Chemistry,Synthesize a compound in the lab.,2024-08-07,100,0.2,lab,2024-03-01T09:00:00Z
+2ebbe823-194a-4c14-b881-7cb1b60acbc7,asg-0038,312ecda0-6354-4a38-ba6f-a3285fa729b1,Biology,Analyze genetic data in a lab report.,2024-08-12,100,0.25,lab,2024-03-02T09:00:00Z
+74030d05-56f4-4955-a0b4-02aa7198e3d6,asg-0039,544d77c5-0a2a-49c5-9efb-18ed140b92e9,Environmental Science,Assess pollution levels in a local area.,2024-08-17,100,0.2,homework,2024-03-03T09:00:00Z
+e5776a7c-0786-4d8b-83ba-99756640cde2,asg-0040,de1773f2-25d6-4d8a-b232-2136e56986f1,Geography,Map a region using GIS software.,2024-08-22,100,0.25,project,2024-03-04T09:00:00Z
+d60aa01d-608b-4f93-9357-bf7b275ea8cc,asg-0041,ac26a1b1-08fc-4f1c-99db-e194f93fb41e,History,Write a research paper on a historical event.,2024-08-27,100,0.2,homework,2024-03-05T09:00:00Z
+b535c04d-852a-4a6c-a6aa-5bf62f04c484,asg-0042,919f0682-07e3-43de-b4d3-05672811d30e,Political Science,Debate a policy issue in class.,2024-09-01,100,0.25,project,2024-03-06T09:00:00Z
+ae2e16c5-5dcb-4436-9414-d2dee617cb78,asg-0043,759a9df6-9c8d-4bdb-9ebf-e977ddd6aecc,Psychology,Conduct a behavioral study and report findings.,2024-09-06,100,0.2,lab,2024-03-07T09:00:00Z
+e34fcd11-e8c2-4f80-890c-f18029eb1128,asg-0044,9465752d-9c7b-461f-8805-36bbe7b325c5,Sociology,Analyze social trends in a community.,2024-09-11,100,0.25,project,2024-03-08T09:00:00Z
+6d313d3e-caa8-40bf-890a-342ae4508eb5,asg-0045,ebcd2376-ab2f-419b-94ca-96cd99d9eedb,Philosophy,Write an essay on ethics and morality.,2024-09-16,100,0.2,homework,2024-03-09T09:00:00Z
+6c11a9b0-58f3-4544-9b22-2254c952b589,asg-0046,f22c10d4-0e8b-46d3-a083-234c78660151,Literature,Analyze a novel and its themes.,2024-09-21,100,0.25,project,2024-03-10T09:00:00Z
+55087f09-7003-47a1-a872-30e4fa7a0db7,asg-0047,9dfe3cb5-7a3b-443f-8781-4c6127121717,Foreign Language,Translate a passage from a book.,2024-09-26,100,0.2,homework,2024-03-11T09:00:00Z
+de8bc1ad-3d59-4a3d-91bf-4be8e63c50e2,asg-0048,f56df2b0-7db4-4c49-aeef-d13a90dc133a,Music,Compose a short piece of music.,2024-10-01,100,0.25,project,2024-03-12T09:00:00Z
+9713dd7b-afa5-4d7b-9bf9-4448d761bb41,asg-0049,5858a868-afba-4c7e-896c-1ab0a5e55f4d,Art,Create a painting based on a theme.,2024-10-06,100,0.2,homework,2024-03-13T09:00:00Z
+6139d6d6-0ecf-4682-8354-a2a4c7d00fe5,asg-0050,76219bc1-6b1e-4605-b1b6-ec6425f7cc0a,Physical Education,Plan a fitness routine and document it.,2024-10-11,100,0.25,project,2024-03-14T09:00:00Z

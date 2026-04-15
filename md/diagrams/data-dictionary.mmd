@@ -1,0 +1,53 @@
+classDiagram
+    class profiles {
+      uuid id
+      string email
+      string user_type
+      string full_name
+    }
+
+    class students {
+      uuid id
+      string university
+      string major
+      number cgpa
+      string resume_url
+    }
+
+    class recruiters {
+      uuid id
+      string company
+      string designation
+    }
+
+    class jobs {
+      uuid id
+      uuid recruiter_id
+      string title
+      string status
+      string location
+    }
+
+    class job_applications {
+      uuid id
+      uuid job_id
+      uuid student_id
+      string status
+      datetime applied_at
+    }
+
+    class interviews {
+      uuid id
+      uuid job_id
+      uuid student_id
+      uuid recruiter_id
+      datetime scheduled_at
+      string status
+    }
+
+    profiles <|-- students
+    profiles <|-- recruiters
+    recruiters --> jobs
+    jobs --> job_applications
+    students --> job_applications
+    job_applications --> interviews

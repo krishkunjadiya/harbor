@@ -1,0 +1,51 @@
+id,activity_id,user_id,activity_type,description,metadata,created_at
+ba6386f9-295a-407d-b5f4-cb45c7d29553,act-0001,b1a1d1e1-0001-4000-8000-000000000001,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+b2ee6458-a599-4fda-aecb-c2e77002d2ad,act-0002,b1a1d1e1-0002-4000-8000-000000000002,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+49303fd8-bf7e-442c-9bf4-e3ab20278881,act-0003,b1a1d1e1-0003-4000-8000-000000000003,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+a4e443c9-c072-4a50-9cca-65aa75fa395b,act-0004,b1a1d1e1-0004-4000-8000-000000000004,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+806cc82f-b642-4317-92a9-b51b346a8b67,act-0005,b1a1d1e1-0005-4000-8000-000000000005,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+c5a6362c-89b5-4df4-9b99-ba87bb927d01,act-0006,b1a1d1e1-0006-4000-8000-000000000006,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+70fcdbca-8375-4539-bd08-c7a3311d94b9,act-0007,b1a1d1e1-0007-4000-8000-000000000007,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+fc368774-ec2e-472e-b0a5-04e98ac6bd3c,act-0008,b1a1d1e1-0008-4000-8000-000000000008,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+7d93d1f5-fecf-4ffa-b3d3-4f4e8de7b9ff,act-0009,b1a1d1e1-0009-4000-8000-000000000009,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+021e7f4e-8f0b-41d7-b4cb-36bae8e74ae4,act-0010,b1a1d1e1-0010-4000-8000-000000000010,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+73232ecf-fcb3-45d4-8900-3e950aaf83d0,act-0011,b1a1d1e1-0011-4000-8000-000000000011,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+b6a8c4a6-2825-41a8-834f-f2181f169202,act-0012,b1a1d1e1-0012-4000-8000-000000000012,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+d97df2c2-262c-4096-99fd-459e3b0e6382,act-0013,b1a1d1e1-0013-4000-8000-000000000013,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+97982949-5a60-4a35-8c65-83132c615d6d,act-0014,b1a1d1e1-0014-4000-8000-000000000014,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+93623aee-2519-498c-9e55-f9a8303be9a2,act-0015,b1a1d1e1-0015-4000-8000-000000000015,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+2fd47899-3927-4e97-b4ac-86f41086bd16,act-0016,b1a1d1e1-0016-4000-8000-000000000016,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+255fa1fd-c697-4a6a-9742-191fed5b064a,act-0017,b1a1d1e1-0017-4000-8000-000000000017,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+a2582228-5aa1-4262-b075-ce55505574b8,act-0018,b1a1d1e1-0018-4000-8000-000000000018,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+ee4fb462-94db-4ab0-818e-5ccefa31a1d2,act-0019,b1a1d1e1-0019-4000-8000-000000000019,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+cfd80aac-4216-4fe8-b9e9-e7d64767a240,act-0020,b1a1d1e1-0020-4000-8000-000000000020,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+90840e6d-bd58-48c4-a8d1-781a7430c5fc,act-0021,b1a1d1e1-0021-4000-8000-000000000021,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+f930bb2a-2353-4e11-8304-3ab0efc3da96,act-0022,b1a1d1e1-0022-4000-8000-000000000022,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+b14b2d85-69d6-44f6-9196-f1d7895ee67c,act-0023,b1a1d1e1-0023-4000-8000-000000000023,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+8854dd69-23c3-4b71-901b-d94de3904d5b,act-0024,b1a1d1e1-0024-4000-8000-000000000024,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+cbfe0b1e-3167-4110-9ed2-80847a011e95,act-0025,b1a1d1e1-0025-4000-8000-000000000025,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+2ae71a2d-f530-4266-ab43-a5201fd7bdcf,act-0026,b1a1d1e1-0026-4000-8000-000000000026,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+fed2aec0-ae17-417a-951e-6a3a3270c7cb,act-0027,b1a1d1e1-0027-4000-8000-000000000027,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+c475f7c9-1d50-436e-b1aa-be99da10f872,act-0028,b1a1d1e1-0028-4000-8000-000000000028,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+52bc068a-c7b7-4c29-b654-120ed8373eed,act-0029,b1a1d1e1-0029-4000-8000-000000000029,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+fc9f08cf-e833-400e-ac90-742b38bce733,act-0030,b1a1d1e1-0030-4000-8000-000000000030,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+3b88d172-a3d3-4905-b94f-0db2788fc327,act-0031,b1a1d1e1-0031-4000-8000-000000000031,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+9c0e8323-51ea-474c-ae67-bcf596d66030,act-0032,b1a1d1e1-0032-4000-8000-000000000032,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+67ea79c5-0776-4ebf-b2e7-ae454ef5b49e,act-0033,b1a1d1e1-0033-4000-8000-000000000033,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+2c9fc493-5cb2-4e74-b905-acaa74316f11,act-0034,b1a1d1e1-0034-4000-8000-000000000034,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+96a6df75-2aa8-4095-b9c6-382812bce395,act-0035,b1a1d1e1-0035-4000-8000-000000000035,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+7bae4733-43eb-45c8-a549-d2e5834f1746,act-0036,b1a1d1e1-0036-4000-8000-000000000036,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+ee5e4a2f-70c7-4a6e-a15c-e9b849a83c62,act-0037,b1a1d1e1-0037-4000-8000-000000000037,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+9c498a55-d44c-4bb3-88d3-8c5cb958beb6,act-0038,b1a1d1e1-0038-4000-8000-000000000038,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+3ef6c815-3c5c-4b09-b379-52bcf4676d44,act-0039,b1a1d1e1-0039-4000-8000-000000000039,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+2c470051-e255-4541-981c-2e66d80d872f,act-0040,b1a1d1e1-0040-4000-8000-000000000040,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+30c3be0d-1edf-4e98-93d3-2c28c548640c,act-0041,b1a1d1e1-0041-4000-8000-000000000041,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+17555bc9-387f-44dd-a1bf-d02500620a3a,act-0042,b1a1d1e1-0042-4000-8000-000000000042,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+8bb83ad5-1928-4ea8-b4a6-0457f972daad,act-0043,b1a1d1e1-0043-4000-8000-000000000043,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+2fe3c435-8fe5-4de5-a8a0-a2b9a3d78b7e,act-0044,b1a1d1e1-0044-4000-8000-000000000044,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+444b26b9-749e-456b-98aa-2e47c4357962,act-0045,b1a1d1e1-0045-4000-8000-000000000045,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+543db3d9-7d8c-4765-866e-d261d2c1296d,act-0046,b1a1d1e1-0046-4000-8000-000000000046,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+b4260de4-88d6-474a-865e-4e716360be8e,act-0047,b1a1d1e1-0047-4000-8000-000000000047,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z
+bb81464c-68ac-4c9c-be14-78e4857d6d12,act-0048,b1a1d1e1-0048-4000-8000-000000000048,login,User logged in,"{""ip"":""192.168.1.10""}",2024-01-25T08:00:00Z
+abdd1107-b752-4a4d-b6bf-cf727e9f85f6,act-0049,b1a1d1e1-0049-4000-8000-000000000049,assignment_submission,Submitted assignment,"{""assignment_id"":""asg-0001""}",2024-01-25T08:00:00Z
+c5d10622-c3bc-4001-a6d1-f7a2ef5ba060,act-0050,b1a1d1e1-0050-4000-8000-000000000050,project_update,Updated project,"{""project_id"":""proj-0001""}",2024-01-25T08:00:00Z

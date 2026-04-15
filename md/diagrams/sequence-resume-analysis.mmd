@@ -1,0 +1,19 @@
+sequenceDiagram
+    autonumber
+    participant S as Student
+    participant UI as Harbor UI
+    participant API as Server Action
+    participant ST as Storage
+    participant W as AI Worker
+    participant DB as Database
+
+    S->>UI: Upload resume
+    UI->>API: Submit file and metadata
+    API->>ST: Store resume file
+    ST-->>API: File URL
+    API->>W: Request resume analysis
+    W-->>API: Structured score and feedback
+    API->>DB: Persist analysis result
+    DB-->>API: Save success
+    API-->>UI: Return analysis response
+    UI-->>S: Show score and recommendations

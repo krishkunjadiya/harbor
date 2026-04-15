@@ -1,0 +1,5 @@
+id,department_id,university_id,name,code,head_of_department,established,description,total_students,total_faculty,total_courses,created_at,updated_at
+fa0bc56b-94f0-411e-8924-18c1ce6dcb57,dep-0001,b1a1d1e1-5001-4000-8000-000000000501,Computer Science,CS,Dr. Lucas Evans,2015,Department of Computer Science,500,30,40,2023-01-01T09:00:00Z,2024-01-25T09:00:00Z
+d2375f54-78be-4df9-a41b-a2f5a44c0e5e,dep-0002,b1a1d1e1-5001-4000-8000-000000000501,Mechanical Engineering,ME,Dr. Michael Kumar,2015,Department of Mechanical Engineering,350,20,25,2023-01-01T09:00:00Z,2024-01-25T09:00:00Z
+0eb92611-1cee-454a-9fcf-a7a56be49a9c,dep-0003,b1a1d1e1-5002-4000-8000-000000000502,Physics,PHY,Dr. Amelia Singh,2018,Department of Physics,200,15,20,2023-01-01T09:00:00Z,2024-01-25T09:00:00Z
+f4faa58e-a111-49f8-a925-aee51888c83a,dep-0004,b1a1d1e1-5002-4000-8000-000000000502,Civil Engineering,CE,Dr. Sophia Ramirez,2018,Department of Civil Engineering,180,12,18,2023-01-01T09:00:00Z,2024-01-25T09:00:00Z

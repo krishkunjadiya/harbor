@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-04-10T07:29:28.957Z",
+  "outputRoot": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\artifacts\\screenshots\\all-pages-20260410-125927",
+  "targets": [
+    {
+      "target": "harbor",
+      "baseUrl": "http://localhost:3000",
+      "appDir": "E:\\KRISH(PPSU)\\Semester 6\\Major Project\\Harbor\\app",
+      "skipped": true,
+      "reason": "Base URL is unreachable: http://localhost:3000",
+      "routeCount": 0,
+      "successCount": 0,
+      "failureCount": 0,
+      "routes": [],
+      "screenshots": []
+    }
+  ]
+}

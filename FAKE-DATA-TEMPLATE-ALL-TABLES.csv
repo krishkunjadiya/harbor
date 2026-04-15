@@ -1,0 +1,85 @@
+# Harbor Platform - Fake Data Template (All Tables)
+# One section per table. Fill in rows with your fake data and import as CSV to Supabase.
+
+## Table: profiles
+id,email,full_name,user_type,avatar_url,phone,created_at,updated_at,timezone,locale,last_login,is_verified,status
+
+## Table: students
+id,university,major,graduation_year,gpa,skills,bio,resume_url,linkedin_url,github_url,portfolio_url,phone,location,resume_hash,date_of_birth,enrollment_status,cgpa
+
+## Table: universities
+id,university_name,address,city,country,website,accreditation,total_students,total_faculty
+
+## Table: recruiters
+id,company,job_title,company_size,industry,company_website
+
+## Table: badges
+id,name,description,category,issuer_id,issuer_type,icon_url,criteria,points,created_at,skills,issuer,requirements,validity_period,badge_level
+
+## Table: user_badges
+id,user_id,badge_id,earned_at,verified,verification_hash,metadata,issuer_signature,expiry_date,verification_url
+
+## Table: credentials
+id,user_id,type,title,institution,issue_date,expiry_date,credential_id,credential_url,verified,blockchain_hash,metadata,created_at
+
+## Table: jobs
+id,recruiter_id,company,title,description,requirements,location,job_type,salary_min,salary_max,experience_level,skills_required,status,applications_count,views_count,created_at,updated_at,company_name,required_skills,salary_range,department,application_deadline,remote_allowed,benefits,required_badges
+
+## Table: job_applications
+id,job_id,student_id,status,cover_letter,resume_url,applied_at,updated_at
+
+## Table: user_activity
+id,user_id,activity_type,description,metadata,created_at
+
+## Table: dashboard_stats
+id,user_id,stat_type,stat_value,period,date,created_at
+
+## Table: notifications
+id,user_id,title,message,type,category,read,action_url,created_at
+
+## Table: courses
+id,university_id,course_code,course_name,description,semester,year,credits,max_students,enrolled_students,schedule,room,faculty_id,status,created_at,updated_at,department_id,instructor_id,code,name,total_students
+
+## Table: course_enrollments
+id,course_id,student_id,enrollment_date,status,grade,gpa_points
+
+## Table: assignments
+id,course_id,title,description,due_date,max_points,weight,assignment_type,created_at
+
+## Table: assignment_submissions
+id,assignment_id,student_id,submission_url,submission_text,submitted_at,grade,feedback,graded_at,graded_by
+
+## Table: student_projects
+id,student_id,course_id,title,description,course_name,team_members,student_ids,mentor,status,progress,start_date,end_date,presentation_date,tags,grade,technologies,github_url,demo_url,proposal_status,midterm_status,final_status,visibility,created_at,updated_at
+
+## Table: project_milestones
+id,project_id,title,description,due_date,completed,completed_at,created_at
+
+## Table: academic_records
+id,student_id,course_id,student_name,course_code,course_name,semester,year,grade,credits,verified,submitted_date,verified_date,created_at,updated_at
+
+## Table: transcripts
+id,student_id,cumulative_gpa,total_credits,completed_credits,academic_standing,expected_graduation,updated_at
+
+## Table: user_skills
+id,user_id,skill_name,skill_category,proficiency_level,status,verified,years_experience,endorsements,created_at,updated_at
+
+## Table: skill_endorsements
+id,skill_id,endorsed_by,comment,created_at
+
+## Table: departments
+id,university_id,name,code,head_of_department,established,description,total_students,total_faculty,total_courses,created_at,updated_at
+
+## Table: faculty
+id,profile_id,university_id,department_id,name,email,phone,position,specialization,join_date,total_courses,total_students,created_at,updated_at
+
+## Table: admin_staff
+id,profile_id,university_id,name,email,phone,department,position,responsibilities,join_date,created_at,updated_at
+
+## Table: student_full_records
+id,student_id,student_name,student_email,enrollment_id,department,semester,year,gpa,credits_earned,courses,status,created_at,updated_at
+
+## Table: career_insights
+id,student_id,readiness_score,skills_match,experience_level,profile_completeness,recommended_jobs,salary_insights,skill_trends,career_paths,generated_at,updated_at
+
+# If you have additional tables (custom, plugin, or system tables), add their headers below in the same format.

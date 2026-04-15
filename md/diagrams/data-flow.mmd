@@ -1,0 +1,19 @@
+flowchart TD
+    U1[Student] --> FE[Harbor Web App]
+    U2[Recruiter] --> FE
+    U3[University or Faculty] --> FE
+    U4[Admin] --> FE
+
+    FE --> SA[Server Actions and API Routes]
+    SA --> DB[(Supabase PostgreSQL)]
+    SA --> ST[(Supabase Storage)]
+    SA --> RT[(Supabase Realtime)]
+
+    SA --> AI[Python FastAPI Worker]
+    AI --> GM[Gemini Model]
+    GM --> AI
+    AI --> SA
+
+    DB --> SA
+    ST --> SA
+    RT --> FE
