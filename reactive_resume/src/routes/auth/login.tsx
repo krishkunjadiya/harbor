@@ -87,7 +87,7 @@ function RouteComponent() {
           });
 
           if (launchUrl) {
-            toast.success(t`Signed in with Harbor credentials`, { id: toastId });
+            toast.success("Signed in with Harbor credentials", { id: toastId });
             window.location.assign(launchUrl);
             return;
           }

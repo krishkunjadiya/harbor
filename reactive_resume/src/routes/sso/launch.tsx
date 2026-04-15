@@ -129,8 +129,17 @@ function getSetCookieHeaders(headers: Headers): string[] {
   const withGetSetCookie = headers as Headers & { getSetCookie?: () => string[] };
 
   if (typeof withGetSetCookie.getSetCookie === "function") {
-    return withGetSetCookie.getSetCookie();
+    const cookies = withGetSetCookie.getSetCookie();
+    if (cookies.length > 0) return cookies;
   }
+
+  const fromEntries: string[] = [];
+  headers.forEach((value, key) => {
+    if (key.toLowerCase() === "set-cookie") {
+      fromEntries.push(value);
+    }
+  });
+  if (fromEntries.length > 0) return fromEntries;
 
   const single = headers.get("set-cookie");
   return single ? [single] : [];
@@ -373,11 +382,17 @@ async function handler({ request }: { request: Request }) {
           finalReturnPath = latestResume ? `/builder/${latestResume.id}` : "/dashboard/resumes";
         }
 
+        const setCookies = getSetCookieHeaders(signInHeaders);
+
+        if (setCookies.length === 0) {
+          throw new Error("SSO sign-in succeeded without session cookies");
+        }
+
         // Trusted launch must set auth cookies before redirecting to protected routes.
         console.info("[sso/launch] v2_redirect", { requestId, finalReturnPath, resumeUserId: Boolean(resumeUserId) });
         const response = Response.redirect(new URL(finalReturnPath, env.APP_URL), 302);
 
-        for (const cookie of getSetCookieHeaders(signInHeaders)) {
+        for (const cookie of setCookies) {
           response.headers.append("set-cookie", cookie);
         }
 
