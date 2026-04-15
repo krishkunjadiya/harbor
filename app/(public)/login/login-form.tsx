@@ -26,6 +26,12 @@ export function LoginForm() {
     const logoutMarkerKey = 'harbor:auth:logout-marker'
     const marker = sessionStorage.getItem(logoutMarkerKey)
     const redirectTo = searchParams?.get('redirectTo')
+    const loggedOut = searchParams?.get('loggedOut')
+
+    if (loggedOut === '1') {
+      router.replace('/login')
+      return
+    }
 
     if (marker && redirectTo) {
       sessionStorage.removeItem(logoutMarkerKey)
