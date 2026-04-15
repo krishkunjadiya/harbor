@@ -1,6 +1,7 @@
 const { getAllApplicationsForRecruiter } = require('@/lib/actions/database')
 const { requireRouteUserType } = require('@/lib/auth/route-context')
 const pageModule = require('./page')
+const { normalizeFilter } = require('./filter-utils')
 
 jest.mock('@/lib/actions/database', () => ({
   getAllApplicationsForRecruiter: jest.fn(),
@@ -70,12 +71,12 @@ describe('RecruiterApplicationsPage filter wiring', () => {
 
 describe('normalizeFilter', () => {
   it('accepts valid filters', () => {
-    expect(pageModule.normalizeFilter('pending')).toBe('pending')
-    expect(pageModule.normalizeFilter('accepted')).toBe('accepted')
+    expect(normalizeFilter('pending')).toBe('pending')
+    expect(normalizeFilter('accepted')).toBe('accepted')
   })
 
   it('returns all for invalid/empty values', () => {
-    expect(pageModule.normalizeFilter(undefined)).toBe('all')
-    expect(pageModule.normalizeFilter('anything-else')).toBe('all')
+    expect(normalizeFilter(undefined)).toBe('all')
+    expect(normalizeFilter('anything-else')).toBe('all')
   })
 })

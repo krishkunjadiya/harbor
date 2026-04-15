@@ -1,17 +1,7 @@
 import { getAllApplicationsForRecruiter } from "@/lib/actions/database"
 import { requireRouteUserType } from "@/lib/auth/route-context"
 import { JobApplicationsClient } from './applications-client'
-
-type ApplicationFilter = 'all' | 'pending' | 'reviewing' | 'shortlisted' | 'rejected' | 'accepted'
-
-const VALID_FILTERS: ApplicationFilter[] = ['all', 'pending', 'reviewing', 'shortlisted', 'rejected', 'accepted']
-
-export function normalizeFilter(filter?: string): ApplicationFilter {
-  if (filter && VALID_FILTERS.includes(filter as ApplicationFilter)) {
-    return filter as ApplicationFilter
-  }
-  return 'all'
-}
+import { normalizeFilter } from './filter-utils'
 
 export default async function RecruiterApplicationsPage({
   params,

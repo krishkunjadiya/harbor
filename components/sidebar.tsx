@@ -359,9 +359,7 @@ export function HarborSidebar() {
 
     try {
       setIsSigningOut(true)
-      // We don't await this because signOut now performs an instant window.location.href redirect.
-      // Awaiting it would keep the sidebar in a 'Signing out...' state until the network/compilation finishes.
-      signOut()
+      await signOut()
     } catch (error) {
       console.error('[AUTH] Sidebar sign out failed:', error)
       toast.error('Unable to sign out right now. Please try again.')

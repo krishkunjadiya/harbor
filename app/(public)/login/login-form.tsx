@@ -25,10 +25,19 @@ export function LoginForm() {
   useEffect(() => {
     const logoutMarkerKey = 'harbor:auth:logout-marker'
     const marker = sessionStorage.getItem(logoutMarkerKey)
+    const loggedOut = searchParams?.get('loggedOut')
     const redirectTo = searchParams?.get('redirectTo')
 
-    if (marker && redirectTo) {
+    if (marker) {
       sessionStorage.removeItem(logoutMarkerKey)
+    }
+
+    if (loggedOut) {
+      router.replace('/login')
+      return
+    }
+
+    if (marker && redirectTo) {
       router.replace('/login')
     }
   }, [router, searchParams])

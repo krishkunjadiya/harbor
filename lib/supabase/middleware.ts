@@ -220,6 +220,11 @@ function handleAuthPageRedirects(
   supabaseResponse: NextResponse
 ) {
   const pathname = request.nextUrl.pathname
+  const loggedOut = request.nextUrl.searchParams.get('loggedOut') === '1'
+
+  if (pathname === '/login' && loggedOut) {
+    return supabaseResponse
+  }
 
   if (authPages.includes(pathname) && isAuthenticated) {
     const url = request.nextUrl.clone()

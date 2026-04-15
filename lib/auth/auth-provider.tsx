@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 
 const AUTH_SYNC_KEY = 'harbor:auth:event'
 const AUTH_LOGOUT_MARKER_KEY = 'harbor:auth:logout-marker'
+const LOGOUT_REDIRECT_PATH = '/login?loggedOut=1'
 
 type AuthApiError = {
   success: false
@@ -49,6 +50,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     process.env.NEXT_PUBLIC_SUPABASE_URL !== 'your-supabase-project-url'
 
   const supabase = isSupabaseConfigured ? createClient() : null
+
+  const broadcastSignedOut = useCallback(() => {
+    try {
+      localStorage.setItem(
+        AUTH_SYNC_KEY,
+        JSON.stringify({ type: 'SIGNED_OUT', at: Date.now() })
+      )
+    } catch (error) {
+      console.warn('[AUTH] Unable to sync sign out via localStorage:', error)
+    }
+
+    try {
+      sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
+    } catch (error) {
+      console.warn('[AUTH] Unable to set logout marker:', error)
+    }
+  }, [])
+
+  const redirectToLoggedOutPage = useCallback(() => {
+    router.replace(LOGOUT_REDIRECT_PATH)
+    router.refresh()
+
+    // Keep a hard navigation fallback in case client routing is blocked by pending UI state.
+    window.setTimeout(() => {
+      if (window.location.pathname !== '/login') {
+        window.location.replace(LOGOUT_REDIRECT_PATH)
+      }
+    }, 120)
+  }, [router])
 
   const syncVerifiedUser = useCallback(async () => {
     if (!supabase) {
@@ -120,8 +150,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await syncVerifiedUser()
 
       if (event === 'SIGNED_OUT' && typeof window !== 'undefined' && isProtectedPath(window.location.pathname)) {
-        // Use a hard redirect for logout to ensure clean state and avoid client-side routing stalls
-        window.location.href = '/login'
+        // Use a hard redirect for logout to ensure clean state and avoid client-side routing stalls.
+        window.location.replace(LOGOUT_REDIRECT_PATH)
       }
     })
 
@@ -146,8 +176,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setSession(null)
       setUser(null)
 
-      sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
-      window.location.href = '/login'
+      try {
+        sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
+      } catch {
+        // Ignore storage write failures and continue redirect.
+      }
+
+      window.location.replace(LOGOUT_REDIRECT_PATH)
     }
 
     window.addEventListener('storage', handleStorage)
@@ -266,39 +301,46 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signOut = async () => {
-    console.log('[AUTH] signOut initiated - performing instant redirect')
-    
-    // 1. Clear local state immediately so UI updates
+    // 1. Clear local state immediately so UI updates.
     setSession(null)
     setUser(null)
 
-    // 2. Set markers for synchronization
-    localStorage.setItem(
-      AUTH_SYNC_KEY,
-      JSON.stringify({ type: 'SIGNED_OUT', at: Date.now() })
-    )
-    sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
+    // 2. Broadcast logout to other tabs first.
+    broadcastSignedOut()
 
-    // 3. Force hard redirect IMMEDIATELY. 
-    // This stops all pending background data fetches (the 401s you see) 
-    // and breaks the 'stuck' state by unloading the current page.
-    window.location.href = '/login'
-
-    // 4. Fire-and-forget the cleanup calls in the background.
-    // The browser will attempt to complete these even as the page unloads 
-    // due to 'keepalive: true' and the nature of the redirect.
+    // 3. Try best-effort local SDK signout to drop in-memory auth state.
     if (supabase) {
-      void supabase.auth.signOut({ scope: 'local' }).catch(() => null)
+      try {
+        await supabase.auth.signOut({ scope: 'local' })
+      } catch {
+        // We still continue with server signout and redirect.
+      }
     }
 
-    void fetch('/api/auth/signout', {
-      method: 'POST',
-      credentials: 'same-origin',
-      keepalive: true,
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    }).catch(() => null)
+    // 4. Attempt server cookie/session revocation before redirecting to login.
+    try {
+      const abortController = new AbortController()
+      const timeoutId = window.setTimeout(() => abortController.abort(), 1200)
+
+      try {
+        await fetch('/api/auth/signout', {
+          method: 'POST',
+          credentials: 'same-origin',
+          cache: 'no-store',
+          signal: abortController.signal,
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+        })
+      } finally {
+        window.clearTimeout(timeoutId)
+      }
+    } catch {
+      // Redirect regardless so the user is not blocked on network failures.
+    }
+
+    // 5. Redirect to login with a signed-out marker to avoid middleware race conditions.
+    redirectToLoggedOutPage()
   }
 
   const value = {
