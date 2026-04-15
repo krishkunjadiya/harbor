@@ -14,25 +14,25 @@ export function QuickActionsCard() {
       </CardHeader>
       <CardContent className="space-y-2">
         <Button className="w-full justify-start" variant="outline" asChild>
-          <Link href="/student/profile" prefetch={true}>
+          <Link href="/student/profile" prefetch={false}>
             <FileText className="h-4 w-4 mr-2" />
             View My Credentials
           </Link>
         </Button>
         <Button className="w-full justify-start" variant="outline" asChild>
-          <Link href="/student/resume-builder" prefetch={true}>
+          <Link href="/student/resume-builder" prefetch={false}>
             <FileText className="h-4 w-4 mr-2" />
             Open Resume Builder
           </Link>
         </Button>
         <Button className="w-full justify-start" variant="outline" asChild>
-          <Link href="/student/jobs" prefetch={true}>
+          <Link href="/student/jobs" prefetch={false}>
             <Briefcase className="h-4 w-4 mr-2" />
             Browse Job Openings
           </Link>
         </Button>
         <Button className="w-full justify-start" variant="outline" asChild>
-          <Link href="/student/profile/edit" prefetch={true}>
+          <Link href="/student/profile/edit" prefetch={false}>
             <Medal className="h-4 w-4 mr-2" />
             Update Profile
           </Link>
@@ -45,7 +45,7 @@ export function QuickActionsCard() {
 export function AddCredentialButton() {
   return (
     <Button className="mt-4" size="sm" asChild>
-      <Link href="/student/profile" prefetch={true}>Add Credential</Link>
+      <Link href="/student/profile" prefetch={false}>Add Credential</Link>
     </Button>
   )
 }
@@ -53,7 +53,7 @@ export function AddCredentialButton() {
 export function ResumeBuilderButton() {
   return (
     <Button asChild>
-      <Link href="/student/resume-builder" prefetch={true}>
+      <Link href="/student/resume-builder" prefetch={false}>
         <FileText className="h-4 w-4 mr-2" />
         Open Resume Builder
       </Link>

@@ -23,14 +23,26 @@ import {
   DialogHeader, 
   DialogTitle, 
   DialogTrigger,
-  DialogFooter
+  DialogFooter,
+  DialogClose
 } from "@/components/ui/dialog"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Label } from "@/components/ui/label"
 import { 
   MagnifyingGlass,
   UserPlus as UserPlusIcon,
   FunnelSimple as Funnel,
-  Users } from "@phosphor-icons/react"
+  Users,
+  DotsThree,
+  Trash,
+  SpinnerGap
+} from "@phosphor-icons/react"
 import { toast } from "sonner"
 import { DashboardHeader } from "@/components/header"
 
@@ -42,8 +54,18 @@ interface StudentManagementClientProps {
 export default function StudentManagementClient({ org }: StudentManagementClientProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
+  const [loadingAction, setLoadingAction] = useState(false)
+  const [newStudentData, setNewStudentData] = useState({
+    email: '',
+    major: '',
+    fullName: '',
+    graduationYear: new Date().getFullYear() + 4 + ''
+  })
+  
+  // Track which student is being deleted
+  const [deleteStudentId, setDeleteStudentId] = useState<string | null>(null)
 
-  const { data, isPending } = useQuery({
+  const { data, isPending, refetch } = useQuery({
     queryKey: ['university', 'admin-students', org],
     queryFn: async () => {
       const response = await fetch('/api/university/admin-students', {
@@ -90,8 +112,67 @@ export default function StudentManagementClient({ org }: StudentManagementClient
     return matchedTokens >= minMatchedTokens
   })
 
-  const handleAddStudent = () => {
-    toast.info("Enrollment invitation flow is not configured yet. Please enable backend invite action first.")
+  const handleAddStudent = async () => {
+    if (!newStudentData.email) {
+      return toast.error("Email is required.")
+    }
+    
+    setLoadingAction(true)
+    try {
+      const response = await fetch('/api/university/admin-students', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          email: newStudentData.email,
+          fullName: newStudentData.fullName,
+          major: newStudentData.major,
+          graduationYear: newStudentData.graduationYear,
+        }),
+      })
+
+      const payload = await response.json().catch(() => null)
+
+      if (!response.ok || !payload?.success) {
+        toast.error(payload?.error || "Failed to enroll student.")
+        return
+      }
+
+      toast.success("Student enrolled successfully! They will receive login instructions.")
+      setNewStudentData({ email: '', major: '', fullName: '', graduationYear: new Date().getFullYear() + 4 + '' })
+      setIsAddDialogOpen(false)
+      refetch() // refresh the react-query data
+    } catch (e: any) {
+      toast.error("Internal error occurred.")
+    } finally {
+      setLoadingAction(false)
+    }
+  }
+
+  const handleDeleteStudent = async (studentId: string) => {
+    setLoadingAction(true)
+    try {
+      const response = await fetch(`/api/university/admin-students?studentId=${encodeURIComponent(studentId)}`, {
+        method: 'DELETE',
+        credentials: 'same-origin',
+      })
+
+      const payload = await response.json().catch(() => null)
+
+      if (!response.ok || !payload?.success) {
+        toast.error(payload?.error || "Failed to remove student.")
+        return
+      }
+      toast.success("Student removed successfully.")
+      setDeleteStudentId(null)
+      refetch()
+    } catch(e: any) {
+      toast.error("Internal error occurred.")
+    } finally {
+      setLoadingAction(false)
+    }
   }
 
   return (
@@ -115,17 +196,30 @@ export default function StudentManagementClient({ org }: StudentManagementClient
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="email">Student Email</Label>
-                <Input id="email" placeholder="student@example.com" />
+                <Label htmlFor="fullName">Full Name</Label>
+                <Input id="fullName" placeholder="John Doe" value={newStudentData.fullName} onChange={(e) => setNewStudentData({ ...newStudentData, fullName: e.target.value })} disabled={loadingAction} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="major">Major / Department</Label>
-                <Input id="major" placeholder="Computer Science" />
+                <Label htmlFor="email">Student Email</Label>
+                <Input id="email" type="email" placeholder="student@example.com" value={newStudentData.email} onChange={(e) => setNewStudentData({ ...newStudentData, email: e.target.value })} disabled={loadingAction} />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="major">Major / Department</Label>
+                  <Input id="major" placeholder="Computer Science" value={newStudentData.major} onChange={(e) => setNewStudentData({ ...newStudentData, major: e.target.value })} disabled={loadingAction} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="gradYear">Graduation Year</Label>
+                  <Input id="gradYear" type="number" placeholder="2027" value={newStudentData.graduationYear} onChange={(e) => setNewStudentData({ ...newStudentData, graduationYear: e.target.value })} disabled={loadingAction} />
+                </div>
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>Cancel</Button>
-              <Button onClick={handleAddStudent}>Send Invitation</Button>
+              <Button variant="outline" onClick={() => setIsAddDialogOpen(false)} disabled={loadingAction}>Cancel</Button>
+              <Button onClick={handleAddStudent} disabled={loadingAction}>
+                {loadingAction ? <SpinnerGap className="animate-spin w-4 h-4 mr-2" /> : null}
+                Send Invitation
+              </Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -197,11 +291,26 @@ export default function StudentManagementClient({ org }: StudentManagementClient
                       </Badge>
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button variant="outline" size="sm" asChild>
-                        <Link href={`/${org}/admin/students/${student.profile_id || student.profiles?.id || student.id}`}>
-                          View Details
-                        </Link>
-                      </Button>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon">
+                            <DotsThree className="h-5 w-5" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem asChild>
+                            <Link href={`/${org}/faculty/students/${student.id}`}>View Details</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem 
+                            className="text-destructive focus:text-destructive"
+                            onClick={() => setDeleteStudentId(student.id)}
+                          >
+                            <Trash className="mr-2 h-4 w-4" />
+                            Remove Student
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </TableCell>
                   </TableRow>
                 ))
@@ -210,6 +319,27 @@ export default function StudentManagementClient({ org }: StudentManagementClient
           </Table>
         </CardContent>
       </Card>
+
+      {/* Delete Confirmation Dialog */}
+      <Dialog open={!!deleteStudentId} onOpenChange={(val) => !val && setDeleteStudentId(null)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Confirm Removal</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to permanently remove this student? This action cannot be undone and will delete their academic records and job application data.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-4">
+            <Button variant="outline" onClick={() => setDeleteStudentId(null)} disabled={loadingAction}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={() => deleteStudentId && handleDeleteStudent(deleteStudentId)} disabled={loadingAction}>
+              {loadingAction ? <SpinnerGap className="animate-spin w-4 h-4 mr-2" /> : null}
+              Remove Student
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }

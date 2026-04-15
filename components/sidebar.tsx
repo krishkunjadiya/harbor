@@ -62,6 +62,7 @@ import {
   DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { AnimatePresence, motion } from "motion/react"
 import React from "react"
+import { toast } from "sonner"
 
 // Student Section Navigation
 const studentNavItems = [
@@ -214,7 +215,7 @@ function SidebarNavItemList({ items }: { items: NavItem[] }) {
           >
             <Link
               href={item.href}
-              prefetch={item.openInNewTab ? false : true}
+              prefetch={false}
               target={item.openInNewTab ? "_blank" : undefined}
               rel={item.openInNewTab ? "noopener noreferrer" : undefined}
             >
@@ -266,7 +267,7 @@ function SettingsSubMenu({ subItems }: { subItems: SettingsSubItem[] }) {
                     asChild
                     isActive={currentPath === item.href || currentPath.startsWith(item.href + "/")}
                   >
-                    <Link href={item.href} prefetch={true}>
+                    <Link href={item.href} prefetch={false}>
                       <span>{item.name}</span>
                     </Link>
                   </SidebarMenuSubButton>
@@ -288,6 +289,7 @@ export function HarborSidebar() {
   const { portal, org: declaredOrg, universityRole, state } = useSidebar()
   const { signOut, user } = useAuth()
   const [isHydrated, setIsHydrated] = React.useState(false)
+  const [isSigningOut, setIsSigningOut] = React.useState(false)
 
   React.useEffect(() => {
     setIsHydrated(true)
@@ -350,6 +352,23 @@ export function HarborSidebar() {
     return user?.user_metadata?.full_name || user?.email?.split("@")[0] || "User"
   }
 
+  const handleSignOut = async () => {
+    if (isSigningOut) {
+      return
+    }
+
+    try {
+      setIsSigningOut(true)
+      // We don't await this because signOut now performs an instant window.location.href redirect.
+      // Awaiting it would keep the sidebar in a 'Signing out...' state until the network/compilation finishes.
+      signOut()
+    } catch (error) {
+      console.error('[AUTH] Sidebar sign out failed:', error)
+      toast.error('Unable to sign out right now. Please try again.')
+      setIsSigningOut(false)
+    }
+  }
+
   // Render a deterministic shell on SSR/first client render to avoid Radix ID hydration mismatches.
   if (!isHydrated) {
     return (
@@ -358,7 +377,7 @@ export function HarborSidebar() {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton className="h-auto justify-center" asChild>
-                <Link href="/landing" prefetch={true}>
+                <Link href="/landing" prefetch={false}>
                   <GraduationCap className="size-6" weight="light" />
                   <span className="sr-only">{sidebarTitle}</span>
                 </Link>
@@ -405,7 +424,7 @@ export function HarborSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton className="h-auto justify-center" asChild>
-              <Link href="/landing" prefetch={true}>
+              <Link href="/landing" prefetch={false}>
                 <GraduationCap className="size-6" weight="light" />
                 <span className="sr-only">{sidebarTitle}</span>
               </Link>
@@ -468,11 +487,12 @@ export function HarborSidebar() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  onClick={() => signOut()}
+                  onClick={handleSignOut}
+                  disabled={isSigningOut}
                   className="text-destructive cursor-pointer"
                 >
                   <SignOut className="mr-2 size-4" />
-                  Logout
+                  {isSigningOut ? 'Signing out...' : 'Logout'}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

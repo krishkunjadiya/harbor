@@ -1,9 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useAuth } from "@/lib/auth/auth-provider"
-import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -22,7 +21,17 @@ export function LoginForm() {
   const { signIn } = useAuth()
   const router = useRouter()
   const searchParams = useSearchParams()
-  const supabase = createClient()
+
+  useEffect(() => {
+    const logoutMarkerKey = 'harbor:auth:logout-marker'
+    const marker = sessionStorage.getItem(logoutMarkerKey)
+    const redirectTo = searchParams?.get('redirectTo')
+
+    if (marker && redirectTo) {
+      sessionStorage.removeItem(logoutMarkerKey)
+      router.replace('/login')
+    }
+  }, [router, searchParams])
   
   // Clear error and form when switching tabs
   const handleTabChange = (value: string) => {
@@ -39,12 +48,9 @@ export function LoginForm() {
     setIsLoading(true)
 
     try {
-      console.log('[LOGIN] Attempting login with tab:', userType)
-      const { error: signInError, user: loggedInUser, userType: actualUserType } = await signIn(email, password)
-      console.log('[LOGIN] Sign in result:', { signInError, actualUserType })
+      const { error: signInError, userType: actualUserType, redirectPath } = await signIn(email, password, userType)
 
       if (signInError) {
-        console.log('[LOGIN] Sign in error:', signInError.message)
         // Check for common error messages and provide helpful feedback
         if (signInError.message.includes('Email not confirmed')) {
           setError('Please verify your email before logging in. Check your inbox for the confirmation link.')
@@ -57,32 +63,16 @@ export function LoginForm() {
         return
       }
       
-      console.log('[LOGIN] Validating user type:', { actualUserType, expectedUserType: userType })
-      
-      // Validate that user is logging in through the correct tab
-      // For university tab, accept both 'university' and 'faculty' types
-      const isValidUserType = userType === 'university' 
-        ? (actualUserType === 'university' || actualUserType === 'faculty')
-        : actualUserType === userType
-      
-      if (!isValidUserType) {
-        console.log('[LOGIN] User type mismatch!')
-        const correctTab = (actualUserType === 'university' || actualUserType === 'faculty') ? 'university' : actualUserType
-        setError(`This account is registered as a ${actualUserType}. Please use the ${correctTab} login tab.`)
-        setIsLoading(false)
-        // Sign out the user since they used wrong tab (don't redirect)
-        if (supabase) {
-          await supabase.auth.signOut().catch(err => console.error('Sign out error:', err))
-        }
-        return
-      }
-      
-      console.log('[LOGIN] User type validated, redirecting...')
-      
       // Redirect based on user type or redirectTo param
       const redirectTo = searchParams?.get('redirectTo')
-      if (redirectTo) {
-        router.push(redirectTo)
+      const safeRedirectTo = redirectTo && redirectTo.startsWith('/') && !redirectTo.startsWith('//')
+        ? redirectTo
+        : null
+
+      if (safeRedirectTo) {
+        router.push(safeRedirectTo)
+      } else if (redirectPath) {
+        router.push(redirectPath)
       } else {
         // Default redirects based on actual user type from database
         switch (actualUserType) {

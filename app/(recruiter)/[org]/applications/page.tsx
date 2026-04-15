@@ -6,7 +6,7 @@ type ApplicationFilter = 'all' | 'pending' | 'reviewing' | 'shortlisted' | 'reje
 
 const VALID_FILTERS: ApplicationFilter[] = ['all', 'pending', 'reviewing', 'shortlisted', 'rejected', 'accepted']
 
-function normalizeFilter(filter?: string): ApplicationFilter {
+export function normalizeFilter(filter?: string): ApplicationFilter {
   if (filter && VALID_FILTERS.includes(filter as ApplicationFilter)) {
     return filter as ApplicationFilter
   }

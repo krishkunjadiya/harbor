@@ -18,6 +18,13 @@ const protectedRoutes = [
 
 const authPages = ['/login', '/register']
 
+type AuthRedirectContext = {
+  userType: string | null
+  role: string | null
+  universityName?: string | null
+  company?: string | null
+}
+
 function isDynamicOrgRoute(pathname: string): boolean {
   return /^\/[^\/]+\/(admin|faculty|student|dashboard|search|jobs|candidates)/.test(pathname)
 }
@@ -32,6 +39,35 @@ function shouldCheckAuth(pathname: string): boolean {
   }
 
   return isDynamicOrgRoute(pathname)
+}
+
+function slugify(value: string, fallback: string): string {
+  return value
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '') || fallback
+}
+
+function getSafeRedirectPath(request: NextRequest): string | null {
+  const redirectTo = request.nextUrl.searchParams.get('redirectTo')
+  if (!redirectTo) {
+    return null
+  }
+
+  if (!redirectTo.startsWith('/') || redirectTo.startsWith('//')) {
+    return null
+  }
+
+  if (authPages.some((page) => redirectTo.startsWith(page))) {
+    return null
+  }
+
+  return redirectTo
+}
+
+function getOrgFromPath(path: string): string | null {
+  const match = path.match(/^\/([^/]+)\/(admin|faculty|student|dashboard|search|jobs|candidates)/)
+  return match?.[1] ?? null
 }
 
 export async function updateSession(request: NextRequest) {
@@ -101,7 +137,7 @@ export async function updateSession(request: NextRequest) {
   // Middleware uses local session presence for low-latency route gating.
   // We avoid session.user directly to prevent unverified-user warnings.
   let isAuthenticated = false
-  let userMetadata: Record<string, any> | null = null
+  let authRedirectContext: AuthRedirectContext | null = null
   try {
     const { data: { session } } = await supabase.auth.getSession()
     isAuthenticated = Boolean(session)
@@ -109,7 +145,32 @@ export async function updateSession(request: NextRequest) {
     // Only verify user details when we need role-based auth-page redirects.
     if (isAuthenticated && authPages.includes(pathname)) {
       const { data: { user } } = await supabase.auth.getUser()
-      userMetadata = (user?.user_metadata as Record<string, any> | undefined) ?? null
+      const userMetadata = (user?.user_metadata as Record<string, any> | undefined) ?? null
+
+      let userType: string | null = null
+      let role: string | null = null
+
+      if (user?.id) {
+        const { data: profileData, error: profileError } = await supabase
+          .from('profiles')
+          .select('user_type, role')
+          .eq('id', user.id)
+          .single()
+
+        if (profileError) {
+          console.warn('[Middleware] Failed to resolve profile for auth redirect:', profileError.message)
+        } else {
+          userType = profileData?.user_type ?? null
+          role = profileData?.role ?? null
+        }
+      }
+
+      authRedirectContext = {
+        userType,
+        role,
+        universityName: typeof userMetadata?.university_name === 'string' ? userMetadata.university_name : null,
+        company: typeof userMetadata?.company === 'string' ? userMetadata.company : null,
+      }
     }
   } catch (error) {
     console.error('[Middleware] Failed to get session:', error instanceof Error ? error.message : 'Unknown error')
@@ -126,7 +187,7 @@ export async function updateSession(request: NextRequest) {
   const authPageRedirectResponse = handleAuthPageRedirects(
     request,
     isAuthenticated,
-    userMetadata,
+    authRedirectContext,
     supabaseResponse
   )
   if (authPageRedirectResponse) {
@@ -155,7 +216,7 @@ function handleProtectedRoutes(request: NextRequest, isAuthenticated: boolean) {
 function handleAuthPageRedirects(
   request: NextRequest,
   isAuthenticated: boolean,
-  userMetadata: Record<string, any> | null,
+  authRedirectContext: AuthRedirectContext | null,
   supabaseResponse: NextResponse
 ) {
   const pathname = request.nextUrl.pathname
@@ -163,30 +224,45 @@ function handleAuthPageRedirects(
   if (authPages.includes(pathname) && isAuthenticated) {
     const url = request.nextUrl.clone()
 
-    const userType = typeof userMetadata?.user_type === 'string' ? userMetadata.user_type : undefined
+    const safeRedirectPath = getSafeRedirectPath(request)
+    if (safeRedirectPath) {
+      url.pathname = safeRedirectPath
+      url.search = ''
+      return NextResponse.redirect(url)
+    }
+
+    const rawUserType = authRedirectContext?.userType ?? null
+    const role = authRedirectContext?.role ?? null
+    const userType = rawUserType === 'university' && role === 'faculty' ? 'faculty' : rawUserType
 
     if (!userType) {
-      console.warn('User logged in but no user_type in metadata, allowing access to auth page')
+      console.warn('User logged in but no user_type on profile, allowing access to auth page')
       return supabaseResponse
     }
 
-    if (userType === 'university') {
-      const universitySlug = String(userMetadata?.university_name ?? '')
-        ?.toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9-]/g, '') || 'university'
-      url.pathname = `/${universitySlug}/admin/dashboard`
+    if (userType === 'university' || userType === 'faculty') {
+      const redirectOrg = getOrgFromPath(request.nextUrl.searchParams.get('redirectTo') ?? '')
+      const universitySlug = redirectOrg ?? slugify(String(authRedirectContext?.universityName ?? ''), 'university')
+
+      if (userType === 'faculty') {
+        url.pathname = `/${universitySlug}/faculty/dashboard`
+      } else {
+        url.pathname = `/${universitySlug}/admin/dashboard`
+      }
     } else if (userType === 'recruiter') {
-      const companySlug = String(userMetadata?.company ?? '')
-        ?.toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^a-z0-9-]/g, '') || 'company'
+      const redirectOrg = getOrgFromPath(request.nextUrl.searchParams.get('redirectTo') ?? '')
+      const companySlug = redirectOrg ?? slugify(String(authRedirectContext?.company ?? ''), 'company')
       url.pathname = `/${companySlug}/dashboard`
     } else if (userType === 'student') {
-      url.pathname = '/dashboard'
+      url.pathname = '/student/dashboard'
     } else {
       console.warn('Unknown user_type:', userType)
       return supabaseResponse
+    }
+
+    if (url.pathname === '/student/dashboard' && role === 'faculty') {
+      const universitySlug = slugify(String(authRedirectContext?.universityName ?? ''), 'university')
+      url.pathname = `/${universitySlug}/faculty/dashboard`
     }
 
     return NextResponse.redirect(url)

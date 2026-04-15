@@ -1,15 +1,34 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { User, Session, AuthError } from '@supabase/supabase-js'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+
+const AUTH_SYNC_KEY = 'harbor:auth:event'
+const AUTH_LOGOUT_MARKER_KEY = 'harbor:auth:logout-marker'
+
+type AuthApiError = {
+  success: false
+  error?: {
+    code?: string
+    message?: string
+  }
+}
+
+type SignInApiSuccess = {
+  success: true
+  data: {
+    userType: string
+    redirectPath: string
+  }
+}
 
 type AuthContextType = {
   user: User | null
   session: Session | null
   signUp: (email: string, password: string, metadata?: any) => Promise<{ error: AuthError | null; user?: User | null }>
-  signIn: (email: string, password: string) => Promise<{ error: AuthError | null; user?: User | null; userType?: string | null }>
+  signIn: (email: string, password: string, expectedUserType?: string) => Promise<{ error: AuthError | null; user?: User | null; userType?: string | null; redirectPath?: string | null }>
   signOut: () => Promise<void>
   loading: boolean
   getUserType: () => string | null
@@ -31,20 +50,48 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const supabase = isSupabaseConfigured ? createClient() : null
 
+  const syncVerifiedUser = useCallback(async () => {
+    if (!supabase) {
+      setUser(null)
+      return
+    }
+
+    const { data: { user }, error } = await supabase.auth.getUser()
+    if (error) {
+      setUser(null)
+      return
+    }
+    setUser(user ?? null)
+  }, [supabase])
+
+  const isProtectedPath = (pathname: string) => {
+    const protectedPrefixes = [
+      '/dashboard',
+      '/profile',
+      '/skills',
+      '/resume-analyzer',
+      '/career-insights',
+      '/admin-dashboard',
+      '/users',
+      '/settings',
+      '/shared',
+      '/student',
+      '/university',
+      '/recruiter',
+    ]
+
+    if (protectedPrefixes.some((route) => pathname.startsWith(route))) {
+      return true
+    }
+
+    return /^\/[^\/]+\/(admin|faculty|student|dashboard|search|jobs|candidates)/.test(pathname)
+  }
+
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) {
       console.warn('⚠️  Supabase not configured. Authentication is disabled.')
       setLoading(false)
       return
-    }
-
-    const syncVerifiedUser = async () => {
-      const { data: { user }, error } = await supabase.auth.getUser()
-      if (error) {
-        setUser(null)
-        return
-      }
-      setUser(user ?? null)
     }
 
     // Get initial session with error handling
@@ -68,13 +115,44 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
       setSession(session)
       await syncVerifiedUser()
+
+      if (event === 'SIGNED_OUT' && typeof window !== 'undefined' && isProtectedPath(window.location.pathname)) {
+        // Use a hard redirect for logout to ensure clean state and avoid client-side routing stalls
+        window.location.href = '/login'
+      }
     })
 
     return () => subscription.unsubscribe()
-  }, [isSupabaseConfigured, supabase])
+  }, [isSupabaseConfigured, supabase, syncVerifiedUser])
+
+  useEffect(() => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key !== AUTH_SYNC_KEY || !event.newValue) {
+        return
+      }
+
+      try {
+        const parsed = JSON.parse(event.newValue) as { type?: string }
+        if (parsed.type !== 'SIGNED_OUT') {
+          return
+        }
+      } catch {
+        return
+      }
+
+      setSession(null)
+      setUser(null)
+
+      sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
+      window.location.href = '/login'
+    }
+
+    window.addEventListener('storage', handleStorage)
+    return () => window.removeEventListener('storage', handleStorage)
+  }, [])
 
   const signUp = async (email: string, password: string, metadata?: any) => {
     if (!supabase) {
@@ -112,62 +190,70 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const signIn = async (email: string, password: string) => {
+  const signIn = async (email: string, password: string, expectedUserType?: string) => {
     if (!supabase) {
       return { error: { message: 'Authentication not configured. Please set up Supabase credentials.' } as AuthError }
     }
-    
+
     try {
-      console.log('[AUTH] Signing in with email:', email)
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const response = await fetch('/api/auth/signin', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          expectedUserType,
+        }),
       })
-      
-      if (error) {
-        console.log('[AUTH] Sign in failed:', error.message)
-        return { error, user: null, userType: null }
-      }
-      
-      console.log('[AUTH] Sign in successful, fetching profile for user:', data.user.id)
-      // Fetch user_type and role from profiles table
-      const { data: profileData, error: profileError } = await supabase
-        .from('profiles')
-        .select('user_type, role')
-        .eq('id', data.user.id)
-        .single()
-      
-      if (profileError) {
-        console.error('[AUTH] Error fetching user profile:', profileError)
-        return { 
-          error: { 
-            message: 'Failed to load user profile. Please try again.',
-            name: 'ProfileError',
-            status: 500
+
+      const payload = (await response.json().catch(() => null)) as AuthApiError | SignInApiSuccess | null
+
+      if (!response.ok || !payload || payload.success !== true) {
+        const message = payload && payload.success === false
+          ? payload.error?.message || 'Unable to sign in. Please try again.'
+          : 'Unable to sign in. Please try again.'
+
+        return {
+          error: {
+            message,
+            name: 'AuthApiError',
+            status: response.status,
           } as AuthError,
           user: null,
-          userType: null
+          userType: null,
+          redirectPath: null,
         }
       }
-      
-      // Determine effective user type based on role for university users
-      let effectiveUserType = profileData?.user_type
-      if (profileData?.user_type === 'university' && profileData?.role === 'faculty') {
-        effectiveUserType = 'faculty'
+
+      const [{ data: userData }, { data: sessionData }] = await Promise.all([
+        supabase.auth.getUser(),
+        supabase.auth.getSession(),
+      ])
+
+      setUser(userData.user ?? null)
+      setSession(sessionData.session ?? null)
+
+      return {
+        error: null,
+        user: userData.user,
+        userType: payload.data.userType,
+        redirectPath: payload.data.redirectPath,
       }
-      
-      console.log('[AUTH] Profile fetched, user_type:', profileData?.user_type, 'role:', profileData?.role, 'effective:', effectiveUserType)
-      return { error: null, user: data?.user, userType: effectiveUserType }
     } catch (error) {
-      console.error('[AUTH] Sign in network error:', error)
-      return { 
-        error: { 
+      console.error('[AUTH] Sign in request failed:', error)
+      return {
+        error: {
           message: 'Network error. Please check your internet connection and try again.',
           name: 'NetworkError',
           status: 0
         } as AuthError,
         user: null,
-        userType: null
+        userType: null,
+        redirectPath: null,
       }
     }
   }
@@ -180,19 +266,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signOut = async () => {
-    if (!supabase) {
-      router.push('/landing')
-      return
-    }
+    console.log('[AUTH] signOut initiated - performing instant redirect')
     
-    try {
-      await supabase.auth.signOut()
-    } catch (error) {
-      console.error('Sign out error:', error)
-      // Continue with redirect even if signout fails
+    // 1. Clear local state immediately so UI updates
+    setSession(null)
+    setUser(null)
+
+    // 2. Set markers for synchronization
+    localStorage.setItem(
+      AUTH_SYNC_KEY,
+      JSON.stringify({ type: 'SIGNED_OUT', at: Date.now() })
+    )
+    sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
+
+    // 3. Force hard redirect IMMEDIATELY. 
+    // This stops all pending background data fetches (the 401s you see) 
+    // and breaks the 'stuck' state by unloading the current page.
+    window.location.href = '/login'
+
+    // 4. Fire-and-forget the cleanup calls in the background.
+    // The browser will attempt to complete these even as the page unloads 
+    // due to 'keepalive: true' and the nature of the redirect.
+    if (supabase) {
+      void supabase.auth.signOut({ scope: 'local' }).catch(() => null)
     }
-    router.push('/landing')
-    router.refresh()
+
+    void fetch('/api/auth/signout', {
+      method: 'POST',
+      credentials: 'same-origin',
+      keepalive: true,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    }).catch(() => null)
   }
 
   const value = {

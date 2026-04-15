@@ -405,7 +405,7 @@ export default function CareerInsightsPage() {
                   </CardDescription>
                 </div>
                 <Button variant="outline" asChild>
-                  <Link href="/student/jobs" prefetch={true}>View All</Link>
+                  <Link href="/student/jobs" prefetch={false}>View All</Link>
                 </Button>
               </div>
             </CardHeader>
@@ -450,7 +450,7 @@ export default function CareerInsightsPage() {
                       ))}
                     </div>
                     <Button size="sm" className="w-full" asChild>
-                      <Link href={`/student/jobs/${job.id}`} prefetch={true}>
+                      <Link href={`/student/jobs/${job.id}`} prefetch={false}>
                         View Details
                         <ArrowRight className="h-4 w-4 ml-2" />
                       </Link>
@@ -572,7 +572,7 @@ export default function CareerInsightsPage() {
                     className="w-full"
                     asChild
                   >
-                    <Link href="/student/learning-resources" prefetch={true}>Explore This Path</Link>
+                    <Link href="/student/learning-resources" prefetch={false}>Explore This Path</Link>
                   </Button>
                 </div>
               ))}
@@ -599,7 +599,7 @@ export default function CareerInsightsPage() {
                         {skill.priority}
                       </span>
                       <Button size="sm" variant="outline" asChild>
-                        <Link href="/student/learning-resources" prefetch={true}>Learn</Link>
+                        <Link href="/student/learning-resources" prefetch={false}>Learn</Link>
                       </Button>
                     </div>
                   </div>
@@ -631,7 +631,7 @@ export default function CareerInsightsPage() {
                     </div>
                   </div>
                   <Button size="sm" variant="outline" asChild>
-                    <Link href="/student/learning-resources" prefetch={true}>View Course</Link>
+                    <Link href="/student/learning-resources" prefetch={false}>View Course</Link>
                   </Button>
                 </div>
               ))}

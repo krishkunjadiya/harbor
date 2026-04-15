@@ -144,7 +144,7 @@ export function JobsClient({ jobs, studentId, applicationCount, savedCount }: Jo
         </div>
         <div className="flex gap-2">
           <Button variant="outline" asChild>
-            <Link href="/student/applications" prefetch={true}>
+            <Link href="/student/applications" prefetch={false}>
               <Briefcase className="h-4 w-4 mr-2" />
               My Applications
             </Link>
@@ -371,7 +371,7 @@ export function JobsClient({ jobs, studentId, applicationCount, savedCount }: Jo
                   </div>
                   <div className="flex gap-2">
                     <Button variant="outline" size="sm" asChild>
-                      <Link href={`/student/jobs/${job.id}`} prefetch={true}>View Details</Link>
+                      <Link href={`/student/jobs/${job.id}`} prefetch={false}>View Details</Link>
                     </Button>
                     <Button 
                       size="sm"
