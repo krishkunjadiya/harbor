@@ -88,7 +88,7 @@ jobs:
       - name: Run Python tests
         run: |
           cd python_worker
-          pytest tests/ -v
+          pytest test_workers.py -v
         env:
           POSTGRES_DB: postgres
           POSTGRES_USER: postgres
