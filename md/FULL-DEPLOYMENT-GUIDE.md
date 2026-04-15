@@ -159,6 +159,12 @@ Suggested commands:
 - Build command: pip install -r requirements.txt
 - Start command: uvicorn main:app --host 0.0.0.0 --port $PORT
 
+Python version pin (important):
+- Render defaults to Python 3.14 for new services, which can break scipy/scikit-learn/torch installs.
+- Pin Python to 3.11.11 using either:
+	- Environment variable in Render: PYTHON_VERSION=3.11.11
+	- Or this repo file in worker root: python_worker/.python-version (already set to 3.11.11)
+
 ### 6.2 Python Worker Environment Variables
 
 Set from python_worker/.env.example (use real production values):
@@ -259,8 +265,19 @@ Issue: Build fails on Vercel
 - Use npm run build:prod for Harbor
 - Confirm all required env vars are set in Production scope
 
+Issue: Python worker fails installing scipy on Render (gfortran / meson error)
+- Cause: Service is using Python 3.14 and trying to compile scipy from source.
+- Fix: Pin PYTHON_VERSION to 3.11.11 and redeploy.
+- Optional: Clear build cache before redeploying.
+
 Issue: Resume app deployment unstable on Vercel
 - Move Resume to Render (Option A), keep Harbor on Vercel
+
+Issue: Resume app returns 504 with ENOENT scandir './migrations' on Vercel
+- Cause: Serverless runtime package may not contain migrations folder at startup.
+- Fix path in code: reactive_resume/plugins/1.migrate.ts now resolves migrations path dynamically and skips startup migration if folder is missing.
+- Immediate fallback: set SKIP_DB_MIGRATIONS=true in Resume environment variables and redeploy.
+- Long-term: run migrations as a separate one-off step (drizzle-kit migrate) instead of relying only on startup migration in serverless.
 
 ## 11) Minimal Go-Live Order
 
