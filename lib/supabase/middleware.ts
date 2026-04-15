@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import { shouldBypassAuthPageRedirect } from './auth-redirect'
 
 const protectedRoutes = [
   '/dashboard',
@@ -220,9 +221,8 @@ function handleAuthPageRedirects(
   supabaseResponse: NextResponse
 ) {
   const pathname = request.nextUrl.pathname
-  const loggedOut = request.nextUrl.searchParams.get('loggedOut') === '1'
 
-  if (pathname === '/login' && loggedOut) {
+  if (shouldBypassAuthPageRedirect(pathname, request.nextUrl.searchParams)) {
     return supabaseResponse
   }
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useCallback, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { User, Session, AuthError } from '@supabase/supabase-js'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
@@ -41,6 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
+  const manualSignOutInProgressRef = useRef(false)
   const router = useRouter()
   
   // Check if Supabase is configured
@@ -150,6 +151,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await syncVerifiedUser()
 
       if (event === 'SIGNED_OUT' && typeof window !== 'undefined' && isProtectedPath(window.location.pathname)) {
+        if (manualSignOutInProgressRef.current) {
+          return
+        }
+
         // Use a hard redirect for logout to ensure clean state and avoid client-side routing stalls.
         window.location.replace(LOGOUT_REDIRECT_PATH)
       }
@@ -301,6 +306,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signOut = async () => {
+    if (manualSignOutInProgressRef.current) {
+      return
+    }
+
+    manualSignOutInProgressRef.current = true
+
     // 1. Clear local state immediately so UI updates.
     setSession(null)
     setUser(null)
@@ -337,10 +348,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     } catch {
       // Redirect regardless so the user is not blocked on network failures.
-    }
+    } finally {
+      // 5. Redirect to login with a signed-out marker to avoid middleware race conditions.
+      redirectToLoggedOutPage()
 
-    // 5. Redirect to login with a signed-out marker to avoid middleware race conditions.
-    redirectToLoggedOutPage()
+      // If navigation is interrupted, allow retry attempts in the same tab.
+      window.setTimeout(() => {
+        manualSignOutInProgressRef.current = false
+      }, 2000)
+    }
   }
 
   const value = {

@@ -33,12 +33,12 @@ export function LoginForm() {
     }
 
     if (loggedOut) {
-      router.replace('/login')
+      window.history.replaceState(null, '', '/login')
       return
     }
 
     if (marker && redirectTo) {
-      router.replace('/login')
+      window.history.replaceState(null, '', '/login')
     }
   }, [router, searchParams])
   
