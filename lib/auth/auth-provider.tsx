@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation'
 
 const AUTH_SYNC_KEY = 'harbor:auth:event'
 const AUTH_LOGOUT_MARKER_KEY = 'harbor:auth:logout-marker'
-const AUTH_LOGOUT_BYPASS_COOKIE = 'harbor-logout'
 
 type AuthApiError = {
   success: false
@@ -280,13 +279,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     )
     sessionStorage.setItem(AUTH_LOGOUT_MARKER_KEY, String(Date.now()))
 
-    // Signal middleware to allow /login immediately during logout cookie cleanup race windows.
-    document.cookie = `${AUTH_LOGOUT_BYPASS_COOKIE}=1; Max-Age=30; Path=/; SameSite=Lax`
-
     // 3. Force hard redirect IMMEDIATELY. 
     // This stops all pending background data fetches (the 401s you see) 
     // and breaks the 'stuck' state by unloading the current page.
-    window.location.href = '/login?loggedOut=1'
+    window.location.href = '/login'
 
     // 4. Fire-and-forget the cleanup calls in the background.
     // The browser will attempt to complete these even as the page unloads 

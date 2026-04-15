@@ -17,7 +17,6 @@ const protectedRoutes = [
 ]
 
 const authPages = ['/login', '/register']
-const AUTH_LOGOUT_BYPASS_COOKIE = 'harbor-logout'
 
 type AuthRedirectContext = {
   userType: string | null
@@ -221,19 +220,6 @@ function handleAuthPageRedirects(
   supabaseResponse: NextResponse
 ) {
   const pathname = request.nextUrl.pathname
-  const logoutBypassActive =
-    request.cookies.get(AUTH_LOGOUT_BYPASS_COOKIE)?.value === '1' ||
-    request.nextUrl.searchParams.get('loggedOut') === '1'
-
-  if (logoutBypassActive && authPages.includes(pathname)) {
-    // Clear single-use bypass marker once consumed.
-    supabaseResponse.cookies.set(AUTH_LOGOUT_BYPASS_COOKIE, '', {
-      expires: new Date(0),
-      path: '/',
-      sameSite: 'lax',
-    })
-    return supabaseResponse
-  }
 
   if (authPages.includes(pathname) && isAuthenticated) {
     const url = request.nextUrl.clone()
