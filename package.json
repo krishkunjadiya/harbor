@@ -21,6 +21,7 @@
     "dev:all": "concurrently -n harbor,resume -c cyan,magenta \"npm run dev:harbor\" \"npm run dev:resume\"",
     "bench:nav:install": "playwright install chromium",
     "bench:nav": "node scripts/nav-benchmark.js",
+    "monitor:resume-launch-slo": "node scripts/check-resume-launch-slo.js",
     "screenshot:pages": "node scripts/screenshot-all-pages.js",
     "screenshot:pages:resume": "node scripts/screenshot-all-pages.js --target resume",
     "screenshot:pages:all": "node scripts/screenshot-all-pages.js --target all",

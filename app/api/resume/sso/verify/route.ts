@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import { verifyResumeSsoToken } from '@/lib/auth/resume-sso'
+import { getRequestId } from '@/lib/observability/request-id'
 import { createAdminClient } from '@/lib/supabase/admin'
 
 type VerifyBody = {
@@ -80,6 +81,8 @@ async function writeAuditEvent(input: {
 
 export async function POST(request: NextRequest) {
   try {
+    const requestId = getRequestId({ headers: request.headers })
+
     if (!isCallerAuthorized(request)) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -123,16 +126,18 @@ export async function POST(request: NextRequest) {
       metadata: { jti: claims.jti },
       request })
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       valid: true,
       harborUser: {
         id: profile.id,
         email: profile.email,
         name: profile.full_name ?? profile.email,
         role: profile.user_type } })
+    response.headers.set('x-request-id', requestId)
+    return response
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error'
-    console.error('[resume-sso:verify]', message)
+    console.error('[resume-sso:verify]', { message, requestId: request.headers.get('x-request-id') ?? null })
 
     return NextResponse.json({ error: 'Token verification failed' }, { status: 401 })
   }

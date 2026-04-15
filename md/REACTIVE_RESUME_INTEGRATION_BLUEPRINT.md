@@ -221,6 +221,8 @@ Harbor:
 - RESUME_SSO_SIGNING_KEY (or private key)
 - RESUME_SSO_VERIFY_AUDIENCE
 - RESUME_SSO_TOKEN_TTL_SECONDS
+- RESUME_USE_UNIFIED_ORIGIN=true/false
+- /resume/* reverse proxy to reactive_resume when unified origin is enabled
 
 reactive_resume:
 - HARBOR_BASE_URL

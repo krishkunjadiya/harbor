@@ -2,11 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 import { db } from "@/integrations/drizzle/client";
-import { account, resume, user } from "@/integrations/drizzle/schema";
-import { auth } from "@/integrations/auth/config";
+import { resume, user } from "@/integrations/drizzle/schema";
 import { env } from "@/utils/env";
-import { and, desc, eq, inArray, or } from "drizzle-orm";
-import { hashPassword } from "@/utils/password";
+import { getRequestId } from "@/utils/request-id";
+import { desc, eq } from "drizzle-orm";
 
 type HarborVerifySuccess = {
   valid: true;
@@ -40,8 +39,6 @@ export const Route = createFileRoute("/sso/launch")({
   server: { handlers: { GET: handler } },
 });
 
-const SIGN_IN_ENDPOINTS = ["/api/auth/sign-in/email", "/api/auth/sign-in"];
-const SIGN_UP_ENDPOINTS = ["/api/auth/sign-up/email", "/api/auth/sign-up"];
 
 function fromBase64Url(value: string): string {
   return Buffer.from(value, "base64url").toString("utf8");
@@ -117,44 +114,8 @@ function createSsoUsername(harborUserId: string): string {
   return `harbor_${compact.slice(0, 24)}`;
 }
 
-function createSsoPassword(harborUserId: string): string {
-  const secret = env.HARBOR_SSO_PASSWORD_SECRET ?? env.AUTH_SECRET;
 
-  const digest = createHmac("sha256", secret).update(`harbor-sso:${harborUserId}`).digest("hex");
 
-  return `Hrbr!${digest.slice(0, 48)}`;
-}
-
-async function callAuth(path: string, payload: Record<string, unknown>): Promise<Response> {
-  const request = new Request(new URL(path, env.APP_URL).toString(), {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-
-  return auth.handler(request);
-}
-
-async function tryAuth(paths: string[], payload: Record<string, unknown>): Promise<Response | null> {
-  for (const path of paths) {
-    const response = await callAuth(path, payload);
-
-    // 2xx or redirect indicates the endpoint exists and handled the request.
-    if (response.status < 400) {
-      return response;
-    }
-
-    // If endpoint path does not exist, try the next fallback path.
-    if (response.status === 404) {
-      continue;
-    }
-
-    // Endpoint exists but auth failed (e.g., bad credentials / already exists).
-    return response;
-  }
-
-  return null;
-}
 
 async function verifyWithHarbor(token: string): Promise<HarborVerifySuccess> {
   if (!env.HARBOR_SSO_VERIFY_URL || !env.HARBOR_SSO_VERIFY_SECRET) {
@@ -189,23 +150,6 @@ async function resolveHarborUser(token: string): Promise<HarborVerifySuccess["ha
   return verification.harborUser;
 }
 
-function copySessionCookies(source: Response, target: Response) {
-  const getSetCookie = (source.headers as Headers & { getSetCookie?: () => string[] }).getSetCookie;
-
-  if (typeof getSetCookie === "function") {
-    for (const cookie of getSetCookie.call(source.headers)) {
-      target.headers.append("set-cookie", cookie);
-    }
-
-    return;
-  }
-
-  const setCookie = source.headers.get("set-cookie");
-  if (setCookie) {
-    // Fallback for environments without getSetCookie().
-    target.headers.append("set-cookie", setCookie);
-  }
-}
 
 async function linkUsersWithHarbor(input: { harborUserId: string; resumeUserId: string }) {
   const linkSecret = env.HARBOR_SSO_LINK_SECRET ?? env.HARBOR_SSO_VERIFY_SECRET;
@@ -238,149 +182,88 @@ async function linkUsersWithHarbor(input: { harborUserId: string; resumeUserId: 
   }
 }
 
-async function syncCredentialPasswordForUser(input: { email: string; password: string }): Promise<boolean> {
-  const [existingUser] = await db.select({ id: user.id }).from(user).where(eq(user.email, input.email)).limit(1);
-
-  if (!existingUser?.id) {
-    return false;
-  }
-
-  const [credentialAccount] = await db
-    .select({ id: account.id })
-    .from(account)
-    .where(
-      and(
-        eq(account.userId, existingUser.id),
-        or(
-          inArray(account.providerId, ["credential", "email", "email-password"]),
-          eq(account.accountId, input.email),
-        ),
-      ),
-    )
-    .limit(1);
-
-  if (!credentialAccount?.id) {
-    return false;
-  }
-
-  const hashedPassword = await hashPassword(input.password);
-
-  await db
-    .update(account)
-    .set({ password: hashedPassword, updatedAt: new Date() })
-    .where(eq(account.id, credentialAccount.id));
-
-  return true;
-}
 
 async function handler({ request }: { request: Request }) {
+  const requestId = getRequestId({ headers: new Headers(request.headers) })
+
   try {
     const url = new URL(request.url);
     const token = url.searchParams.get("token");
     const returnPath = sanitizeReturnPath(url.searchParams.get("returnPath"));
 
+    console.info("[sso/launch] start", { requestId, returnPath });
+
     if (!token) {
+      console.warn("[sso/launch] missing_token", { requestId });
       return new Response("Missing token", { status: 400 });
     }
 
     const harborUser = await resolveHarborUser(token);
 
     if (harborUser.role !== "student") {
+      console.warn("[sso/launch] invalid_role", { requestId, role: harborUser.role });
       return new Response("Invalid role", { status: 403 });
     }
 
-    const password = createSsoPassword(harborUser.id);
+    // Parse token version for v2 contract
+    let tokenVersion = 1;
+    try {
+      const parts = token.split(".");
+      if (parts.length === 3) {
+        const payload = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8"));
+        if (payload.ver === 2) tokenVersion = 2;
+      }
+    } catch {}
+
     const username = createSsoUsername(harborUser.id);
 
-    const [existingResumeUser] = await db.select({ id: user.id }).from(user).where(eq(user.email, harborUser.email)).limit(1);
-
-    let signInResponse: Response | null = null;
-
-    if (existingResumeUser?.id) {
-      signInResponse = await tryAuth(SIGN_IN_ENDPOINTS, {
-        email: harborUser.email,
-        password,
-        rememberMe: true,
-      });
-
-      if (!signInResponse || signInResponse.status >= 400) {
-        const synced = await syncCredentialPasswordForUser({
-          email: harborUser.email,
-          password,
-        });
-
-        if (synced) {
-          signInResponse = await tryAuth(SIGN_IN_ENDPOINTS, {
-            email: harborUser.email,
-            password,
-            rememberMe: true,
-          });
-        }
-      }
-    } else {
-      const signUpResponse = await tryAuth(SIGN_UP_ENDPOINTS, {
-        name: harborUser.name,
-        email: harborUser.email,
-        username,
-        displayUsername: username,
-        password,
-      });
-
-      if (signUpResponse && signUpResponse.status < 400) {
-        signInResponse = signUpResponse;
+    // v2: Only idempotent user mapping and session setup, no fallback sign-in/sign-up
+    if (tokenVersion === 2) {
+      // Upsert user if not exists
+      let resumeUserId: string | undefined;
+      const [existingResumeUser] = await db.select({ id: user.id }).from(user).where(eq(user.email, harborUser.email)).limit(1);
+      if (existingResumeUser?.id) {
+        resumeUserId = existingResumeUser.id;
       } else {
-        signInResponse = await tryAuth(SIGN_IN_ENDPOINTS, {
+        // Create user (idempotent)
+        const inserted = await db.insert(user).values({
           email: harborUser.email,
-          password,
-          rememberMe: true,
+          name: harborUser.name,
+          username,
+          displayUsername: username,
+        }).onConflictDoNothing().returning({ id: user.id });
+        resumeUserId = inserted[0]?.id;
+      }
+
+      if (resumeUserId) {
+        void linkUsersWithHarbor({
+          harborUserId: harborUser.id,
+          resumeUserId,
         });
       }
+
+      let finalReturnPath = returnPath;
+      if (finalReturnPath === "/dashboard" && resumeUserId) {
+        const [latestResume] = await db
+          .select({ id: resume.id })
+          .from(resume)
+          .where(eq(resume.userId, resumeUserId))
+          .orderBy(desc(resume.updatedAt))
+          .limit(1);
+        finalReturnPath = latestResume ? `/builder/${latestResume.id}` : "/dashboard/resumes";
+      }
+
+      // Assume session is established by trusted launch, redirect
+      console.info("[sso/launch] v2_redirect", { requestId, finalReturnPath, resumeUserId: Boolean(resumeUserId) });
+      const response = Response.redirect(new URL(finalReturnPath, env.APP_URL), 302);
+      response.headers.set("x-request-id", requestId);
+      return response;
     }
 
-    if (!signInResponse || signInResponse.status >= 400) {
-      console.error("[sso/launch] failed to establish session", {
-        status: signInResponse?.status,
-        userId: harborUser.id,
-      });
-
-      return new Response("Unable to establish session", { status: 401 });
-    }
-
-    const [resumeUser] = await db
-      .select({ id: user.id })
-      .from(user)
-      .where(eq(user.email, harborUser.email))
-      .limit(1);
-
-    if (resumeUser?.id) {
-      void linkUsersWithHarbor({
-        harborUserId: harborUser.id,
-        resumeUserId: resumeUser.id,
-      });
-    }
-
-    let finalReturnPath = returnPath;
-
-    if (finalReturnPath === "/dashboard" && resumeUser?.id) {
-      const [latestResume] = await db
-        .select({ id: resume.id })
-        .from(resume)
-        .where(eq(resume.userId, resumeUser.id))
-        .orderBy(desc(resume.updatedAt))
-        .limit(1);
-
-      finalReturnPath = latestResume ? `/builder/${latestResume.id}` : "/dashboard/resumes";
-    }
-
-    const redirectResponse = new Response(null, {
-      status: 302,
-      headers: { location: new URL(finalReturnPath, env.APP_URL).toString() },
-    });
-    copySessionCookies(signInResponse, redirectResponse);
-
-    return redirectResponse;
+    console.warn("[sso/launch] unsupported_contract", { requestId, tokenVersion });
+    return new Response("Unsupported launch contract", { status: 426 });
   } catch (error) {
-    console.error("[sso/launch]", error);
+    console.error("[sso/launch]", { requestId, error });
     return Response.redirect(new URL("/auth/login", env.APP_URL), 302);
   }
 }

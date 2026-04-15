@@ -71,7 +71,7 @@ const studentNavItems = [
   { name: "Jobs", href: "/student/jobs", icon: Briefcase },
   { name: "Applications", href: "/student/applications", icon: ClipboardText },
   { name: "Resume Review (AI)", href: "/student/resume-analyzer", icon: FileText },
-  { name: "Resume Builder (Editor)", href: "/student/resume-builder", icon: FileText, openInNewTab: true },
+  { name: "Resume Builder (Editor)", href: "/student/resume-builder", icon: FileText },
   { name: "Career Insights", href: "/student/career-insights", icon: ChartBar },
   { name: "Learning Resources", href: "/student/learning-resources", icon: BookOpen },
   { name: "Interview Prep", href: "/student/interview-prep", icon: VideoCamera },

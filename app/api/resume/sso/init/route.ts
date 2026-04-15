@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createResumeSsoToken } from '@/lib/auth/resume-sso'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createClient } from '@/lib/supabase/server'
+import { getRequestId } from '@/lib/observability/request-id'
 
 type InitBody = {
   returnPath?: string
@@ -59,6 +60,8 @@ async function writeAuditEvent(input: {
 
 export async function POST(request: NextRequest) {
   try {
+    const requestId = getRequestId({ headers: request.headers })
+
     const resumeAppUrl = getRequiredEnv('RESUME_APP_URL')
     const signingKey = getRequiredEnv('RESUME_SSO_SIGNING_KEY')
 
@@ -102,6 +105,7 @@ export async function POST(request: NextRequest) {
     const launchUrl = new URL('/sso/launch', resumeAppUrl)
     launchUrl.searchParams.set('token', token)
     launchUrl.searchParams.set('returnPath', returnPath)
+    launchUrl.searchParams.set('cid', requestId)
 
     await writeAuditEvent({
       harborUserId: profile.id,
@@ -109,10 +113,12 @@ export async function POST(request: NextRequest) {
       metadata: { jti: claims.jti, exp: claims.exp },
       request })
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       launchUrl: launchUrl.toString(),
       expiresAt: new Date(claims.exp * 1000).toISOString(),
       tokenType: 'bearer' })
+    response.headers.set('x-request-id', requestId)
+    return response
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error'
     console.error('[resume-sso:init]', message)

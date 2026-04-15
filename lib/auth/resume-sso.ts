@@ -3,6 +3,7 @@ import { createHmac, randomUUID, timingSafeEqual } from 'node:crypto'
 export type ResumeSsoClaims = {
   iss: 'harbor'
   aud: 'reactive_resume'
+  ver: 1 | 2
   sub: string
   email: string
   name: string
@@ -51,12 +52,15 @@ export function createResumeSsoToken(input: {
   role: string
   ttlSeconds: number
   secret: string
+  version?: 1 | 2
 }): { token: string; claims: ResumeSsoClaims } {
   const now = Math.floor(Date.now() / 1000)
+  const tokenVersion = input.version ?? 1
 
   const claims: ResumeSsoClaims = {
     iss: 'harbor',
     aud: 'reactive_resume',
+    ver: tokenVersion,
     sub: input.userId,
     email: input.email,
     name: input.name,
@@ -105,6 +109,10 @@ export function verifyResumeSsoToken(token: string, secret: string): ResumeSsoCl
 
   if (payload.iss !== 'harbor' || payload.aud !== 'reactive_resume') {
     throw new Error('Invalid token claims')
+  }
+
+  if (payload.ver !== 1 && payload.ver !== 2) {
+    throw new Error('Unsupported token version')
   }
 
   const now = Math.floor(Date.now() / 1000)

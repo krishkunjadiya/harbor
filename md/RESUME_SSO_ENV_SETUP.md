@@ -22,12 +22,51 @@ RESUME_SSO_SIGNING_KEY=<GENERATED_SECRET_FOR_TOKEN_SIGNING>
 RESUME_SSO_VERIFY_SECRET=<GENERATED_SHARED_VERIFY_SECRET>
 RESUME_SSO_LINK_SECRET=<SAME_AS_VERIFY_SECRET_OR_ANOTHER_STRONG_SECRET>
 RESUME_SSO_TOKEN_TTL_SECONDS=90
+RESUME_USE_UNIFIED_ORIGIN=false
+RESUME_ALERT_WINDOW_MINUTES=15
+RESUME_ALERT_MIN_SUCCESS_RATE=0.995
+RESUME_ALERT_MAX_P95_MS=1800
 SUPABASE_SERVICE_ROLE_KEY=<YOUR_SUPABASE_SERVICE_ROLE_KEY>
 ```
 
 Notes:
 - RESUME_SSO_VERIFY_SECRET is checked by Harbor verify and link endpoints.
 - RESUME_SSO_LINK_SECRET is optional in current code and falls back to RESUME_SSO_VERIFY_SECRET.
+- RESUME_USE_UNIFIED_ORIGIN=true makes Harbor launch Resume Builder through the same-origin /resume/* proxy path.
+- RESUME_ALERT_* vars are used by `npm run monitor:resume-launch-slo` for automated threshold checks.
+
+## 2.1) Launch SLO Monitor (Phase 4)
+
+Run this command in Harbor to validate launch reliability in the recent window:
+
+```powershell
+npm run monitor:resume-launch-slo
+```
+
+Behavior:
+- Reads `resume_sso_audit` events for `launch_success` and `launch_failure`.
+- Computes success rate and p95 launch latency from `metadata.elapsedMs`.
+- Exits with code `1` when thresholds are violated (suitable for CI/cron alerts).
+
+## 2.2) CI Scheduler Activation (Done)
+
+Workflow added:
+- `.github/workflows/resume-launch-slo-monitor.yml`
+
+It runs:
+- every 30 minutes (`cron: */30 * * * *`)
+- on manual trigger (`workflow_dispatch`)
+
+Required GitHub Secrets:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+Recommended GitHub Repository Variables:
+- `RESUME_ALERT_WINDOW_MINUTES` (example: `15`)
+- `RESUME_ALERT_MIN_SUCCESS_RATE` (example: `0.995`)
+- `RESUME_ALERT_MAX_P95_MS` (example: `1800`)
+
+If these variables are not set, the script falls back to defaults.
 
 ## 3) reactive_resume Environment Variables
 Set these in reactive_resume .env:

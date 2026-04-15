@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+import { getRequestId } from '@/lib/observability/request-id'
 import { createAdminClient } from '@/lib/supabase/admin'
 
 type LinkBody = {
@@ -51,6 +52,8 @@ async function writeAuditEvent(input: {
 
 export async function POST(request: NextRequest) {
   try {
+    const requestId = getRequestId({ headers: request.headers })
+
     if (!isCallerAuthorized(request)) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -88,10 +91,12 @@ export async function POST(request: NextRequest) {
       metadata: { resumeUserId: body.resumeUserId },
       request })
 
-    return NextResponse.json({ success: true })
+    const response = NextResponse.json({ success: true })
+    response.headers.set('x-request-id', requestId)
+    return response
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error'
-    console.error('[resume-sso:link]', message)
+    console.error('[resume-sso:link]', { message, requestId: request.headers.get('x-request-id') ?? null })
 
     return NextResponse.json({ error: 'Failed to link users' }, { status: 500 })
   }
