@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
+import { auth } from "@/integrations/auth/config";
 import { db } from "@/integrations/drizzle/client";
-import { resume, user } from "@/integrations/drizzle/schema";
+import { account, resume, user } from "@/integrations/drizzle/schema";
 import { env } from "@/utils/env";
+import { hashPassword } from "@/utils/password";
 import { getRequestId } from "@/utils/request-id";
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
 
 type HarborVerifySuccess = {
   valid: true;
@@ -112,6 +114,111 @@ function sanitizeReturnPath(path: string | null): string {
 function createSsoUsername(harborUserId: string): string {
   const compact = harborUserId.replaceAll("-", "").toLowerCase();
   return `harbor_${compact.slice(0, 24)}`;
+}
+
+function getSsoPasswordSecret(): string {
+  return env.HARBOR_SSO_PASSWORD_SECRET ?? env.HARBOR_SSO_SIGNING_KEY ?? env.HARBOR_SSO_VERIFY_SECRET ?? "harbor-sso-dev-secret";
+}
+
+function createDeterministicSsoPassword(harborUserId: string): string {
+  const digest = createHmac("sha256", getSsoPasswordSecret()).update(harborUserId).digest("base64url");
+  return `Hr_${digest.slice(0, 40)}_9!`;
+}
+
+function getSetCookieHeaders(headers: Headers): string[] {
+  const withGetSetCookie = headers as Headers & { getSetCookie?: () => string[] };
+
+  if (typeof withGetSetCookie.getSetCookie === "function") {
+    return withGetSetCookie.getSetCookie();
+  }
+
+  const single = headers.get("set-cookie");
+  return single ? [single] : [];
+}
+
+async function ensureCredentialAccount(input: {
+  resumeUserId: string;
+  password: string;
+}) {
+  const [credentialAccount] = await db
+    .select({ id: account.id })
+    .from(account)
+    .where(and(eq(account.userId, input.resumeUserId), eq(account.providerId, "credential")))
+    .limit(1);
+
+  const passwordHash = await hashPassword(input.password);
+
+  if (credentialAccount?.id) {
+    await db
+      .update(account)
+      .set({
+        accountId: input.resumeUserId,
+        password: passwordHash,
+      })
+      .where(eq(account.id, credentialAccount.id));
+    return;
+  }
+
+  await db.insert(account).values({
+    userId: input.resumeUserId,
+    providerId: "credential",
+    accountId: input.resumeUserId,
+    password: passwordHash,
+  });
+}
+
+async function signInForSso(input: {
+  request: Request;
+  username: string;
+  email: string;
+  password: string;
+}): Promise<Headers> {
+  const signInUsername = (auth.api as unknown as Record<string, unknown>).signInUsername as
+    | ((context: {
+      body: { username: string; password: string; rememberMe?: boolean };
+      headers?: Headers;
+      asResponse?: boolean;
+    }) => Promise<Response>)
+    | undefined;
+
+  if (signInUsername) {
+    const response = await signInUsername({
+      body: {
+        username: input.username,
+        password: input.password,
+        rememberMe: true,
+      },
+      headers: new Headers(input.request.headers),
+      asResponse: true,
+    });
+
+    if (response.ok) {
+      return response.headers;
+    }
+  }
+
+  const signInEmail = auth.api.signInEmail as (context: {
+    body: { email: string; password: string; rememberMe?: boolean };
+    headers?: Headers;
+    asResponse?: boolean;
+  }) => Promise<Response>;
+
+  const response = await signInEmail({
+    body: {
+      email: input.email,
+      password: input.password,
+      rememberMe: true,
+    },
+    headers: new Headers(input.request.headers),
+    asResponse: true,
+  });
+
+  if (!response.ok) {
+    const text = await response.text().catch(() => "");
+    throw new Error(`Failed to establish SSO session (${response.status}) ${text}`);
+  }
+
+  return response.headers;
 }
 
 
@@ -236,28 +343,50 @@ async function handler({ request }: { request: Request }) {
       }
 
       if (resumeUserId) {
+        const ssoPassword = createDeterministicSsoPassword(harborUser.id);
+
+        await ensureCredentialAccount({
+          resumeUserId,
+          password: ssoPassword,
+        });
+
+        const signInHeaders = await signInForSso({
+          request,
+          username,
+          email: harborUser.email,
+          password: ssoPassword,
+        });
+
         void linkUsersWithHarbor({
           harborUserId: harborUser.id,
           resumeUserId,
         });
+
+        let finalReturnPath = returnPath;
+        if (finalReturnPath === "/dashboard") {
+          const [latestResume] = await db
+            .select({ id: resume.id })
+            .from(resume)
+            .where(eq(resume.userId, resumeUserId))
+            .orderBy(desc(resume.updatedAt))
+            .limit(1);
+          finalReturnPath = latestResume ? `/builder/${latestResume.id}` : "/dashboard/resumes";
+        }
+
+        // Trusted launch must set auth cookies before redirecting to protected routes.
+        console.info("[sso/launch] v2_redirect", { requestId, finalReturnPath, resumeUserId: Boolean(resumeUserId) });
+        const response = Response.redirect(new URL(finalReturnPath, env.APP_URL), 302);
+
+        for (const cookie of getSetCookieHeaders(signInHeaders)) {
+          response.headers.append("set-cookie", cookie);
+        }
+
+        response.headers.set("x-request-id", requestId);
+        return response;
       }
 
-      let finalReturnPath = returnPath;
-      if (finalReturnPath === "/dashboard" && resumeUserId) {
-        const [latestResume] = await db
-          .select({ id: resume.id })
-          .from(resume)
-          .where(eq(resume.userId, resumeUserId))
-          .orderBy(desc(resume.updatedAt))
-          .limit(1);
-        finalReturnPath = latestResume ? `/builder/${latestResume.id}` : "/dashboard/resumes";
-      }
-
-      // Assume session is established by trusted launch, redirect
-      console.info("[sso/launch] v2_redirect", { requestId, finalReturnPath, resumeUserId: Boolean(resumeUserId) });
-      const response = Response.redirect(new URL(finalReturnPath, env.APP_URL), 302);
-      response.headers.set("x-request-id", requestId);
-      return response;
+      console.warn("[sso/launch] missing_resume_user_after_upsert", { requestId });
+      return Response.redirect(new URL("/auth/login", env.APP_URL), 302);
     }
 
     console.warn("[sso/launch] unsupported_contract", { requestId, tokenVersion });

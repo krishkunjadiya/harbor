@@ -30,6 +30,31 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+async function signInViaHarborBridge(input: { identifier: string; password: string }): Promise<string | null> {
+  try {
+    const response = await fetch("/api/harbor-login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        identifier: input.identifier,
+        password: input.password,
+        returnPath: "/dashboard",
+      }),
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const payload = (await response.json().catch(() => ({}))) as { launchUrl?: string };
+    return payload.launchUrl ?? null;
+  } catch {
+    return null;
+  }
+}
+
 function RouteComponent() {
   const router = useRouter();
   const navigate = useNavigate();
@@ -55,6 +80,19 @@ function RouteComponent() {
         : await authClient.signIn.username({ username: data.identifier, password: data.password });
 
       if (result.error) {
+        if (isEmail) {
+          const launchUrl = await signInViaHarborBridge({
+            identifier: data.identifier,
+            password: data.password,
+          });
+
+          if (launchUrl) {
+            toast.success(t`Signed in with Harbor credentials`, { id: toastId });
+            window.location.assign(launchUrl);
+            return;
+          }
+        }
+
         toast.error(result.error.message, { id: toastId });
         return;
       }

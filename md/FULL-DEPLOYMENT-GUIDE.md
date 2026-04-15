@@ -123,6 +123,7 @@ Auth:
 - AUTH_SECRET=<openssl-rand-hex-32-output>
 
 Harbor SSO bridge:
+- HARBOR_APP_URL=https://your-harbor-domain.vercel.app
 - HARBOR_SSO_VERIFY_URL=https://your-harbor-domain.vercel.app/api/resume/sso/verify
 - HARBOR_SSO_LINK_URL=https://your-harbor-domain.vercel.app/api/resume/sso/link
 - HARBOR_SSO_VERIFY_SECRET=<same-value-as-RESUME_SSO_VERIFY_SECRET-in-Harbor>
@@ -255,6 +256,11 @@ Issue: Resume launch fails from Harbor
 - Check RESUME_APP_URL in Harbor
 - Check secret matching between Harbor and Resume
 - Check Harbor endpoints /api/resume/sso/verify and /api/resume/sso/link are reachable
+
+Issue: Resume app opens but Harbor user cannot log in with Harbor credentials
+- Ensure Harbor endpoint /api/resume/sso/password-login is deployed.
+- Ensure Resume has HARBOR_APP_URL and HARBOR_SSO_VERIFY_SECRET configured.
+- Ensure Harbor has RESUME_SSO_SIGNING_KEY and RESUME_SSO_VERIFY_SECRET configured.
 
 Issue: Harbor cannot call Python worker
 - Check PYTHON_WORKER_URL in Harbor
