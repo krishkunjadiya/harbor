@@ -40,7 +40,7 @@ async function signInViaHarborBridge(input: { identifier: string; password: stri
       body: JSON.stringify({
         identifier: input.identifier,
         password: input.password,
-        returnPath: "/dashboard",
+        returnPath: "/dashboard/resumes",
       }),
     });
 
