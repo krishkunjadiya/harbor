@@ -178,16 +178,22 @@ async function ensureCredentialAccount(input: {
 
 async function signInForSso(input: {
   request: Request;
+  origin: string;
   username: string;
   email: string;
   password: string;
 }): Promise<Headers> {
+  const forwardedHeaders = new Headers(input.request.headers);
+  forwardedHeaders.set("origin", input.origin);
+  forwardedHeaders.set("referer", `${input.origin}/sso/launch`);
+
   const signInUsername = (auth.api as unknown as Record<string, unknown>).signInUsername as
     | ((context: {
       body: { username: string; password: string; rememberMe?: boolean };
       headers?: Headers;
-      asResponse?: boolean;
-    }) => Promise<Response>)
+      returnHeaders?: boolean;
+      returnStatus?: boolean;
+    }) => Promise<{ headers?: Headers; status?: number; response?: unknown }>)
     | undefined;
 
   if (signInUsername) {
@@ -197,11 +203,12 @@ async function signInForSso(input: {
         password: input.password,
         rememberMe: true,
       },
-      headers: new Headers(input.request.headers),
-      asResponse: true,
+      headers: forwardedHeaders,
+      returnHeaders: true,
+      returnStatus: true,
     });
 
-    if (response.ok) {
+    if ((response.status ?? 500) < 400 && response.headers) {
       return response.headers;
     }
   }
@@ -209,8 +216,9 @@ async function signInForSso(input: {
   const signInEmail = auth.api.signInEmail as (context: {
     body: { email: string; password: string; rememberMe?: boolean };
     headers?: Headers;
-    asResponse?: boolean;
-  }) => Promise<Response>;
+    returnHeaders?: boolean;
+    returnStatus?: boolean;
+  }) => Promise<{ headers?: Headers; status?: number; response?: unknown }>;
 
   const response = await signInEmail({
     body: {
@@ -218,13 +226,13 @@ async function signInForSso(input: {
       password: input.password,
       rememberMe: true,
     },
-    headers: new Headers(input.request.headers),
-    asResponse: true,
+    headers: forwardedHeaders,
+    returnHeaders: true,
+    returnStatus: true,
   });
 
-  if (!response.ok) {
-    const text = await response.text().catch(() => "");
-    throw new Error(`Failed to establish SSO session (${response.status}) ${text}`);
+  if ((response.status ?? 500) >= 400 || !response.headers) {
+    throw new Error(`Failed to establish SSO session (${response.status ?? 500})`);
   }
 
   return response.headers;
@@ -362,6 +370,7 @@ async function handler({ request }: { request: Request }) {
 
         const signInHeaders = await signInForSso({
           request,
+          origin: currentOrigin,
           username,
           email: harborUser.email,
           password: ssoPassword,
