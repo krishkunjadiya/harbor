@@ -261,6 +261,7 @@ Issue: Resume app opens but Harbor user cannot log in with Harbor credentials
 - Ensure Harbor endpoint /api/resume/sso/password-login is deployed.
 - Ensure Resume has HARBOR_APP_URL and HARBOR_SSO_VERIFY_SECRET configured.
 - Ensure Harbor has RESUME_SSO_SIGNING_KEY and RESUME_SSO_VERIFY_SECRET configured.
+- Ensure the URL you open in browser matches APP_URL host exactly (avoid mixing localhost and 127.0.0.1).
 
 Issue: Harbor cannot call Python worker
 - Check PYTHON_WORKER_URL in Harbor

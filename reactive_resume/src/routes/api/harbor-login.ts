@@ -35,6 +35,7 @@ function resolveHarborPasswordLoginUrl(): URL | null {
 
 async function handler({ request }: { request: Request }) {
   const loginUrl = resolveHarborPasswordLoginUrl();
+  const currentOrigin = new URL(request.url).origin;
 
   if (!loginUrl || !env.HARBOR_SSO_VERIFY_SECRET) {
     return Response.json(
@@ -80,7 +81,7 @@ async function handler({ request }: { request: Request }) {
       );
     }
 
-    const launchUrl = new URL("/sso/launch", env.APP_URL);
+    const launchUrl = new URL("/sso/launch", currentOrigin);
     launchUrl.searchParams.set("token", payload.token);
     launchUrl.searchParams.set("returnPath", sanitizeReturnPath(payload.returnPath ?? returnPath));
 

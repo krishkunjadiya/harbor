@@ -301,6 +301,7 @@ async function linkUsersWithHarbor(input: { harborUserId: string; resumeUserId: 
 
 async function handler({ request }: { request: Request }) {
   const requestId = getRequestId({ headers: new Headers(request.headers) })
+  const currentOrigin = new URL(request.url).origin;
 
   try {
     const url = new URL(request.url);
@@ -390,7 +391,7 @@ async function handler({ request }: { request: Request }) {
 
         // Trusted launch must set auth cookies before redirecting to protected routes.
         console.info("[sso/launch] v2_redirect", { requestId, finalReturnPath, resumeUserId: Boolean(resumeUserId) });
-        const response = Response.redirect(new URL(finalReturnPath, env.APP_URL), 302);
+        const response = Response.redirect(new URL(finalReturnPath, currentOrigin), 302);
 
         for (const cookie of setCookies) {
           response.headers.append("set-cookie", cookie);
@@ -401,13 +402,13 @@ async function handler({ request }: { request: Request }) {
       }
 
       console.warn("[sso/launch] missing_resume_user_after_upsert", { requestId });
-      return Response.redirect(new URL("/auth/login", env.APP_URL), 302);
+      return Response.redirect(new URL("/auth/login", currentOrigin), 302);
     }
 
     console.warn("[sso/launch] unsupported_contract", { requestId, tokenVersion });
     return new Response("Unsupported launch contract", { status: 426 });
   } catch (error) {
     console.error("[sso/launch]", { requestId, error });
-    return Response.redirect(new URL("/auth/login", env.APP_URL), 302);
+    return Response.redirect(new URL("/auth/login", currentOrigin), 302);
   }
 }
