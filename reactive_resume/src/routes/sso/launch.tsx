@@ -385,14 +385,20 @@ async function handler({ request }: { request: Request }) {
 
         // Trusted launch must set auth cookies before redirecting to protected routes.
         console.info("[sso/launch] v2_redirect", { requestId, finalReturnPath, resumeUserId: Boolean(resumeUserId) });
-        const response = Response.redirect(new URL(finalReturnPath, currentOrigin), 302);
+        const redirectUrl = new URL(finalReturnPath, currentOrigin).toString();
+        const headers = new Headers({
+          location: redirectUrl,
+          "x-request-id": requestId,
+        });
 
         for (const cookie of setCookies) {
-          response.headers.append("set-cookie", cookie);
+          headers.append("set-cookie", cookie);
         }
 
-        response.headers.set("x-request-id", requestId);
-        return response;
+        return new Response(null, {
+          status: 302,
+          headers,
+        });
       }
 
       console.warn("[sso/launch] missing_resume_user_after_upsert", { requestId });
