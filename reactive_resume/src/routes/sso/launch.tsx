@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-import { auth } from "@/integrations/auth/config";
 import { db } from "@/integrations/drizzle/client";
 import { account, resume, user } from "@/integrations/drizzle/schema";
 import { env } from "@/utils/env";
@@ -177,65 +176,52 @@ async function ensureCredentialAccount(input: {
 }
 
 async function signInForSso(input: {
-  request: Request;
   origin: string;
   username: string;
   email: string;
   password: string;
 }): Promise<Headers> {
-  const forwardedHeaders = new Headers(input.request.headers);
-  forwardedHeaders.set("origin", input.origin);
-  forwardedHeaders.set("referer", `${input.origin}/sso/launch`);
-
-  const signInUsername = (auth.api as unknown as Record<string, unknown>).signInUsername as
-    | ((context: {
-      body: { username: string; password: string; rememberMe?: boolean };
-      headers?: Headers;
-      returnHeaders?: boolean;
-      returnStatus?: boolean;
-    }) => Promise<{ headers?: Headers; status?: number; response?: unknown }>)
-    | undefined;
-
-  if (signInUsername) {
-    const response = await signInUsername({
+  const attempts: Array<{ path: string; body: Record<string, unknown> }> = [
+    {
+      path: "/api/auth/sign-in/username",
       body: {
         username: input.username,
         password: input.password,
         rememberMe: true,
       },
-      headers: forwardedHeaders,
-      returnHeaders: true,
-      returnStatus: true,
+    },
+    {
+      path: "/api/auth/sign-in/email",
+      body: {
+        email: input.email,
+        password: input.password,
+        rememberMe: true,
+      },
+    },
+  ];
+
+  const failures: string[] = [];
+
+  for (const attempt of attempts) {
+    const response = await fetch(new URL(attempt.path, input.origin), {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        origin: input.origin,
+      },
+      body: JSON.stringify(attempt.body),
+      signal: AbortSignal.timeout(10_000),
     });
 
-    if ((response.status ?? 500) < 400 && response.headers) {
+    if (response.ok) {
       return response.headers;
     }
+
+    const text = await response.text().catch(() => "");
+    failures.push(`${attempt.path}:${response.status}:${text.slice(0, 160)}`);
   }
 
-  const signInEmail = auth.api.signInEmail as (context: {
-    body: { email: string; password: string; rememberMe?: boolean };
-    headers?: Headers;
-    returnHeaders?: boolean;
-    returnStatus?: boolean;
-  }) => Promise<{ headers?: Headers; status?: number; response?: unknown }>;
-
-  const response = await signInEmail({
-    body: {
-      email: input.email,
-      password: input.password,
-      rememberMe: true,
-    },
-    headers: forwardedHeaders,
-    returnHeaders: true,
-    returnStatus: true,
-  });
-
-  if ((response.status ?? 500) >= 400 || !response.headers) {
-    throw new Error(`Failed to establish SSO session (${response.status ?? 500})`);
-  }
-
-  return response.headers;
+  throw new Error(`Failed to establish SSO session (${failures.join(" | ")})`);
 }
 
 
@@ -369,7 +355,6 @@ async function handler({ request }: { request: Request }) {
         });
 
         const signInHeaders = await signInForSso({
-          request,
           origin: currentOrigin,
           username,
           email: harborUser.email,
