@@ -27,7 +27,8 @@
     "bench:nav": "node scripts/nav-benchmark.js",
     "demo:resume:automation": "node scripts/resume-demo-automation.js",
     "demo:resume:automated": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-resume-demo.ps1",
-    "demo:resume:automated:no-record": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-resume-demo.ps1 -NoRecord"
+    "demo:resume:automated:no-record": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/run-resume-demo.ps1 -NoRecord",
+    "monitor:resume-launch-slo": "node scripts/check-resume-launch-slo.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
