@@ -158,7 +158,7 @@ export const DonationBanner = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <Trans>Support Reactive Resume</Trans>
+          <Trans>Support Harbor Resume</Trans>
         </motion.h2>
 
         <motion.p
@@ -169,7 +169,7 @@ export const DonationBanner = () => (
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Trans>
-            Reactive Resume is built with love and maintained by me and a community of contributors. Your donations
+            Harbor Resume is built with love and maintained by me and a community of contributors. Your donations
             help keep the lights on and the code flowing.
           </Trans>
         </motion.p>

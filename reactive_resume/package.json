@@ -1,7 +1,7 @@
 {
-  "name": "reactive-resume",
+  "name": "harbor-resume",
   "version": "5.0.13",
-  "description": "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.",
+  "description": "Harbor Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.",
   "license": "MIT",
   "author": {
     "name": "Amruth Pillai",

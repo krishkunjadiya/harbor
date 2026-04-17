@@ -1,9 +1,9 @@
 ---
 title: "Using the MCP Server"
-description: "Connect Reactive Resume to AI tools like Claude Desktop, Cursor, and Codex using the Model Context Protocol"
+description: "Connect Harbor Resume to AI tools like Claude Desktop, Cursor, and Codex using the Model Context Protocol"
 ---
 
-The Reactive Resume MCP server lets you manage and modify your resumes through any MCP-compatible AI tool — Claude Desktop, Cursor, Codex, and more. It connects to the Reactive Resume API and exposes tools for listing, reading, and patching resumes using natural language.
+The Harbor Resume MCP server lets you manage and modify your resumes through any MCP-compatible AI tool — Claude Desktop, Cursor, Codex, and more. It connects to the Harbor Resume API and exposes tools for listing, reading, and patching resumes using natural language.
 
 ## What is MCP?
 
@@ -13,7 +13,7 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io) is a standar
 
 <Steps>
   <Step title="Create an API key">
-    Head over to [https://rxresu.me](https://rxresu.me) (or your self-hosted instance), sign in, and navigate to **Settings → API Keys**. Click **Create a new API key**, give it a name, and copy the secret — it's only shown once.
+    Head over to [https://harbor.dev](https://harbor.dev) (or your self-hosted instance), sign in, and navigate to **Settings → API Keys**. Click **Create a new API key**, give it a name, and copy the secret — it's only shown once.
 
     For the full walkthrough, see [Using the API](/guides/using-the-api).
 
@@ -32,7 +32,7 @@ If your client supports the `url` field (e.g. **Cursor**), use this — no extra
 {
   "mcpServers": {
     "reactive-resume": {
-      "url": "https://rxresu.me/mcp",
+      "url": "https://harbor.dev/mcp",
       "headers": {
         "x-api-key": "your-api-key"
       }
@@ -50,7 +50,7 @@ If your client only supports `command` / `args` (e.g. **Claude Desktop**), use [
   "mcpServers": {
     "reactive-resume": {
       "command": "npx",
-      "args": ["mcp-remote", "https://rxresu.me/mcp", "--header", "x-api-key:your-api-key"]
+      "args": ["mcp-remote", "https://harbor.dev/mcp", "--header", "x-api-key:your-api-key"]
     }
   }
 }
@@ -68,7 +68,7 @@ If your client only supports `command` / `args` (e.g. **Claude Desktop**), use [
 
 ## Self-Hosting
 
-If you're running a self-hosted Reactive Resume instance, replace `https://rxresu.me/mcp` with your instance URL:
+If you're running a self-hosted Harbor Resume instance, replace `https://harbor.dev/mcp` with your instance URL:
 
 ```json
 {
@@ -170,6 +170,6 @@ Once your MCP client is connected, you can use natural language to interact with
 | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | "API error (401)"                                             | Your API key is invalid or expired. Create a new one in **Settings → API Keys**                                                |
 | "API error (404)"                                             | The resume ID doesn't exist. Use `list_resumes` to find valid IDs                                                              |
-| "API error (403)"                                             | The resume is locked. Unlock it in the Reactive Resume dashboard                                                               |
+| "API error (403)"                                             | The resume is locked. Unlock it in the Harbor Resume dashboard                                                               |
 | Connection refused                                            | Check that the URL is correct and the instance is running                                                                      |
 | "ReferenceError: File is not defined" when using `mcp-remote` | You're running Node.js 18. `mcp-remote` requires **Node.js 20 or later** — upgrade with `nvm use 20` or `nvm alias default 20` |

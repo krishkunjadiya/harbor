@@ -19,7 +19,7 @@ These examples go beyond the basic setup in the [Self-Hosting with Docker](/self
 
 ## Docker with Traefik
 
-This example uses [Traefik](https://traefik.io/) as a reverse proxy with automatic SSL certificate management via Let's Encrypt. Only the Reactive Resume app is exposed through Traefik—Postgres and the printer remain on an internal network.
+This example uses [Traefik](https://traefik.io/) as a reverse proxy with automatic SSL certificate management via Let's Encrypt. Only the Harbor Resume app is exposed through Traefik—Postgres and the printer remain on an internal network.
 
 <Tip>
   Traefik automatically discovers services via Docker labels and handles SSL certificates, making it ideal for setups
@@ -427,7 +427,7 @@ services:
       replicas: 1
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.app.rule=Host(`rxresu.me`)"
+        - "traefik.http.routers.app.rule=Host(`harbor.dev`)"
         - "traefik.http.routers.app.entrypoints=websecure"
         - "traefik.http.routers.app.tls=true"
         - "traefik.http.services.app.loadbalancer.server.port=3000"

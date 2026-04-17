@@ -1,6 +1,6 @@
 name: ✨ Feature Request
 
-description: Suggest an feature or idea that you would like to see in Reactive Resume
+description: Suggest an feature or idea that you would like to see in Harbor Resume
 
 title: "[Feature] <title>"
 labels: [enhancement, v5, needs triage]
@@ -18,6 +18,6 @@ body:
   - type: textarea
     attributes:
       label: Feature Description
-      description: A detailed description of the feature you would like to see in Reactive Resume. Please provide as much detail as possible as it will help me implement the feature faster.
+      description: A detailed description of the feature you would like to see in Harbor Resume. Please provide as much detail as possible as it will help me implement the feature faster.
     validations:
       required: true

@@ -1,14 +1,14 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Reactive Resume",
+  "name": "Harbor Resume",
   "favicon": "/favicon.svg",
   "description": "A one-of-a-kind resume builder that keeps your privacy in mind. Completely secure, customizable, portable, open-source and free forever. Try it out today!",
   "seo": {
     "indexing": "all",
     "metatags": {
-      "canonical": "https://docs.rxresu.me",
-      "og:image": "https://rxresu.me/opengraph/banner.jpg"
+      "canonical": "https://docs.harbor.dev",
+      "og:image": "https://harbor.dev/opengraph/banner.jpg"
     }
   },
   "fonts": {
@@ -110,8 +110,8 @@
       "anchors": [
         {
           "icon": "link",
-          "anchor": "Reactive Resume",
-          "href": "https://rxresu.me"
+          "anchor": "Harbor Resume",
+          "href": "https://harbor.dev"
         },
         {
           "icon": "github",
@@ -135,7 +135,7 @@
     "primary": {
       "type": "button",
       "label": "Get Started",
-      "href": "https://rxresu.me"
+      "href": "https://harbor.dev"
     }
   },
   "contextual": {
@@ -143,7 +143,7 @@
   },
   "footer": {
     "socials": {
-      "website": "https://rxresu.me",
+      "website": "https://harbor.dev",
       "github": "https://github.com/amruthpillai/reactive-resume"
     }
   }

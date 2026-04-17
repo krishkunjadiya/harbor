@@ -8,16 +8,16 @@
     "email": "im.amruth@gmail.com",
     "description": "Software Engineer",
     "webpageUrl": {
-      "url": "https://rxresu.me/funding.json"
+      "url": "https://harbor.dev/funding.json"
     }
   },
   "projects": [
     {
       "guid": "reactive-resume",
-      "name": "Reactive Resume",
+      "name": "Harbor Resume",
       "description": "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.",
       "webpageUrl": {
-        "url": "https://rxresu.me"
+        "url": "https://harbor.dev"
       },
       "repositoryUrl": {
         "url": "https://github.com/amruthpillai/reactive-resume",

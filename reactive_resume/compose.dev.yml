@@ -51,7 +51,7 @@ services:
       retries: 10
 
   # As an alternative to browserless, you can also use a lightweight image like chromedp/headless-shell:latest
-  # See https://docs.rxresu.me/self-hosting/docker#alternative-printer-options for more information.
+  # See https://docs.harbor.dev/self-hosting/docker#alternative-printer-options for more information.
   chrome:
     image: chromedp/headless-shell:latest
     restart: unless-stopped

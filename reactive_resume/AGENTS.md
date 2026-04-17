@@ -4,7 +4,7 @@
 
 ### Overview
 
-Reactive Resume is a single-package full-stack TypeScript app (not a monorepo) built with TanStack Start (React 19, Vite, Nitro). It serves both frontend and API on port 3000.
+Harbor Resume is a single-package full-stack TypeScript app (not a monorepo) built with TanStack Start (React 19, Vite, Nitro). It serves both frontend and API on port 3000.
 
 ### Infrastructure services
 

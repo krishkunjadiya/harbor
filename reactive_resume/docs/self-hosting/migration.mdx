@@ -1,11 +1,11 @@
 ---
 title: "Migrating from v4 to v5"
-description: "A step-by-step guide to migrate your Reactive Resume instance from v4 to v5, including manual and automated migration options."
+description: "A step-by-step guide to migrate your Harbor Resume instance from v4 to v5, including manual and automated migration options."
 ---
 
 ## Overview
 
-This guide walks you through migrating your Reactive Resume installation from **v4 to v5**. The migration process involves setting up a new v5 instance alongside your existing v4 instance, then transferring your users and resumes to the new system.
+This guide walks you through migrating your Harbor Resume installation from **v4 to v5**. The migration process involves setting up a new v5 instance alongside your existing v4 instance, then transferring your users and resumes to the new system.
 
 <Warning>
   **Keep your v4 instance running** until you have successfully migrated all data to v5 and verified everything works
@@ -17,9 +17,9 @@ This guide walks you through migrating your Reactive Resume installation from **
 Before starting the migration, ensure you have:
 
 <CardGroup cols={2}>
-  <Card title="Running v4 Instance">Your existing Reactive Resume v4 instance should be running and accessible.</Card>
+  <Card title="Running v4 Instance">Your existing Harbor Resume v4 instance should be running and accessible.</Card>
   <Card title="New v5 Instance">
-    A fresh Reactive Resume v5 instance set up and running. Follow the [Self-Hosting with Docker](/self-hosting/docker)
+    A fresh Harbor Resume v5 instance set up and running. Follow the [Self-Hosting with Docker](/self-hosting/docker)
     guide if you haven't done this yet.
   </Card>
   <Card title="Database Access">
@@ -54,7 +54,7 @@ If you have only a few resumes to migrate, the simplest approach is to use the *
 
 <Step title="Import into v5">
   In your new v5 instance: 1. Log in or create a new account 2. Click **Create Resume** or use the **Import** option 3.
-  Select the **Reactive Resume v4** format 4. Upload your exported JSON file The import process automatically converts
+  Select the **Harbor Resume v4** format 4. Upload your exported JSON file The import process automatically converts
   the v4 format to v5.
 </Step>
 
@@ -84,8 +84,8 @@ To run the migration scripts, you need the following installed on your host mach
     **dotenvx** (or any tool to load `.env` files). Install globally with: ```bash npm install -g @dotenvx/dotenvx ```
     Alternatively, you can use `dotenv`, `direnv`, or export the variables manually.
   </Card>
-  <Card title="Reactive Resume Source Code">
-    Clone the Reactive Resume repository to access the migration scripts: ```bash git clone
+  <Card title="Harbor Resume Source Code">
+    Clone the Harbor Resume repository to access the migration scripts: ```bash git clone
     https://github.com/amruthpillai/reactive-resume.git cd reactive-resume pnpm install ```
   </Card>
 </CardGroup>

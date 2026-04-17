@@ -5,7 +5,7 @@ description: "A guide to setting up custom OAuth providers like Authentik, Authe
 
 ## Overview
 
-Reactive Resume supports custom OAuth providers, allowing you to integrate with enterprise identity providers and self-hosted authentication solutions. This is particularly useful for organizations that want to:
+Harbor Resume supports custom OAuth providers, allowing you to integrate with enterprise identity providers and self-hosted authentication solutions. This is particularly useful for organizations that want to:
 
 - Use a centralized identity provider (Authentik, Authelia, Keycloak, etc.)
 - Enforce Single Sign-On (SSO) across all internal applications
@@ -13,7 +13,7 @@ Reactive Resume supports custom OAuth providers, allowing you to integrate with 
 
 <Info>
   Custom OAuth is designed for **self-hosted instances**. If you're using the hosted version at
-  [rxresu.me](https://rxresu.me), you can use the built-in Google and GitHub sign-in options.
+  [harbor.dev](https://harbor.dev), you can use the built-in Google and GitHub sign-in options.
 </Info>
 
 ## Environment Variables
@@ -88,9 +88,9 @@ https://resume.example.com/api/auth/oauth2/callback/custom
 
 ## Profile Mapping
 
-Reactive Resume automatically maps user profile data from the OAuth provider. The following fields are used:
+Harbor Resume automatically maps user profile data from the OAuth provider. The following fields are used:
 
-| Reactive Resume Field | OAuth Profile Fields (in order of preference) |
+| Harbor Resume Field | OAuth Profile Fields (in order of preference) |
 | --------------------- | --------------------------------------------- |
 | **Email** (required)  | `email`                                       |
 | **Name**              | `name` → `preferred_username` → email prefix  |
@@ -109,7 +109,7 @@ Reactive Resume automatically maps user profile data from the OAuth provider. Th
   <Step title="Create an OAuth2/OpenID Provider">
     In the Authentik admin interface, navigate to **Applications → Providers** and create a new **OAuth2/OpenID Provider**.
 
-    - **Name**: Reactive Resume
+    - **Name**: Harbor Resume
     - **Authorization flow**: Use your preferred authorization flow
     - **Client type**: Confidential
     - **Redirect URIs**: `https://resume.example.com/api/auth/oauth2/callback/custom`
@@ -119,7 +119,7 @@ Reactive Resume automatically maps user profile data from the OAuth provider. Th
   <Step title="Create an Application">
     Navigate to **Applications → Applications** and create a new application:
 
-    - **Name**: Reactive Resume
+    - **Name**: Harbor Resume
     - **Slug**: `reactive-resume`
     - **Provider**: Select the provider you just created
 
@@ -148,7 +148,7 @@ identity_providers:
   oidc:
     clients:
       - client_id: reactive-resume
-        client_name: Reactive Resume
+        client_name: Harbor Resume
         client_secret: "your-hashed-secret" # Use authelia hash-password to generate
         public: false
         authorization_policy: two_factor # or one_factor
@@ -176,7 +176,7 @@ OAUTH_DISCOVERY_URL="https://auth.example.com/.well-known/openid-configuration"
 ```
 
     <Warning>
-      Use the **plain text** secret in Reactive Resume's environment, not the hashed version used in Authelia's configuration.
+      Use the **plain text** secret in Harbor Resume's environment, not the hashed version used in Authelia's configuration.
     </Warning>
 
   </Step>
@@ -308,7 +308,7 @@ OAUTH_DISCOVERY_URL="https://auth.company.com/application/o/reactive-resume/.wel
 
 <CardGroup cols={2}>
   <Card title="Use HTTPS" icon="lock">
-    Always use HTTPS for both your Reactive Resume instance and OAuth provider in production. OAuth tokens should never
+    Always use HTTPS for both your Harbor Resume instance and OAuth provider in production. OAuth tokens should never
     be transmitted over unencrypted connections.
   </Card>
   <Card title="Protect secrets" icon="key">
@@ -318,6 +318,6 @@ OAUTH_DISCOVERY_URL="https://auth.company.com/application/o/reactive-resume/.wel
     Configure your OAuth provider to only allow the exact redirect URI. Avoid wildcards in redirect URI configurations.
   </Card>
   <Card title="Review scopes" icon="list-check">
-    Only request the scopes you need. The default (`openid profile email`) is sufficient for Reactive Resume.
+    Only request the scopes you need. The default (`openid profile email`) is sufficient for Harbor Resume.
   </Card>
 </CardGroup>

@@ -86,8 +86,8 @@ msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
 msgstr "<0>Dažniausiai</0><1>Užduodami</1><2>Klausimai</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
-msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
-msgstr "<0>Ačiū, kad naudojatės „Reactive Resume“! Ši programa yra meilės vaisius, daugiausia kuriamas mano laisvu laiku, su nuostabia atvirojo kodo bendruomenės pagalba iš viso pasaulio.</0><1>Jei „Reactive Resume“ jums buvo naudinga ir norėtumėte padėti išlaikyti ją nemokamą ir prieinamą visiems, apsvarstykite galimybę paaukoti. Kiekviena, net ir maža, parama yra labai vertinama!</1>"
+msgid "<0>Thank you for using Harbor Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Harbor Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
+msgstr "<0>Ačiū, kad naudojatės „Harbor Resume“! Ši programa yra meilės vaisius, daugiausia kuriamas mano laisvu laiku, su nuostabia atvirojo kodo bendruomenės pagalba iš viso pasaulio.</0><1>Jei „Harbor Resume“ jums buvo naudinga ir norėtumėte padėti išlaikyti ją nemokamą ir prieinamą visiems, apsvarstykite galimybę paaukoti. Kiekviena, net ir maža, parama yra labai vertinama!</1>"
 
 #: src/dialogs/api-key/create.tsx
 msgid "1 month"
@@ -123,8 +123,8 @@ msgid "A link to your resume has been copied to clipboard."
 msgstr "Nuoroda į jūsų gyvenimo aprašymą nukopijuota į iškarpinę."
 
 #: src/routes/_home/-sections/testimonials.tsx
-msgid "A lot of people have written to me over the years to share their experiences with Reactive Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
-msgstr "Per daugelį metų daugybė žmonių parašė man ir pasidalijo savo patirtimi su „Reactive Resume“ bei papasakojo, kaip ji jiems padėjo, ir man tai niekada neatsibosta. Jei turite istoriją, kuria norite pasidalinti, parašykite man el. laišką adresu <0>{email}</0>."
+msgid "A lot of people have written to me over the years to share their experiences with Harbor Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
+msgstr "Per daugelį metų daugybė žmonių parašė man ir pasidalijo savo patirtimi su „Harbor Resume“ bei papasakojo, kaip ji jiems padėjo, ir man tai niekada neatsibosta. Jei turite istoriją, kuria norite pasidalinti, parašykite man el. laišką adresu <0>{email}</0>."
 
 #: src/routes/dashboard/settings/profile.tsx
 msgid "A new verification link has been sent to your email address. Please check your inbox to verify your account."
@@ -690,8 +690,8 @@ msgid "Continue where you left off"
 msgstr "Tęskite nuo ten, kur sustojote"
 
 #: src/dialogs/resume/import.tsx
-msgid "Continue where you left off by importing an existing resume you created using Reactive Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Reactive Resume."
-msgstr "Tęskite nuo ten, kur sustojote, importuodami esamą gyvenimo aprašymą, kurį sukūrėte naudodami „Reactive Resume“ ar bet kurį kitą gyvenimo aprašymo kūrėją. Palaikomi formatai: PDF, „Microsoft Word“ ir JSON failai iš „Reactive Resume“."
+msgid "Continue where you left off by importing an existing resume you created using Harbor Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Harbor Resume."
+msgstr "Tęskite nuo ten, kur sustojote, importuodami esamą gyvenimo aprašymą, kurį sukūrėte naudodami „Harbor Resume“ ar bet kurį kitą gyvenimo aprašymo kūrėją. Palaikomi formatai: PDF, „Microsoft Word“ ir JSON failai iš „Harbor Resume“."
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Contractor"
@@ -1009,8 +1009,8 @@ msgid "Don't have an account? <0/>"
 msgstr "Neturite paskyros? <0/>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
-msgid "Donate to Reactive Resume"
-msgstr "Paaukoti „Reactive Resume“"
+msgid "Donate to Harbor Resume"
+msgstr "Paaukoti „Harbor Resume“"
 
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/routes/$username/$slug.tsx
@@ -1223,12 +1223,12 @@ msgid "Expires on {0}"
 msgstr "Baigia galioti {0}"
 
 #: src/routes/_home/-sections/templates.tsx
-msgid "Explore our diverse selection of templates, each designed to fit different styles, professions, and personalities. Reactive Resume currently offers 12 templates, with more on the way."
-msgstr "Peržiūrėkite mūsų įvairius šablonus, kiekvienas jų sukurtas skirtingiems stiliams, profesijoms ir asmenybėms. Šiuo metu „Reactive Resume“ siūlo 12 šablonų, ir dar daugiau jau ruošiama."
+msgid "Explore our diverse selection of templates, each designed to fit different styles, professions, and personalities. Harbor Resume currently offers 12 templates, with more on the way."
+msgstr "Peržiūrėkite mūsų įvairius šablonus, kiekvienas jų sukurtas skirtingiems stiliams, profesijoms ir asmenybėms. Šiuo metu „Harbor Resume“ siūlo 12 šablonų, ir dar daugiau jau ruošiama."
 
 #: src/routes/dashboard/settings/api-keys.tsx
-msgid "Explore the API documentation to learn how to integrate Reactive Resume with your applications. Find detailed endpoints, request examples, and authentication methods."
-msgstr "Peržiūrėkite API dokumentaciją, kad sužinotumėte, kaip integruoti „Reactive Resume“ į savo programas. Rasite išsamius galinių taškų aprašymus, užklausų pavyzdžius ir tapatumo nustatymo metodus."
+msgid "Explore the API documentation to learn how to integrate Harbor Resume with your applications. Find detailed endpoints, request examples, and authentication methods."
+msgstr "Peržiūrėkite API dokumentaciją, kad sužinotumėte, kaip integruoti „Harbor Resume“ į savo programas. Rasite išsamius galinių taškų aprašymus, užklausų pavyzdžius ir tapatumo nustatymo metodus."
 
 #: src/utils/resume/section.tsx
 msgid "Export"
@@ -1537,12 +1537,12 @@ msgid "Intern"
 msgstr "Stažuotojas"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Is Reactive Resume available in multiple languages?"
-msgstr "Ar „Reactive Resume“ prieinama keliomis kalbomis?"
+msgid "Is Harbor Resume available in multiple languages?"
+msgstr "Ar „Harbor Resume“ prieinama keliomis kalbomis?"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "Ar „Reactive Resume“ tikrai nemokama?"
+msgid "Is Harbor Resume really free?"
+msgstr "Ar „Harbor Resume“ tikrai nemokama?"
 
 #: src/dialogs/resume/sections/certification.tsx
 msgid "Issuer"
@@ -2134,28 +2134,28 @@ msgid "RapidAPI Key"
 msgstr "RapidAPI raktas"
 
 #: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "„Reactive Resume“ – eiti į pagrindinį puslapį"
+msgid "Harbor Resume - Go to homepage"
+msgstr "„Harbor Resume“ – eiti į pagrindinį puslapį"
 
 #: src/routes/_home/-sections/prefooter.tsx
-msgid "Reactive Resume continues to grow thanks to its vibrant community. This project owes its progress to numerous individuals who've dedicated their time and skills to make it better. We celebrate the coders who've enhanced its features on GitHub, the linguists whose translations on Crowdin have made it accessible to a broader audience, and the people who've donated to support its continued development."
-msgstr "„Reactive Resume“ toliau auga dėl gyvybingos bendruomenės. Šis projektas už pažangą skolingas daugybei žmonių, kurie skyrė savo laiką ir įgūdžius, kad jis taptų geresnis. Mes dėkojame programuotojams, kurie „GitHub“ tobulino funkcijas, kalbininkams, kurių vertimai „Crowdin“ padarė jį prieinamą platesnei auditorijai, ir žmonėms, kurie paaukojo tolimesnei jo plėtrai."
+msgid "Harbor Resume continues to grow thanks to its vibrant community. This project owes its progress to numerous individuals who've dedicated their time and skills to make it better. We celebrate the coders who've enhanced its features on GitHub, the linguists whose translations on Crowdin have made it accessible to a broader audience, and the people who've donated to support its continued development."
+msgstr "„Harbor Resume“ toliau auga dėl gyvybingos bendruomenės. Šis projektas už pažangą skolingas daugybei žmonių, kurie skyrė savo laiką ir įgūdžius, kad jis taptų geresnis. Mes dėkojame programuotojams, kurie „GitHub“ tobulino funkcijas, kalbininkams, kurių vertimai „Crowdin“ padarė jį prieinamą platesnei auditorijai, ir žmonėms, kurie paaukojo tolimesnei jo plėtrai."
 
 #: src/routes/_home/-sections/donate.tsx
-msgid "Reactive Resume is a free and open-source project, built with love and maintained by me and a community of contributors. Your donations help keep the lights on and the code flowing."
-msgstr "„Reactive Resume“ yra nemokamas atvirojo kodo projektas, sukurtas su meile ir prižiūrimas mano ir bendruomenės narių. Jūsų aukos padeda išlaikyti projektą ir užtikrina jo tolesnį vystymą."
+msgid "Harbor Resume is a free and open-source project, built with love and maintained by me and a community of contributors. Your donations help keep the lights on and the code flowing."
+msgstr "„Harbor Resume“ yra nemokamas atvirojo kodo projektas, sukurtas su meile ir prižiūrimas mano ir bendruomenės narių. Jūsų aukos padeda išlaikyti projektą ir užtikrina jo tolesnį vystymą."
 
 #: src/routes/_home/-sections/hero.tsx
-msgid "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
-msgstr "„Reactive Resume“ – nemokama atvirojo kodo gyvenimo aprašymų kūrimo priemonė, supaprastinanti gyvenimo aprašymo kūrimo, atnaujinimo ir bendrinimo procesą."
+msgid "Harbor Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
+msgstr "„Harbor Resume“ – nemokama atvirojo kodo gyvenimo aprašymų kūrimo priemonė, supaprastinanti gyvenimo aprašymo kūrimo, atnaujinimo ir bendrinimo procesą."
 
 #: src/routes/_home/-sections/product-hunt-banner.tsx
-msgid "Reactive Resume is launching on Product Hunt today, head over to show some love!"
-msgstr "„Reactive Resume“ šiandien startuoja „Product Hunt“ – užsukite ir parodykite palaikymą!"
+msgid "Harbor Resume is launching on Product Hunt today, head over to show some love!"
+msgstr "„Harbor Resume“ šiandien startuoja „Product Hunt“ – užsukite ir parodykite palaikymą!"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
-msgstr "„Reactive Resume“ yra atvirojo kodo, orientuota į privatumą ir visiškai nemokama. Skirtingai nei kiti gyvenimo aprašymų kūrėjai, ji nerodo reklamų, nerenka jūsų duomenų ir neapriboja funkcijų už mokamos sienos."
+msgid "Harbor Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
+msgstr "„Harbor Resume“ yra atvirojo kodo, orientuota į privatumą ir visiškai nemokama. Skirtingai nei kiti gyvenimo aprašymų kūrėjai, ji nerodo reklamų, nerenka jūsų duomenų ir neapriboja funkcijų už mokamos sienos."
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Recipient"
@@ -2615,8 +2615,8 @@ msgid "Summary"
 msgstr "Santrauka"
 
 #: src/routes/_home/-sections/donate.tsx
-msgid "Support Reactive Resume"
-msgstr "Palaikyti „Reactive Resume“"
+msgid "Support Harbor Resume"
+msgstr "Palaikyti „Harbor Resume“"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Support the app by doing what you can!"
@@ -2801,12 +2801,12 @@ msgid "This week"
 msgstr "Šią savaitę"
 
 #: src/dialogs/api-key/create.tsx
-msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
-msgstr "Taip bus sugeneruotas naujas API raktas, leidžiantis pasiekti „Reactive Resume“ API ir suteiksiantis programoms galimybę dirbti su jūsų gyvenimo aprašymo duomenimis."
+msgid "This will generate a new API key to access the Harbor Resume API to allow machines to interact with your resume data."
+msgstr "Taip bus sugeneruotas naujas API raktas, leidžiantis pasiekti „Harbor Resume“ API ir suteiksiantis programoms galimybę dirbti su jūsų gyvenimo aprašymo duomenimis."
 
 #: src/routes/_home/-sections/hero.tsx
-msgid "Timelapse demonstration of building a resume with Reactive Resume"
-msgstr "Timelapse demonstracija, kaip kuriamas gyvenimo aprašymas naudojant „Reactive Resume“"
+msgid "Timelapse demonstration of building a resume with Harbor Resume"
+msgstr "Timelapse demonstracija, kaip kuriamas gyvenimo aprašymas naudojant „Harbor Resume“"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -3140,8 +3140,8 @@ msgid "What is JSearch API?"
 msgstr "Kas yra JSearch API?"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "What makes Reactive Resume different from other resume builders?"
-msgstr "Kuo „Reactive Resume“ skiriasi nuo kitų gyvenimo aprašymų kūrėjų?"
+msgid "What makes Harbor Resume different from other resume builders?"
+msgstr "Kuo „Harbor Resume“ skiriasi nuo kitų gyvenimo aprašymų kūrėjų?"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "What's new in the latest version?"
@@ -3158,16 +3158,16 @@ msgid "Write your own CSS (or use an AI to generate it for you) to customize you
 msgstr "Rašykite savo CSS (arba naudokite DI jam sugeneruoti), kad maksimaliai pritaikytumėte gyvenimo aprašymą."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes, Reactive Resume is available in multiple languages. You can choose your preferred language in the settings page, or using the language switcher in the top right corner. If you don't see your language, or you would like to improve the existing translations, you can <0>contribute to the translations on Crowdin<1> (opens in new tab)</1></0>."
-msgstr "Taip, „Reactive Resume“ prieinama keliomis kalbomis. Galite pasirinkti pageidaujamą kalbą nustatymų puslapyje arba naudoti kalbos perjungiklį viršutiniame dešiniajame kampe. Jei nematote savo kalbos arba norite patobulinti esamus vertimus, galite <0>prisidėti prie vertimų „Crowdin“<1> (atidaro naujame skirtuke)</1></0>."
+msgid "Yes, Harbor Resume is available in multiple languages. You can choose your preferred language in the settings page, or using the language switcher in the top right corner. If you don't see your language, or you would like to improve the existing translations, you can <0>contribute to the translations on Crowdin<1> (opens in new tab)</1></0>."
+msgstr "Taip, „Harbor Resume“ prieinama keliomis kalbomis. Galite pasirinkti pageidaujamą kalbą nustatymų puslapyje arba naudoti kalbos perjungiklį viršutiniame dešiniajame kampe. Jei nematote savo kalbos arba norite patobulinti esamus vertimus, galite <0>prisidėti prie vertimų „Crowdin“<1> (atidaro naujame skirtuke)</1></0>."
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance."
 msgstr "Taip! Kiekvienas šablonas visiškai pritaikomas. Galite keisti spalvas, šriftus, tarpelius ir net rašyti pasirinktinį CSS, kad visiškai valdytumėte savo gyvenimo aprašymo išvaizdą."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
-msgstr "Taip! „Reactive Resume“ visiškai nemokama naudoti – be paslėptų kainų, „premium“ lygių ar prenumeratos mokesčių. Ji yra atvirojo kodo ir visada tokia išliks."
+msgid "Yes! Harbor Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
+msgstr "Taip! „Harbor Resume“ visiškai nemokama naudoti – be paslėptų kainų, „premium“ lygių ar prenumeratos mokesčių. Ji yra atvirojo kodo ir visada tokia išliks."
 
 #: src/routes/dashboard/job-search/-components/job-utils.ts
 msgid "Yesterday"
@@ -3215,8 +3215,8 @@ msgid "Your data is stored locally"
 msgstr "Jūsų duomenys saugomi vietoje"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
-msgstr "Jūsų duomenys saugiai laikomi ir niekada nebendrinami su trečiosiomis šalimis. Taip pat galite savarankiškai talpinti „Reactive Resume“ savo serveriuose ir visiškai kontroliuoti savo duomenis."
+msgid "Your data is stored securely and is never shared with third parties. You can also self-host Harbor Resume on your own servers for complete control over your data."
+msgstr "Jūsų duomenys saugiai laikomi ir niekada nebendrinami su trečiosiomis šalimis. Taip pat galite savarankiškai talpinti „Harbor Resume“ savo serveriuose ir visiškai kontroliuoti savo duomenis."
 
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."

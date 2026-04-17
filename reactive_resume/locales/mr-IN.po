@@ -86,8 +86,8 @@ msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
 msgstr "<0>वारंवार</0><1>विचरले</1><2>प्रश्न</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
-msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
-msgstr "<0>Reactive Resume वापरल्याबद्दल धन्यवाद! हे अ‍ॅप माझ्या मोकळ्या वेळेत, जगभरातील मुक्त-स्रोत योगदानकर्त्यांच्या सुंदर पाठिंब्यासह केलेले प्रेमाचे काम आहे.</0><1>जर Reactive Resume तुमच्यासाठी उपयुक्त ठरला असेल आणि तुम्हाला हे सर्वांसाठी मोफत आणि खुले ठेवण्यात मदत करायची असेल, तर कृपया देणगी देण्याचा विचार करा. तुमचे प्रत्येक छोटेसे योगदानही आम्हाला मोलाचे आहे!</1>"
+msgid "<0>Thank you for using Harbor Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Harbor Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
+msgstr "<0>Harbor Resume वापरल्याबद्दल धन्यवाद! हे अ‍ॅप माझ्या मोकळ्या वेळेत, जगभरातील मुक्त-स्रोत योगदानकर्त्यांच्या सुंदर पाठिंब्यासह केलेले प्रेमाचे काम आहे.</0><1>जर Harbor Resume तुमच्यासाठी उपयुक्त ठरला असेल आणि तुम्हाला हे सर्वांसाठी मोफत आणि खुले ठेवण्यात मदत करायची असेल, तर कृपया देणगी देण्याचा विचार करा. तुमचे प्रत्येक छोटेसे योगदानही आम्हाला मोलाचे आहे!</1>"
 
 #: src/dialogs/api-key/create.tsx
 msgid "1 month"
@@ -123,8 +123,8 @@ msgid "A link to your resume has been copied to clipboard."
 msgstr "तुमच्या रेझ्युमेची लिंक क्लिपबोर्डवर कॉपी केली आहे."
 
 #: src/routes/_home/-sections/testimonials.tsx
-msgid "A lot of people have written to me over the years to share their experiences with Reactive Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
-msgstr "गेल्या काही वर्षांत Reactive Resume चा अनुभव आणि त्याने त्यांना कशी मदत केली हे सांगण्यासाठी अनेक लोकांनी मला लिहिले आहे आणि मला ते वाचताना कधीच कंटाळा येत नाही. तुमच्याकडे एखादी गोष्ट शेअर करण्यासाठी असेल, तर मला <0>{email}</0> या पत्त्यावर ईमेल पाठवून कळवा."
+msgid "A lot of people have written to me over the years to share their experiences with Harbor Resume and how it has helped them, and I never get tired of reading them. If you have a story to share, let me know by sending me an email at <0>{email}</0>."
+msgstr "गेल्या काही वर्षांत Harbor Resume चा अनुभव आणि त्याने त्यांना कशी मदत केली हे सांगण्यासाठी अनेक लोकांनी मला लिहिले आहे आणि मला ते वाचताना कधीच कंटाळा येत नाही. तुमच्याकडे एखादी गोष्ट शेअर करण्यासाठी असेल, तर मला <0>{email}</0> या पत्त्यावर ईमेल पाठवून कळवा."
 
 #: src/routes/dashboard/settings/profile.tsx
 msgid "A new verification link has been sent to your email address. Please check your inbox to verify your account."
@@ -690,8 +690,8 @@ msgid "Continue where you left off"
 msgstr "जिथे थांबला होतात तिथूनच सुरू करा"
 
 #: src/dialogs/resume/import.tsx
-msgid "Continue where you left off by importing an existing resume you created using Reactive Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Reactive Resume."
-msgstr "Reactive Resume किंवा इतर कोणत्याही रेझ्युमे बिल्डरमधून तयार केलेला आधीचा रेझ्युमे इम्पोर्ट करून, जिथे थांबला होतात तिथूनच सुरू ठेवा. सपोर्टेड फॉर्मॅटमध्ये PDF, Microsoft Word आणि Reactive Resume चे JSON फाईल्स यांचा समावेश आहे."
+msgid "Continue where you left off by importing an existing resume you created using Harbor Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Harbor Resume."
+msgstr "Harbor Resume किंवा इतर कोणत्याही रेझ्युमे बिल्डरमधून तयार केलेला आधीचा रेझ्युमे इम्पोर्ट करून, जिथे थांबला होतात तिथूनच सुरू ठेवा. सपोर्टेड फॉर्मॅटमध्ये PDF, Microsoft Word आणि Harbor Resume चे JSON फाईल्स यांचा समावेश आहे."
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Contractor"
@@ -1009,7 +1009,7 @@ msgid "Don't have an account? <0/>"
 msgstr "खाते नाही? <0/>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
-msgid "Donate to Reactive Resume"
+msgid "Donate to Harbor Resume"
 msgstr "रिअ‍ॅक्टिव्ह रेझ्युमेला दान करा"
 
 #: src/dialogs/auth/enable-two-factor.tsx
@@ -1223,12 +1223,12 @@ msgid "Expires on {0}"
 msgstr "{0} रोजी कालबाह्य होते"
 
 #: src/routes/_home/-sections/templates.tsx
-msgid "Explore our diverse selection of templates, each designed to fit different styles, professions, and personalities. Reactive Resume currently offers 12 templates, with more on the way."
-msgstr "वेगवेगळ्या शैली, व्यवसाय आणि व्यक्तिमत्त्वांसाठी डिझाइन केलेल्या आमच्या विविध साच्यांचा अभ्यास करा. Reactive Resume सध्या 12 साचे देते आणि आणखी साचे येत आहेत."
+msgid "Explore our diverse selection of templates, each designed to fit different styles, professions, and personalities. Harbor Resume currently offers 12 templates, with more on the way."
+msgstr "वेगवेगळ्या शैली, व्यवसाय आणि व्यक्तिमत्त्वांसाठी डिझाइन केलेल्या आमच्या विविध साच्यांचा अभ्यास करा. Harbor Resume सध्या 12 साचे देते आणि आणखी साचे येत आहेत."
 
 #: src/routes/dashboard/settings/api-keys.tsx
-msgid "Explore the API documentation to learn how to integrate Reactive Resume with your applications. Find detailed endpoints, request examples, and authentication methods."
-msgstr "Reactive Resume ला तुमच्या अ‍ॅप्लिकेशन्ससोबत इंटिग्रेट कसे करावे हे शिकण्यासाठी API दस्तऐवजीकरण पाहा. इथे तुम्हाला सविस्तर endpoints, रिक्वेस्टच्या उदाहरणांसह ओथेंटिकेशन पद्धती मिळतील."
+msgid "Explore the API documentation to learn how to integrate Harbor Resume with your applications. Find detailed endpoints, request examples, and authentication methods."
+msgstr "Harbor Resume ला तुमच्या अ‍ॅप्लिकेशन्ससोबत इंटिग्रेट कसे करावे हे शिकण्यासाठी API दस्तऐवजीकरण पाहा. इथे तुम्हाला सविस्तर endpoints, रिक्वेस्टच्या उदाहरणांसह ओथेंटिकेशन पद्धती मिळतील."
 
 #: src/utils/resume/section.tsx
 msgid "Export"
@@ -1537,12 +1537,12 @@ msgid "Intern"
 msgstr "इंटर्न"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Is Reactive Resume available in multiple languages?"
-msgstr "Reactive Resume अनेक भाषांमध्ये उपलब्ध आहे का?"
+msgid "Is Harbor Resume available in multiple languages?"
+msgstr "Harbor Resume अनेक भाषांमध्ये उपलब्ध आहे का?"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "Reactive Resume खरंच मोफत आहे का?"
+msgid "Is Harbor Resume really free?"
+msgstr "Harbor Resume खरंच मोफत आहे का?"
 
 #: src/dialogs/resume/sections/certification.tsx
 msgid "Issuer"
@@ -2134,28 +2134,28 @@ msgid "RapidAPI Key"
 msgstr "रॅपिडएपीआय की"
 
 #: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "Reactive Resume - मुखपृष्ठावर जा"
+msgid "Harbor Resume - Go to homepage"
+msgstr "Harbor Resume - मुखपृष्ठावर जा"
 
 #: src/routes/_home/-sections/prefooter.tsx
-msgid "Reactive Resume continues to grow thanks to its vibrant community. This project owes its progress to numerous individuals who've dedicated their time and skills to make it better. We celebrate the coders who've enhanced its features on GitHub, the linguists whose translations on Crowdin have made it accessible to a broader audience, and the people who've donated to support its continued development."
-msgstr "Reactive Resume त्याच्या उत्साही कम्युनिटीकडून सतत वाढत आहे. या प्रोजेक्टने त्याच्या प्रगतीसाठी स्वतःचा वेळ आणि कौशल्य दिलेल्या असंख्य व्यक्तींवर आपले देणे आहे. GitHub वर फिचर्स सुधारून मदत करणाऱ्या कोडर्सचा, Crowdin वर भाषांतरांमुळे हे अधिक लोकांपर्यंत पोहोचवणाऱ्या भाषा तज्ञांचा आणि याच्या सततच्या विकासाला पाठिंबा देण्यासाठी देणगी देणाऱ्या लोकांचा आम्ही सन्मान करतो."
+msgid "Harbor Resume continues to grow thanks to its vibrant community. This project owes its progress to numerous individuals who've dedicated their time and skills to make it better. We celebrate the coders who've enhanced its features on GitHub, the linguists whose translations on Crowdin have made it accessible to a broader audience, and the people who've donated to support its continued development."
+msgstr "Harbor Resume त्याच्या उत्साही कम्युनिटीकडून सतत वाढत आहे. या प्रोजेक्टने त्याच्या प्रगतीसाठी स्वतःचा वेळ आणि कौशल्य दिलेल्या असंख्य व्यक्तींवर आपले देणे आहे. GitHub वर फिचर्स सुधारून मदत करणाऱ्या कोडर्सचा, Crowdin वर भाषांतरांमुळे हे अधिक लोकांपर्यंत पोहोचवणाऱ्या भाषा तज्ञांचा आणि याच्या सततच्या विकासाला पाठिंबा देण्यासाठी देणगी देणाऱ्या लोकांचा आम्ही सन्मान करतो."
 
 #: src/routes/_home/-sections/donate.tsx
-msgid "Reactive Resume is a free and open-source project, built with love and maintained by me and a community of contributors. Your donations help keep the lights on and the code flowing."
-msgstr "Reactive Resume हा मोफत आणि मुक्त-स्रोत प्रोजेक्ट आहे, प्रेमाने तयार केलेला आणि माझ्या व योगदानकर्त्यांच्या कम्युनिटीकडून मेंटेन केला जाणारा. तुमच्या देणग्या या प्रोजेक्टचे दिवे चालू ठेवतात आणि कोड वाहत ठेवतात."
+msgid "Harbor Resume is a free and open-source project, built with love and maintained by me and a community of contributors. Your donations help keep the lights on and the code flowing."
+msgstr "Harbor Resume हा मोफत आणि मुक्त-स्रोत प्रोजेक्ट आहे, प्रेमाने तयार केलेला आणि माझ्या व योगदानकर्त्यांच्या कम्युनिटीकडून मेंटेन केला जाणारा. तुमच्या देणग्या या प्रोजेक्टचे दिवे चालू ठेवतात आणि कोड वाहत ठेवतात."
 
 #: src/routes/_home/-sections/hero.tsx
-msgid "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
-msgstr "Reactive Resume हा मोफत आणि मुक्त-स्रोत रेझ्युमे बिल्डर आहे, जो तुमचा रेझ्युमे तयार करणे, अपडेट करणे आणि शेअर करणे हा प्रोसेस सोपा करतो."
+msgid "Harbor Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
+msgstr "Harbor Resume हा मोफत आणि मुक्त-स्रोत रेझ्युमे बिल्डर आहे, जो तुमचा रेझ्युमे तयार करणे, अपडेट करणे आणि शेअर करणे हा प्रोसेस सोपा करतो."
 
 #: src/routes/_home/-sections/product-hunt-banner.tsx
-msgid "Reactive Resume is launching on Product Hunt today, head over to show some love!"
-msgstr "Reactive Resume आज Product Hunt वर लॉन्च होत आहे, तिकडे जाऊन तुमचा पाठिंबा दाखवा!"
+msgid "Harbor Resume is launching on Product Hunt today, head over to show some love!"
+msgstr "Harbor Resume आज Product Hunt वर लॉन्च होत आहे, तिकडे जाऊन तुमचा पाठिंबा दाखवा!"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
-msgstr "Reactive Resume हे मुक्त-स्रोत, गोपनीयता-केंद्रित आणि पूर्णपणे मोफत आहे. इतर रेझ्युमे बिल्डर्सप्रमाणेच नाही, हे जाहिराती दाखवत नाही, तुमचा डेटा ट्रॅक करत नाही किंवा फिचर्स पेवॉलच्या मागे मर्यादित करत नाही."
+msgid "Harbor Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
+msgstr "Harbor Resume हे मुक्त-स्रोत, गोपनीयता-केंद्रित आणि पूर्णपणे मोफत आहे. इतर रेझ्युमे बिल्डर्सप्रमाणेच नाही, हे जाहिराती दाखवत नाही, तुमचा डेटा ट्रॅक करत नाही किंवा फिचर्स पेवॉलच्या मागे मर्यादित करत नाही."
 
 #: src/dialogs/resume/sections/cover-letter.tsx
 msgid "Recipient"
@@ -2615,8 +2615,8 @@ msgid "Summary"
 msgstr "सारांश"
 
 #: src/routes/_home/-sections/donate.tsx
-msgid "Support Reactive Resume"
-msgstr "Reactive Resume चे समर्थन करा"
+msgid "Support Harbor Resume"
+msgstr "Harbor Resume चे समर्थन करा"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Support the app by doing what you can!"
@@ -2801,12 +2801,12 @@ msgid "This week"
 msgstr "या आठवड्यात"
 
 #: src/dialogs/api-key/create.tsx
-msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
-msgstr "हे Reactive Resume API साठी नवीन API key तयार करेल, ज्यामुळे मशीनला तुमच्या रेझ्युमे डेटाशी संवाद साधता येईल."
+msgid "This will generate a new API key to access the Harbor Resume API to allow machines to interact with your resume data."
+msgstr "हे Harbor Resume API साठी नवीन API key तयार करेल, ज्यामुळे मशीनला तुमच्या रेझ्युमे डेटाशी संवाद साधता येईल."
 
 #: src/routes/_home/-sections/hero.tsx
-msgid "Timelapse demonstration of building a resume with Reactive Resume"
-msgstr "Reactive Resume वापरून रेझ्युमे तयार करण्याचा टाईमलॅप्स डेमो"
+msgid "Timelapse demonstration of building a resume with Harbor Resume"
+msgstr "Harbor Resume वापरून रेझ्युमे तयार करण्याचा टाईमलॅप्स डेमो"
 
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
@@ -3140,8 +3140,8 @@ msgid "What is JSearch API?"
 msgstr "JSearch API म्हणजे काय?"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "What makes Reactive Resume different from other resume builders?"
-msgstr "Reactive Resume इतर रेझ्युमे बिल्डर्सपेक्षा कसा वेगळा आहे?"
+msgid "What makes Harbor Resume different from other resume builders?"
+msgstr "Harbor Resume इतर रेझ्युमे बिल्डर्सपेक्षा कसा वेगळा आहे?"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "What's new in the latest version?"
@@ -3158,16 +3158,16 @@ msgid "Write your own CSS (or use an AI to generate it for you) to customize you
 msgstr "तुमचा स्वतःचा CSS लिहा (किंवा AI कडून तो तयार करून घ्या) आणि तुमचा रेझ्युमे पूर्णपणे सानुकूलित करा."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes, Reactive Resume is available in multiple languages. You can choose your preferred language in the settings page, or using the language switcher in the top right corner. If you don't see your language, or you would like to improve the existing translations, you can <0>contribute to the translations on Crowdin<1> (opens in new tab)</1></0>."
-msgstr "होय, Reactive Resume अनेक भाषांमध्ये उपलब्ध आहे. तुम्ही सेटिंग्ज पेजवर किंवा उजव्या वरच्या कोपऱ्यातील भाषा स्विचर वापरून तुमची आवडती भाषा निवडू शकता. जर तुम्हाला तुमची भाषा दिसत नसेल किंवा विद्यमान भाषांतर सुधारायचे असेल, तर तुम्ही <0>Crowdin वर भाषांतरांमध्ये योगदान देऊ शकता<1> (नवीन टॅबमध्ये उघडते)</1></0>."
+msgid "Yes, Harbor Resume is available in multiple languages. You can choose your preferred language in the settings page, or using the language switcher in the top right corner. If you don't see your language, or you would like to improve the existing translations, you can <0>contribute to the translations on Crowdin<1> (opens in new tab)</1></0>."
+msgstr "होय, Harbor Resume अनेक भाषांमध्ये उपलब्ध आहे. तुम्ही सेटिंग्ज पेजवर किंवा उजव्या वरच्या कोपऱ्यातील भाषा स्विचर वापरून तुमची आवडती भाषा निवडू शकता. जर तुम्हाला तुमची भाषा दिसत नसेल किंवा विद्यमान भाषांतर सुधारायचे असेल, तर तुम्ही <0>Crowdin वर भाषांतरांमध्ये योगदान देऊ शकता<1> (नवीन टॅबमध्ये उघडते)</1></0>."
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance."
 msgstr "होय! प्रत्येक साचा पूर्णपणे सानुकूलित करता येतो. तुम्ही रंग, फाँट, स्पेसिंग बदलू शकता आणि तुमच्या रेझ्युमेच्या स्वरूपावर पूर्ण नियंत्रण मिळवण्यासाठी सानुकूल CSSसुद्धा लिहू शकता."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
-msgstr "होय! Reactive Resume पूर्णपणे मोफत आहे, कोणतेही लपलेले खर्च, प्रीमियम टियर किंवा सब्सक्रिप्शन फी नाही. हे मुक्त-स्रोत आहे आणि नेहमी मोफतच राहिल."
+msgid "Yes! Harbor Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
+msgstr "होय! Harbor Resume पूर्णपणे मोफत आहे, कोणतेही लपलेले खर्च, प्रीमियम टियर किंवा सब्सक्रिप्शन फी नाही. हे मुक्त-स्रोत आहे आणि नेहमी मोफतच राहिल."
 
 #: src/routes/dashboard/job-search/-components/job-utils.ts
 msgid "Yesterday"
@@ -3215,8 +3215,8 @@ msgid "Your data is stored locally"
 msgstr "तुमचा डेटा लोकली साठवला जातो"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
-msgstr "तुमचा डेटा सुरक्षितपणे साठवला जातो आणि तृतीय पक्षांसोबत कधीही शेअर केला जात नाही. तुम्ही पूर्ण डेटा कंट्रोलसाठी Reactive Resume स्वतःच्या सर्व्हरवरही होस्ट करू शकता."
+msgid "Your data is stored securely and is never shared with third parties. You can also self-host Harbor Resume on your own servers for complete control over your data."
+msgstr "तुमचा डेटा सुरक्षितपणे साठवला जातो आणि तृतीय पक्षांसोबत कधीही शेअर केला जात नाही. तुम्ही पूर्ण डेटा कंट्रोलसाठी Harbor Resume स्वतःच्या सर्व्हरवरही होस्ट करू शकता."
 
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."

@@ -27,10 +27,10 @@ type SocialLink = {
 };
 
 const getResourceLinks = (): FooterLinkItem[] => [
-  { url: "https://docs.rxresu.me", label: t`Documentation` },
+  { url: "https://docs.harbor.dev", label: t`Documentation` },
   { url: "https://opencollective.com/reactive-resume", label: t`Sponsorships` },
   { url: "https://github.com/amruthpillai/reactive-resume", label: t`Source Code` },
-  { url: "https://docs.rxresu.me/changelog", label: t`Changelog` },
+  { url: "https://docs.harbor.dev/changelog", label: t`Changelog` },
 ];
 
 const getCommunityLinks = (): FooterLinkItem[] => [
@@ -63,7 +63,7 @@ export function Footer() {
           <BrandIcon variant="logo" className="size-10" />
 
           <div className="space-y-2">
-            <h2 className="text-lg font-bold tracking-tight">Reactive Resume</h2>
+            <h2 className="text-lg font-bold tracking-tight">Harbor Resume</h2>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               <Trans>
                 A resume builder that simplifies the process of creating, updating, and sharing your resume.

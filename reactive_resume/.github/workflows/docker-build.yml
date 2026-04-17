@@ -172,11 +172,11 @@ jobs:
           docker buildx imagetools create \
             $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
             --annotation "index:org.opencontainers.image.licenses=MIT" \
-            --annotation "index:org.opencontainers.image.title=Reactive Resume" \
+            --annotation "index:org.opencontainers.image.title=Harbor Resume" \
             --annotation "index:org.opencontainers.image.description=A free and open-source resume builder." \
             --annotation "index:org.opencontainers.image.vendor=Amruth Pillai" \
-            --annotation "index:org.opencontainers.image.url=https://rxresu.me" \
-            --annotation "index:org.opencontainers.image.documentation=https://docs.rxresu.me" \
+            --annotation "index:org.opencontainers.image.url=https://harbor.dev" \
+            --annotation "index:org.opencontainers.image.documentation=https://docs.harbor.dev" \
             --annotation "index:org.opencontainers.image.source=https://github.com/amruthpillai/reactive-resume" \
             --annotation "index:org.opencontainers.image.version=${{ steps.version.outputs.version }}" \
             $(printf 'ghcr.io/${{ env.IMAGE }}@sha256:%s ' *) \

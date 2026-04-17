@@ -1,12 +1,12 @@
 {
-  "name": "Reactive Resume",
+  "name": "Harbor Resume",
   "service": "reactive_resume",
   "dockerComposeFile": "docker-compose.yml",
   "workspaceFolder": "/workspace",
 
   "forwardPorts": [3000, 4000, 5432, 8333],
   "portsAttributes": {
-    "3000": { "label": "Reactive Resume", "onAutoForward": "openBrowser" },
+    "3000": { "label": "Harbor Resume", "onAutoForward": "openBrowser" },
     "4000": { "label": "Browserless (Printer)" },
     "5432": { "label": "PostgreSQL" },
     "8333": { "label": "SeaweedFS (S3)" }

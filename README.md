@@ -1,4 +1,4 @@
-﻿# Harbor: Unified Employability and Recruitment Platform
+# Harbor: Unified Employability and Recruitment Platform
 
 [![Built with Next.js](https://img.shields.io/Credential/Built%20with-Next.js-black?style=for-the-Credential&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/Credential/TypeScript-3178C6?style=for-the-Credential&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
@@ -7,7 +7,7 @@
 
 A production-ready full-stack platform connecting student career readiness, university academic workflows, and recruiter hiring operations in a unified system.
 
-## ðŸŽ¯ Overview
+## 🎯 Overview
 
 Harbor eliminates fragmentation in campus placement ecosystems by providing:
 
@@ -16,7 +16,7 @@ Harbor eliminates fragmentation in campus placement ecosystems by providing:
 - **University Operations**: Academic credentialing, Credential workflows, and employability tracking
 - **Real-time Collaboration**: Live notifications, updates, and cross-stakeholder visibility
 
-## ðŸš€ Key Features
+## 🚀 Key Features
 
 ### Students
 - Role-based dashboard with job recommendations
@@ -45,7 +45,7 @@ Harbor eliminates fragmentation in campus placement ecosystems by providing:
 - Indexed queries for optimal performance
 - Secure file uploads with Supabase Storage
 
-## ðŸ›  Tech Stack
+## 🛠 Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -60,15 +60,15 @@ Harbor eliminates fragmentation in campus placement ecosystems by providing:
 | **Testing** | Jest, Playwright |
 | **Linting** | ESLint, TypeScript compiler |
 
-## ðŸ“‹ Prerequisites
+## 📋 Prerequisites
 
-- **Node.js** â‰¥ 18.x
+- **Node.js** ≥ 18.x
 - **npm** or **pnpm** 
-- **Python** â‰¥ 3.9 (for FastAPI worker)
+- **Python** ≥ 3.9 (for FastAPI worker)
 - **Supabase** project (PostgreSQL database, Auth, Storage, Realtime)
 - **Environment variables** configured
 
-## ðŸš€ Quick Start
+## 🚀 Quick Start
 
 ### 1. Clone the Repository
 ```bash
@@ -128,7 +128,7 @@ Access:
 - **Reactive Resume**: http://localhost:3001
 - **Python Worker**: http://localhost:8000/docs
 
-## ðŸ“š Documentation
+## 📚 Documentation
 
 - [Database Setup](./SUPABASE-SETUP-GUIDE.md)
 - [Architecture Guide](./md/COMPLETE-IMPLEMENTATION.md)
@@ -136,7 +136,7 @@ Access:
 - [Performance Optimization](./HARBOR_PERFORMANCE_OPTIMIZATION.md)
 - [Full Project Report](./md/HARBOR-PROJECT-REPORT-SUBMISSION.md)
 
-## ðŸ§ª Testing
+## 🧪 Testing
 
 ### Run Tests
 ```bash
@@ -158,36 +158,36 @@ npm run screenshot:pages
 npm run bench:nav
 ```
 
-## ðŸ— Project Structure
+## 🏗 Project Structure
 
 ```
 harbor/
-â”œâ”€â”€ app/                    # Next.js App Router
-â”‚   â”œâ”€â”€ (student)/         # Student routes
-â”‚   â”œâ”€â”€ (recruiter)/       # Recruiter routes
-â”‚   â”œâ”€â”€ (university)/      # University routes
-â”‚   â”œâ”€â”€ (dashboard)/       # Shared dashboards
-â”‚   â”œâ”€â”€ api/               # API routes
-â”‚   â””â”€â”€ shared/            # Shared layouts
-â”œâ”€â”€ components/            # React components
-â”‚   â”œâ”€â”€ ui/               # UI primitives
-â”‚   â”œâ”€â”€ student/          # Student-specific components
-â”‚   â””â”€â”€ settings/         # Settings components
-â”œâ”€â”€ lib/                   # Utilities and helpers
-â”‚   â”œâ”€â”€ supabase/         # Supabase client setup
-â”‚   â”œâ”€â”€ auth/             # Authentication logic
-â”‚   â”œâ”€â”€ actions/          # Server actions
-â”‚   â””â”€â”€ types/            # TypeScript types
-â”œâ”€â”€ python_worker/         # FastAPI service
-â”‚   â”œâ”€â”€ main.py           # Application entry
-â”‚   â””â”€â”€ services/         # AI/ML services
-â”œâ”€â”€ reactive_resume/       # Resume builder integration
-â”œâ”€â”€ scripts/              # Utility scripts
-â”œâ”€â”€ sql/                  # Database migrations
-â””â”€â”€ public/               # Static assets
+├── app/                    # Next.js App Router
+│   ├── (student)/         # Student routes
+│   ├── (recruiter)/       # Recruiter routes
+│   ├── (university)/      # University routes
+│   ├── (dashboard)/       # Shared dashboards
+│   ├── api/               # API routes
+│   └── shared/            # Shared layouts
+├── components/            # React components
+│   ├── ui/               # UI primitives
+│   ├── student/          # Student-specific components
+│   └── settings/         # Settings components
+├── lib/                   # Utilities and helpers
+│   ├── supabase/         # Supabase client setup
+│   ├── auth/             # Authentication logic
+│   ├── actions/          # Server actions
+│   └── types/            # TypeScript types
+├── python_worker/         # FastAPI service
+│   ├── main.py           # Application entry
+│   └── services/         # AI/ML services
+├── reactive_resume/       # Resume builder integration
+├── scripts/              # Utility scripts
+├── sql/                  # Database migrations
+└── public/               # Static assets
 ```
 
-## ðŸ” Security Considerations
+## 🔐 Security Considerations
 
 - **Row-Level Security (RLS)**: All database tables enforce RLS policies
 - **Authentication**: Supabase JWT-based auth with role-based access control
@@ -196,7 +196,7 @@ harbor/
 - **Rate Limiting**: API route protections
 - **Environment Secrets**: Never commit `.env.local`
 
-## ðŸ“Š Database Schema
+## 📊 Database Schema
 
 Key tables:
 - `users` - Authentication and profile
@@ -212,7 +212,7 @@ Key tables:
 
 For full schema, see [Database Setup Guide](./SUPABASE-SETUP-GUIDE.md)
 
-## ðŸš€ Deployment
+## 🚀 Deployment
 
 ### Deploy to Vercel
 ```bash
@@ -229,7 +229,7 @@ Set the following in your Vercel project:
 ### Database Backups
 Supabase automatically handles daily backups. Configure retention in Supabase dashboard.
 
-## ðŸ¤ Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please follow our [Contributing Guidelines](./CONTRIBUTING.md).
 
@@ -245,7 +245,7 @@ Contributions are welcome! Please follow our [Contributing Guidelines](./CONTRIB
 - Write tests for new features
 - Ensure all tests pass before pushing
 
-## ðŸ“ Scripts Reference
+## 📜 Scripts Reference
 
 | Command | Description |
 |---------|-------------|
@@ -258,7 +258,7 @@ Contributions are welcome! Please follow our [Contributing Guidelines](./CONTRIB
 | `npm run worker:win` | Start Python worker (Windows) |
 | `npm run screenshot:pages` | Generate screenshots |
 
-## ðŸ› Troubleshooting
+## 🐛 Troubleshooting
 
 ### Port Already in Use
 ```bash
@@ -283,22 +283,22 @@ pip install -r requirements.txt
 - Check Supabase project is active
 - Test connection in Supabase dashboard
 
-## ðŸ“„ License
+## 📄 License
 
 This project is licensed under the MIT License - see [LICENSE](./LICENSE) file for details.
 
-## ðŸ‘¥ Authors
+## 👥 Authors
 
 - **Krish** - Developer & Maintainer
 
-## ðŸ™‹ Support
+## 🙋 Support
 
 For issues, questions, or suggestions:
 - Open an [issue](../../issues)
 - Check [existing documentation](./md/)
 - Review [full project report](./md/HARBOR-PROJECT-REPORT-SUBMISSION.md)
 
-## ðŸ”— Links
+## 🔗 Links
 
 - **[Supabase Setup Guide](./SUPABASE-SETUP-GUIDE.md)**
 - **[Database Design](./md/DATABASE-SETUP.md)**
@@ -308,5 +308,4 @@ For issues, questions, or suggestions:
 
 ---
 
-**Harbor** - Connecting students, recruiters, and universities in one platform. ðŸš¢
-
+**Harbor** - Connecting students, recruiters, and universities in one platform. 🚢

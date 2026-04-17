@@ -32,7 +32,7 @@ export function Hero() {
             // @ts-expect-error - typescript doesn't know about fetchPriority for video elements
             fetchPriority="high"
             src="/videos/timelapse.mp4"
-            aria-label={t`Timelapse demonstration of building a resume with Reactive Resume`}
+            aria-label={t`Timelapse demonstration of building a resume with Harbor Resume`}
             className="pointer-events-none size-full rounded-md border object-cover"
           />
 
@@ -54,7 +54,7 @@ export function Hero() {
           style={{ willChange: "transform, opacity" }}
           target="_blank"
           rel="noopener noreferrer"
-          href="https://docs.rxresu.me/getting-started"
+          href="https://docs.harbor.dev/getting-started"
         >
           <Badge variant="secondary" className="h-auto gap-1.5 px-3 py-0.5">
             <SparkleIcon aria-hidden="true" className="size-3.5" weight="fill" />
@@ -86,7 +86,7 @@ export function Hero() {
           style={{ willChange: "transform, opacity" }}
         >
           <Trans>
-            Reactive Resume simplifies the process of creating, updating, and sharing your resume.
+            Harbor Resume simplifies the process of creating, updating, and sharing your resume.
           </Trans>
         </motion.p>
 
@@ -121,7 +121,7 @@ export function Hero() {
             className="gap-2 px-4"
             nativeButton={false}
             render={
-              <a href="https://docs.rxresu.me" target="_blank" rel="noopener noreferrer">
+              <a href="https://docs.harbor.dev" target="_blank" rel="noopener noreferrer">
                 <BookIcon aria-hidden="true" className="size-4" />
                 <Trans>Learn More</Trans>
                 <span className="sr-only">
